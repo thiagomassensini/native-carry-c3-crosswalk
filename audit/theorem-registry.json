@@ -21,6 +21,39 @@
     },
     {
       "qualified": "NativeCarryC3Crosswalk.normSq_finiteBracketCharacteristic_eq_realEnergy"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.dirichletSpaceCoefficient_zero"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.dirichletSpaceCoefficient_succ"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.dirichletKernelHigherDeriv_zero"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.const_mul_ofReal_cpow_hasDerivAt"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.dirichletKernelHigherDeriv_succ_apply"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.c3BoundaryCenter_pos"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.package_unpackComplex"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.unpackComplex_package"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.package_c3CorrectedRealResidual"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.c3CorrectedCoreError_nonneg"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.normSq_c3CorrectedCharacteristic_eq_realEnergy"
     }
   ]
 }

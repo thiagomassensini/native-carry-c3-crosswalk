@@ -1,8 +1,9 @@
-# Native Carry C3 Finite Crosswalk
+# Native Carry C3 Crosswalk
 
 Lean 4 integration layer proving that the pinned finite native real operator
 and the pinned finite bracket characteristic are literally the same finite
-computation in two coordinate presentations.
+computation in two coordinate presentations. It also materializes the exact
+fifth-order C3 boundary correction used by the certified residual ledgers.
 
 The construction introduces no new zero predicate, analytic continuation,
 limit hypothesis, or spectral assumption.
@@ -70,6 +71,82 @@ The visible quadratic energies are also identical:
 These are finite algebraic identities. They do not assert convergence of the
 C3 corrected residual, existence of a limiting zero, or confinement of any
 infinite zero set.
+
+## Explicit C3 boundary jet
+
+For positive real `x`, the package defines the recurrent coefficients
+
+```math
+c_0(s)=1,
+\qquad
+c_{r+1}(s)=c_r(s)(-s-r),
+```
+
+and the closed spatial derivatives
+
+```math
+D^r_x\left(x^{-s}\right)=c_r(s)x^{-s-r}.
+```
+
+Lean checks the complex-power derivative rule at arbitrary order and proves
+that the next recurrent closed form is exactly its derivative value. The C3
+boundary point is the literal ledger convention
+
+```math
+C_M=3(M+1),
+```
+
+and the oriented fifth-order jet is
+
+```math
+J_M(s)
+=-\frac{F_s'(C_M)}{3}
++\frac{F_s''(C_M)}{2}
+-\frac{5F_s'''(C_M)}{18}
++\frac{F_s''''(C_M)}{24}
++\frac{F_s'''''(C_M)}{60},
+\qquad
+F_s(x)=x^{-s}.
+```
+
+No generic placeholder is used for `J_M`: every derivative and every rational
+coefficient above occurs in `c3OrientedBoundaryJet`.
+
+The corrected residual is then defined in real coordinates by
+
+```math
+A_M(t)=N_{3,M}(t)+\mathrm{unpack}\left(J_M\left(\frac12+it\right)\right),
+```
+
+and in complex coordinates by
+
+```math
+\widetilde A_M(t)
+=\chi_{3,M}\left(\frac12+it\right)
++J_M\left(\frac12+it\right).
+```
+
+Lean proves the exact commuting identity
+
+```math
+\mathrm{pack}\bigl(A_M(t)\bigr)=\widetilde A_M(t)
+```
+
+and the exact quadratic-energy identity
+
+```math
+\mathrm{normSq}\bigl(\widetilde A_M(t)\bigr)
+=\left\|A_M(t)\right\|_{\mathbb R^2}^{2}.
+```
+
+The scalar function `c3CorrectedCoreError M t` is exactly
+`‖Ã_M(t)‖`. Once a corrected stationary center `c_M` has been constructed,
+the ledger quantity is obtained by evaluating this function at `t = c_M`.
+
+This package deliberately does **not** define `c_M` from floating-point
+output, assert that such a center exists uniformly in `M`, or prove
+`c3CorrectedCoreError M (c_M) → 0`. Those are the remaining analytic
+obligations, not consequences of the finite crosswalk.
 
 ## Pinned foundations
 
