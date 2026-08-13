@@ -1,0 +1,16 @@
+name = "NativeCarryC3Crosswalk"
+version = "0.1.0"
+defaultTargets = ["NativeCarryC3Crosswalk"]
+
+[[lean_lib]]
+name = "NativeCarryC3Crosswalk"
+
+[[require]]
+name = "CPFormal"
+git = "https://github.com/thiagomassensini/primos.git"
+rev = "537028681ae6a775c083a1e2fb6e67db24697b82"
+
+[[require]]
+name = "NativeCarrySpectralWeyl"
+git = "https://github.com/thiagomassensini/native-carry-spectral-weyl.git"
+rev = "ca726315be2eb9b421c07224a07967d02d07f0fb"

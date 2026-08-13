@@ -1,0 +1,16 @@
+import NativeCarryC3Crosswalk
+
+/-!
+# Kernel dependency audit
+
+Every public theorem introduced by this package is inspected with
+`#print axioms`.
+-/
+
+#print axioms NativeCarryC3Crosswalk.nativeState_eq_nativeCarryRealPlaneSample
+#print axioms NativeCarryC3Crosswalk.nativeCarryRealPlaneParameter_half_eq_nativeLine
+#print axioms NativeCarryC3Crosswalk.packaged_nativeState_eq_dirichletValue_nativeLine
+#print axioms NativeCarryC3Crosswalk.packagedEvalStencil_eq_evalDirichletStencil
+#print axioms NativeCarryC3Crosswalk.packaged_finiteNativeOperator_eq_finiteBracketCharacteristic
+#print axioms NativeCarryC3Crosswalk.finiteNativeOperator_eq_zero_iff_finiteBracketCharacteristic_eq_zero
+#print axioms NativeCarryC3Crosswalk.normSq_finiteBracketCharacteristic_eq_realEnergy

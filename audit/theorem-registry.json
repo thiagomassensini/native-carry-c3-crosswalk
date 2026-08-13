@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "theorems": [
+    {
+      "qualified": "NativeCarryC3Crosswalk.nativeState_eq_nativeCarryRealPlaneSample"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.nativeCarryRealPlaneParameter_half_eq_nativeLine"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.packaged_nativeState_eq_dirichletValue_nativeLine"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.packagedEvalStencil_eq_evalDirichletStencil"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.packaged_finiteNativeOperator_eq_finiteBracketCharacteristic"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.finiteNativeOperator_eq_zero_iff_finiteBracketCharacteristic_eq_zero"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.normSq_finiteBracketCharacteristic_eq_realEnergy"
+    }
+  ]
+}
