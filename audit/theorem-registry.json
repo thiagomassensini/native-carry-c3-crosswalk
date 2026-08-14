@@ -323,6 +323,24 @@
       "qualified": "NativeCarryC3Crosswalk.isC3TailCoherentGreenKernelPoint_iff_genuine_zero"
     },
     {
+      "qualified": "NativeCarryC3Crosswalk.finiteC3Chart_eq_angularTrace_add_linearOuter"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.finiteC3Chart_add_coupledGreen_eq_greenForm_add_outer"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.finiteC3Chart_eq_greenForm_add_outer_iff_coupledGreen_eq_zero"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.finiteC3TailCompletedChart_add_coupledGreen_eq_greenForm_add_boundary"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.finiteC3TailCompletedChart_eq_greenForm_add_boundary_iff_coupledGreen_eq_zero"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.exists_cutoff_finiteC3Chart_ne_greenForm_add_outer_at_realHalf"
+    },
+    {
       "qualified": "NativeCarryC3Crosswalk.greenForm_finiteC3GenuineBracketGreenBoundaryPair_eq_radialFactorization"
     },
     {

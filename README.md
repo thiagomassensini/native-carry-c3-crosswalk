@@ -365,6 +365,55 @@ finiteC3CoupledGreenFlux_sub_greenForm_tendsto_zero_of_genuine_zero
 isC3TailCoherentGreenKernelPoint_iff_genuine_zero
 ```
 
+## Finite-chart / Green transport audit
+
+The exact identity having the linear shape suggested by the C3 bracket is
+
+```math
+\mathrm{FiniteChart}_{3,M}(s)
+=\mathrm{AngularTrace}_M(s)+(3M+1)^{-s}.
+```
+
+Here both the angular trace and the outer value are linear in the Dirichlet
+state. The reflected `greenForm`, by contrast, is a bilinear Wronskian. With
+the already fixed aligned indices, Lean proves the sign-free finite balance
+
+```math
+\boxed{
+\mathrm{FiniteChart}_{3,M}
++\mathrm{CoupledGreen}_{3,M}
+=\mathrm{greenForm}_{3M}+\mathrm{Outer}_{3M}.
+}
+```
+
+Consequently, replacing the angular trace by the reflected Green form is
+equivalent to the closure statement itself:
+
+```math
+\mathrm{FiniteChart}_{3,M}
+=\mathrm{greenForm}_{3M}+\mathrm{Outer}_{3M}
+\quad\Longleftrightarrow\quad
+\mathrm{CoupledGreen}_{3,M}=0.
+```
+
+Adding the canonical bracket tail to both sides does not change this
+equivalence. Lean also proves, using real-axis positivity at
+`s = 1 / 2`, that the proposed bilinear equality fails at some finite cutoff;
+therefore it is not a universal transport identity on the canonical curve.
+
+See the [finite-chart / Green transport audit](docs/FINITE_CHART_GREEN_TRANSPORT_AUDIT.md).
+
+The public theorems are
+
+```lean
+finiteC3Chart_eq_angularTrace_add_linearOuter
+finiteC3Chart_add_coupledGreen_eq_greenForm_add_outer
+finiteC3Chart_eq_greenForm_add_outer_iff_coupledGreen_eq_zero
+finiteC3TailCompletedChart_add_coupledGreen_eq_greenForm_add_boundary
+finiteC3TailCompletedChart_eq_greenForm_add_boundary_iff_coupledGreen_eq_zero
+exists_cutoff_finiteC3Chart_ne_greenForm_add_outer_at_realHalf
+```
+
 ## Exact radial factorization and the remaining frontier
 
 The bracket-resolved boundary form admits the expected finite radial
