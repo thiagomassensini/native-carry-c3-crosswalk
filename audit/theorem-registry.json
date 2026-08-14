@@ -54,6 +54,51 @@
     },
     {
       "qualified": "NativeCarryC3Crosswalk.normSq_c3CorrectedCharacteristic_eq_realEnergy"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.dirichletSpaceCoefficientExponentDeriv_zero"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.dirichletSpaceCoefficientExponentDeriv_succ"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.dirichletSpaceCoefficient_hasDerivAt"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.dirichletKernelHigherDeriv_hasDerivAt_exponent"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.c3OrientedBoundaryJet_hasDerivAt_exponent"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.nativeLine_hasDerivAt"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.c3OrientedBoundaryJet_nativeLine_hasDerivAt"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.c3CorrectedCharacteristic_hasDerivAt"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.deriv_c3CorrectedCharacteristic"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.package_c3CorrectedRealVelocity"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.c3CorrectedRealResidual_eq_unpackComplex"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.c3CorrectedRealResidual_hasDerivAt"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.deriv_c3CorrectedEnergy"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.isC3CorrectedStationaryCenter_iff_deriv_energy_eq_zero"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.c3CorrectedResidual_eq_zero_iff_realDet_eq_zero"
     }
   ]
 }

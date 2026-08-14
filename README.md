@@ -3,7 +3,8 @@
 Lean 4 integration layer proving that the pinned finite native real operator
 and the pinned finite bracket characteristic are literally the same finite
 computation in two coordinate presentations. It also materializes the exact
-fifth-order C3 boundary correction used by the certified residual ledgers.
+fifth-order C3 boundary correction, its first time derivative, and the exact
+stationary equation used by the certified residual ledgers.
 
 The construction introduces no new zero predicate, analytic continuation,
 limit hypothesis, or spectral assumption.
@@ -139,14 +140,79 @@ and the exact quadratic-energy identity
 =\left\|A_M(t)\right\|_{\mathbb R^2}^{2}.
 ```
 
-The scalar function `c3CorrectedCoreError M t` is exactly
-`‖Ã_M(t)‖`. Once a corrected stationary center `c_M` has been constructed,
-the ledger quantity is obtained by evaluating this function at `t = c_M`.
+## Corrected velocity and stationary equation
 
-This package deliberately does **not** define `c_M` from floating-point
-output, assert that such a center exists uniformly in `M`, or prove
-`c3CorrectedCoreError M (c_M) → 0`. Those are the remaining analytic
-obligations, not consequences of the finite crosswalk.
+The first time derivative of the boundary correction is not introduced as an
+independent placeholder. Lean differentiates the recurrent coefficients and
+the complex power kernel, proves the resulting exponent derivative, and then
+composes it with the native line. Thus
+
+```math
+J_M^{(1)}(t)
+=\frac{d}{dt}J_M\left(\frac12+it\right)
+```
+
+is a kernel-checked identity. The corrected complex velocity is
+
+```math
+\widetilde B_M(t)
+=\frac{d}{dt}\chi_{3,M}\left(\frac12+it\right)+J_M^{(1)}(t),
+```
+
+and its real two-coordinate presentation is
+
+```math
+B_M(t)=\mathrm{unpack}\bigl(\widetilde B_M(t)\bigr).
+```
+
+Lean proves both derivative statements
+
+```math
+\frac{d}{dt}\widetilde A_M(t)=\widetilde B_M(t),
+\qquad
+\frac{d}{dt}A_M(t)=B_M(t).
+```
+
+The corrected stationary numerator and energy are defined by
+
+```math
+h_M(t)=A_M(t)\mathbin{\cdot}B_M(t),
+\qquad
+E_M(t)=\left\|A_M(t)\right\|_{\mathbb R^2}^{2}.
+```
+
+Their exact differential relation is
+
+```math
+E_M'(t)=2h_M(t).
+```
+
+Consequently, the Lean predicate `IsC3CorrectedStationaryCenter M t`, defined
+by `h_M(t) = 0`, is equivalent to `E_M'(t) = 0`. No decimal approximation is
+used to define a center.
+
+There is also an exact oriented test. At a stationary time with nonzero
+velocity,
+
+```math
+A_M(t)=0
+\quad\Longleftrightarrow\quad
+\det\bigl(A_M(t),B_M(t)\bigr)=0.
+```
+
+This is a finite-dimensional consequence of orthogonality and the oriented
+determinant; it does not assert that a stationary center exists.
+
+The scalar function `c3CorrectedCoreError M t` is exactly
+the norm of the corrected complex residual. Once a corrected stationary
+center `c_M` has been constructed, the ledger quantity is obtained by
+evaluating this function at `t = c_M`.
+
+This package deliberately does **not** choose `c_M` from floating-point
+output, assert existence or uniqueness of such a center uniformly in `M`, or
+prove `c3CorrectedCoreError M (c_M) → 0`. Those are the remaining analytic
+obligations, not consequences of the finite crosswalk and stationary
+identity.
 
 ## Pinned foundations
 
