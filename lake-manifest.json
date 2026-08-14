@@ -15,10 +15,10 @@
    "type": "git",
    "subDir": null,
    "scope": "",
-   "rev": "0c500e8539e7dd63b63d90b45c5c289c2830ceff",
+   "rev": "65d50f6db1208708e109982ba97e1d51d3039956",
    "name": "CPFormal",
    "manifestFile": "lake-manifest.json",
-   "inputRev": "0c500e8539e7dd63b63d90b45c5c289c2830ceff",
+   "inputRev": "65d50f6db1208708e109982ba97e1d51d3039956",
    "inherited": false,
    "configFile": "lakefile.toml"},
   {"url":
