@@ -73,6 +73,63 @@ radialScaledC0GenuineBoundaryPairing_eq_pureGreen_iff_correction_eq_zero
 no_finiteC3_boundaryDefect_factorization_through_c0GenuineReadout
 ```
 
+## Quadratic C0--Genuine / Green frontier
+
+Keeping the scalar C0-dressed readout and the radial Green defect as
+orthogonal coordinates gives the exact completed energy
+
+```math
+\mathcal E_{p}(s)
+=
+\mathrm{normSq}\!\left(C_0(s)\,\mathrm{Genuine}(s)\right)
++
+\left(r_p(\delta)\,E_{\mathrm{Green}}(s)\right)^2,
+\qquad
+\delta=\mathrm{Re}(s)-\frac12.
+```
+
+This is an unconditional sum-of-squares identity. In the open strip, Lean
+proves the quantitative lower bound
+
+```math
+\left(
+2|\delta|\log(p)\,E_{\mathrm{Green}}(s)
+\right)^2
+\le \mathcal E_p(s),
+```
+
+and the exact kernel
+
+```math
+\mathcal E_p(s)=0
+\quad\Longleftrightarrow\quad
+\mathrm{Genuine}(s)=0
+\quad\mathrm{and}\quad
+\mathrm{Re}(s)=\frac12.
+```
+
+The logical distinction is explicit. If one hypothetically supplies a
+scalar Genuine zero away from the half-abscissa, its completed energy is not
+zero: it is exactly the strictly positive Green-defect square. Therefore the
+quadratic identity proves confinement of the completed port, but it does not
+silently turn scalar Genuine closure into completed-port closure. Lean also
+proves that requiring this last implication for every Genuine zero is
+equivalent to `GenuineStrongNonvanishingInStrip`.
+
+The full statement and circularity audit are in the
+[quadratic C0--Genuine / Green frontier](docs/C0_GENUINE_GREEN_QUADRATIC_FRONTIER.md).
+
+The principal declarations are
+
+```lean
+c0GenuineGreenCompletedEnergy_eq_sum_of_squares
+c0GenuineGreenCompletedEnergy_ge_radial_coercive_square
+c0GenuineGreenCompletedEnergy_eq_zero_iff_re_eq_half
+c0GenuineGreenCompletedEnergy_eq_greenDefect_sq_of_genuine_zero
+c0GenuineGreenCompletedEnergy_pos_of_genuine_zero_off_critical
+genuineZerosCloseC0GenuineGreenCompletedEnergy_iff_strongNonvanishing
+```
+
 ## Canonical nonlocal arithmetic trace
 
 The global prime-camera bridge is now packaged as a genuine unbounded
