@@ -303,6 +303,68 @@ The identity does not assert that a scalar chart value alone annihilates the
 bilinear Green form: the endpoint and provenance terms remain explicit rather
 than being hidden in a zero hypothesis.
 
+## Nonlocal tail-coherent Green kernel
+
+The finite coarse kernel contains vectors that do not arise from the canonical
+arithmetic curve. To retain the property that distinguishes a Genuine point,
+the Green ledger now keeps the exact unresolved tail of the same summable
+bracket series. Define
+
+```math
+R^{\mathrm{tail}}_{3,M}(s)
+=\mathrm{Outer}_{3M}(s)+T_{3,M}(s)
+```
+
+and subtract the pure Green form together with this retained boundary from the
+coupled Green flux. Lean first checks the finite sum and its sign explicitly:
+
+```math
+D^{\mathrm{tail}}_{3,M}(s)
+=-\left(\mathrm{BracketChart}_{3,M}(s)+T_{3,M}(s)\right).
+```
+
+The exact head--tail decomposition then proves, at every cutoff and before
+assuming a zero,
+
+```math
+\boxed{
+D^{\mathrm{tail}}_{3,M}(s)
+=-a_3(s)\,\mathrm{Genuine}(s).
+}
+```
+
+Thus the defect is cutoff-independent. Since `a₃` is nonzero in the open
+strip, its kernel is exactly the Genuine kernel:
+
+```math
+D^{\mathrm{tail}}_{3,M}(s)=0
+\quad\Longleftrightarrow\quad
+\mathrm{Genuine}(s)=0.
+```
+
+At such a zero, the coupled Green ledger is exactly the bracket-resolved Green
+form plus `Outer + Tail` at every finite cutoff. The retained boundary tends to
+zero, so the two Green readings become asymptotically equal. This statement
+does not assert that the pure Green form itself vanishes and introduces no
+critical-line or isotropic-membership hypothesis.
+
+The construction and its logical audit are documented in the
+[Genuine tail / Green transport](docs/GENUINE_TAIL_GREEN_TRANSPORT.md).
+
+The central declarations are
+
+```lean
+finiteC3GenuineTailGreenDefect_eq_neg_finiteChart_add_tail
+finiteC3GenuineTailGreenDefect_eq_neg_chart
+finiteC3GenuineTailGreenDefect_cutoff_invariant
+finiteC3GenuineTailGreenDefect_eq_neg_factor_mul_genuine
+finiteC3GenuineTailGreenDefect_eq_zero_iff_genuine_zero
+finiteC3TailResolvedGreenIdentity_iff_genuine_zero
+finiteC3GenuineTailGreenBoundary_tendsto_zero
+finiteC3CoupledGreenFlux_sub_greenForm_tendsto_zero_of_genuine_zero
+isC3TailCoherentGreenKernelPoint_iff_genuine_zero
+```
+
 ## Exact radial factorization and the remaining frontier
 
 The bracket-resolved boundary form admits the expected finite radial
