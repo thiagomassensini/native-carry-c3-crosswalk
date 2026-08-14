@@ -16,6 +16,105 @@ family.
 The construction introduces no new zero predicate, analytic continuation,
 limit hypothesis, or spectral assumption.
 
+## Reflected Green form crosswalk
+
+The package also compares the reflected CP Green flux with the abstract
+boundary form from `native-carry-spectral-weyl`. For the canonical camera
+`p = 3` and cutoff `M`, it keeps every arithmetic cell as an orthogonal
+coordinate in
+
+```math
+H_M=\ell^2(\{0,\ldots,M-1\};\mathbb C)
+```
+
+and forms the direct boundary pair
+
+```math
+B_M(s)=
+\left(
+  \bigl(\widetilde\nabla_3(s,n)\bigr)_{n<M},
+  \bigl(\nabla^+(s,n)\bigr)_{n<M}
+\right).
+```
+
+Lean proves the exact identity
+
+```math
+\mathrm{greenForm}\bigl(B_M(s),B_M(s^\#)\bigr)
+=\mathcal W^{\mathrm{CP}}_{3,M}(s).
+```
+
+This is a literal identification of forms, not an analogy between two objects
+called Green. It has no zero or critical-line hypothesis. As a concrete
+consequence, if the two boundary pairs belong to one Green-isotropic relation,
+then the reflected C3 flux vanishes. The public theorems are
+
+```lean
+greenForm_finiteC3GreenBoundaryPair_eq_orientedFlux
+finiteOrientedC3GreenFlux_eq_zero_of_isotropicBoundary
+finiteOrientedC3GreenFlux_eq_zero_of_maximalIsotropicBoundary
+bracketCoupledC3GreenFlux_tendsto_zero_of_genuineZero_and_isotropy
+re_eq_half_of_genuineZero_and_isotropicC3Boundary
+```
+
+The arithmetic membership statement remains explicit: this module does not
+claim that scalar Genuine closure by itself places `B_M(s)` and `B_M(s#)` in
+the relation. That membership/intertwining is the remaining boundary
+transport, rather than another identity between the two Green forms. Once
+that concrete membership is supplied at every cutoff, Lean composes it with
+the existing Genuine boundary telescoping and reflected-energy positivity to
+obtain
+
+```math
+\mathrm{Re}(s)=\frac12.
+```
+
+## Minimal-provenance carrier
+
+The repository now constructs the finite enriched carrier instead of choosing
+an inverse of scalar synthesis. Let `Q_M` sum the preserved cells in each of
+the two Green legs and let `A_M` retain the complete cellwise port. The
+canonical carrier is
+
+```math
+\widehat H_M=
+H_M\big/\bigl(\ker Q_M\cap\ker A_M\bigr).
+```
+
+Lean proves
+
+```math
+\ker Q_M\cap\ker A_M=\{0\},
+\qquad
+\widehat H_M\simeq H_M,
+```
+
+and proves that the joint scalar/provenance range is a closed
+finite-dimensional relation. Thus retaining the reflected Green form forces
+the finite port to keep every arithmetic cell; no section, pseudoinverse, or
+preferred representative is involved. Reading the analysis leg of the
+enriched class recovers `B_M(s)` exactly, and its Green form remains the
+oriented CP flux.
+
+The fixed diagonal Green relation provides an exact audit of the last
+membership law. In the open Genuine strip, Lean proves
+
+```math
+\left[
+  \forall M,\;
+  B_M(s),B_M(s^\#)\text{ belong to the diagonal Green relation}
+\right]
+\quad\Longleftrightarrow\quad
+\mathrm{Re}(s)=\frac12.
+```
+
+Consequently, requiring this transport at every Genuine zero is equivalent to
+the existing `GenuineStrongNonvanishingInStrip` frontier. The carrier and its
+closedness are therefore complete; scalar Genuine vanishing still does not,
+by itself, prove the diagonal membership. This equivalence prevents the
+remaining confinement statement from being hidden inside the carrier
+definition.
+
 ## Exact finite identity
 
 For every real phase time `t`, natural camera `b`, and finite cutoff `M`, Lean

@@ -192,6 +192,78 @@
     },
     {
       "qualified": "NativeCarryC3Crosswalk.existsUnique_c3CorrectedStationaryCenter_of_ledgerEnclosures"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.finiteC3GreenBoundaryPair_fst_apply"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.finiteC3GreenBoundaryPair_snd_apply"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.greenForm_finiteC3GreenBoundaryPair_eq_orientedFlux"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.finiteOrientedC3GreenFlux_eq_zero_of_isotropicBoundary"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.finiteOrientedC3GreenFlux_eq_zero_of_maximalIsotropicBoundary"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.bracketCoupledC3GreenFlux_tendsto_zero_of_genuineZero_and_isotropy"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.re_eq_half_of_genuineZero_and_isotropicC3Boundary"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.finiteC3VectorSynthesis_apply"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.finiteC3CoarseBoundaryReadout_apply"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.finiteC3FullBoundaryAnalysis_apply"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.finiteC3_minimalProvenanceKernel_eq_bot"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.finiteC3MinimalProvenanceEquivPort_state"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.finiteC3EnrichedBoundaryState_analysis"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.finiteC3EnrichedBoundaryState_coarse"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.finiteC3EnrichedJointMap_apply"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.finiteC3EnrichedBoundaryState_joint_mem"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.finiteC3EnrichedJointRelation_isClosed"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.greenForm_finiteC3EnrichedBoundaryState_eq_orientedFlux"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.mem_finiteC3DiagonalGreenRelation_iff"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.finiteC3DiagonalGreenRelation_isGreenIsotropic"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.finiteC3GreenBoundaryPair_mem_diagonal_of_re_eq_half"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.finiteC3ReflectedGreenBoundaryPair_mem_diagonal_of_re_eq_half"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.c3EnrichedDiagonalBoundaryTransportAt_iff_re_eq_half"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.genuineZerosLandInC3EnrichedDiagonalCarrier_iff_strongNonvanishing"
     }
   ]
 }
