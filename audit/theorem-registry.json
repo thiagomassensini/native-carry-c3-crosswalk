@@ -341,6 +341,54 @@
       "qualified": "NativeCarryC3Crosswalk.exists_cutoff_finiteC3Chart_ne_greenForm_add_outer_at_realHalf"
     },
     {
+      "qualified": "NativeCarryC3Crosswalk.cpGreenTfvdTripleEdge_zero"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.cpGreenTfvdTripleEdge_one"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.cpGreenTfvdTripleEdge_two"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.tfvdDecode_canonicalCpGreenTfvdCoordinate"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.finiteC3EnrichedTfvdValueGreenPort_fst_finProd"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.finiteC3EnrichedTfvdValueGreenPort_snd_finProd"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.greenForm_eq_sum_finiteC3GreenPortEdge"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.sameSEdgeBoundaryWedge_eq_greenEdge_add_pairChannels"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.finiteC3EnrichedTfvdPair_blockBoundary_eq_greenEdges_add_provenance"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.sum_finiteC3GreenPortEdge_eq_sum_blocks"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.finiteC3EnrichedTfvdPairBoundary_eq_greenForm_add_provenance"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.finiteC3EnrichedTfvdValueGreenPort_canonical"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.finiteC3EnrichedTfvdPairBoundaryForm_canonical"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.finiteC3EnrichedTfvdPairTransport_canonical"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.finiteC3EnrichedTfvdPairBoundary_sub_provenance_eq_greenForm_transport"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.finiteC3EnrichedTfvdPairGreenProvenance_canonical"
+    },
+    {
       "qualified": "NativeCarryC3Crosswalk.greenForm_finiteC3GenuineBracketGreenBoundaryPair_eq_radialFactorization"
     },
     {

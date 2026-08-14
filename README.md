@@ -414,6 +414,61 @@ finiteC3TailCompletedChart_eq_greenForm_add_boundary_iff_coupledGreen_eq_zero
 exists_cutoff_finiteC3Chart_ne_greenForm_add_outer_at_realHalf
 ```
 
+## Enriched value/log-jet transport
+
+The finite-chart audit identifies an arity obstruction, not the end of the
+Green route. The scalar chart has already erased the coordinates needed by a
+bilinear boundary form. The corrected finite carrier therefore keeps the
+seeded value port and the seeded log-jet port together, including the third
+dormant edge of every C3 block.
+
+Lean now constructs
+
+```text
+finiteC3EnrichedTfvdPairTransport
+```
+
+for arbitrary typed input pairs. Its output retains both scalar readouts, the
+two local boundary cells of every block, and the complete two-leg Green port
+on all `3M` residues. Before any arithmetic specialization, Lean proves the
+universal identity
+
+```math
+\boxed{
+\mathrm{PairBoundary}_M(x)
+=\mathrm{greenForm}\!\left(J_M^s x,J_M^{s^\#}y\right)
++\mathrm{PairProvenance}_M(x,y).
+}
+```
+
+The provenance term is built from four explicit leg transports per visible
+cell and a separately retained dormant Green cell. It is not defined as a
+global residual.
+
+On the canonical arithmetic value/log-jet pair, the same `J_M` recovers
+literally the finite Genuine chart, the finite log-jet chart, and the complete
+bracket-resolved C3 Green port. Its universal provenance also specializes
+exactly to the previously formalized canonical provenance defect.
+
+No zero, strip, critical-line, tilt, isotropic-membership, or strong
+nonvanishing hypothesis occurs in these transport theorems. The remaining
+gate is narrower: a scalar Genuine zero does not by itself prove that the
+corrected pair boundary `PairBoundary - PairProvenance` vanishes or that the
+transported port belongs to the fixed isotropic relation.
+
+See the [enriched TFVD pair transport audit](docs/ENRICHED_TFVD_PAIR_TRANSPORT.md).
+
+The central declarations are
+
+```lean
+finiteC3EnrichedTfvdPairTransport
+sameSEdgeBoundaryWedge_eq_greenEdge_add_pairChannels
+finiteC3EnrichedTfvdPairBoundary_eq_greenForm_add_provenance
+finiteC3EnrichedTfvdPairTransport_canonical
+finiteC3EnrichedTfvdPairBoundary_sub_provenance_eq_greenForm_transport
+finiteC3EnrichedTfvdPairGreenProvenance_canonical
+```
+
 ## Exact radial factorization and the remaining frontier
 
 The bracket-resolved boundary form admits the expected finite radial
