@@ -264,6 +264,33 @@
     },
     {
       "qualified": "NativeCarryC3Crosswalk.genuineZerosLandInC3EnrichedDiagonalCarrier_iff_strongNonvanishing"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.finiteC3GenuineBracketGreenBoundaryPair_fst_apply"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.finiteC3GenuineBracketGreenBoundaryPair_snd_apply"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.finiteC3GenuineBracketGreenBoundaryPair_fst_apply_eq_bracketResidual"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.finiteC3GenuineBracketGreenBoundaryPair_eq_greenBoundaryPair"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.greenForm_finiteC3GenuineBracketGreenBoundaryPair_eq_genuineFlux"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.greenForm_finiteC3GenuineBracketGreenBoundaryPair_eq_tfvdDiagonal"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.finiteCanonicalSeededTfvdBoundary_sub_provenance_eq_genuineGreenForm"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.finiteC3BracketCoupledGenuineGreenFlux_eq_greenForm_add_outer_sub_chart"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.finiteC3GenuineBracketTfvdGreen_capstone"
     }
   ]
 }

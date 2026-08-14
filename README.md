@@ -16,6 +16,83 @@ family.
 The construction introduces no new zero predicate, analytic continuation,
 limit hypothesis, or spectral assumption.
 
+## Genuine bracket → TFVD → Green, before zeros
+
+The direct construction remembered in the research chronology is now exposed
+as one public crosswalk. Differentiate the local Genuine bracket identity and
+resolve the center block against the bracket gradient. For C3, the first
+boundary coordinate is
+
+```math
+g_3(s,n)=
+\frac{1}{3}\,\nu_3(s)
+\left(
+  \nabla\mathrm{CenterBlock}_3(s,n)
+  -\nabla\mathrm{Bracket}_3(s,n)
+\right),
+```
+
+where `ν₃(s)` is the existing phase normalizer. Lean proves coordinate by
+coordinate that this is exactly the C3 Green block gradient. If
+
+```math
+B_M^{\mathrm G}(s)=
+\left(
+  \bigl(g_3(s,n)\bigr)_{n<M},
+  \bigl(\nabla^+(s,n)\bigr)_{n<M}
+\right),
+```
+
+then, for every complex `s` and every finite cutoff `M`,
+
+```math
+\boxed{
+\mathrm{greenForm}
+\left(B_M^{\mathrm G}(s),B_M^{\mathrm G}(s^\#)\right)
+=\mathcal W^{\mathrm{Genuine}}_{3,M}(s)
+=\mathrm{TFVDDiagonal}_{3,M}(s)
+}.
+```
+
+This is an identity of the bracket-resolved operator, the enriched TFVD
+carrier, and the Green boundary form. It has no vanishing assumption, strip
+hypothesis, limiting argument, or critical-line hypothesis.
+
+The seeded construction gives the direct finite ledger involving the Genuine
+chart:
+
+```math
+\boxed{
+\mathrm{CoupledGreen}_{3,M}(s)
+=\mathrm{greenForm}
+  \left(B_{3M}^{\mathrm G}(s),B_{3M}^{\mathrm G}(s^\#)\right)
+ +\mathrm{Outer}_{3M}(s)
+ -\mathrm{GenuineChart}_{3,M}(s)
+}.
+```
+
+Equivalently, the seeded TFVD boundary form minus its independently defined
+local provenance channels is exactly the same Green form. The capstone states
+the two readouts together: the scalar readout of the canonical seeded TFVD
+port is the finite bracketed Genuine chart, while its corrected boundary
+readout is the Genuine bracket Green form.
+
+The central public theorems are
+
+```lean
+finiteC3GenuineBracketGreenBoundaryPair_fst_apply_eq_bracketResidual
+finiteC3GenuineBracketGreenBoundaryPair_eq_greenBoundaryPair
+greenForm_finiteC3GenuineBracketGreenBoundaryPair_eq_genuineFlux
+greenForm_finiteC3GenuineBracketGreenBoundaryPair_eq_tfvdDiagonal
+finiteCanonicalSeededTfvdBoundary_sub_provenance_eq_genuineGreenForm
+finiteC3BracketCoupledGenuineGreenFlux_eq_greenForm_add_outer_sub_chart
+finiteC3GenuineBracketTfvdGreen_capstone
+```
+
+The identity does not assert that a scalar chart value alone annihilates the
+bilinear Green form: the endpoint and provenance terms remain explicit rather
+than being hidden in a zero hypothesis.
+
 ## Reflected Green form crosswalk
 
 The package also compares the reflected CP Green flux with the abstract
