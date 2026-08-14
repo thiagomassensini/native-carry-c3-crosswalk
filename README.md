@@ -16,6 +16,63 @@ family.
 The construction introduces no new zero predicate, analytic continuation,
 limit hypothesis, or spectral assumption.
 
+## C0 Genuine readout and the exact Green ledger
+
+The historical C2 vertical factor `C0` is exposed using the pinned
+`pairedBridgeFactor` definition. Lean reuses its nonvanishing theorem on the
+open Genuine strip and constructs the nonzero camera dressing
+
+```math
+d_{0\leftarrow3}(s)=\frac{C_0(s)}{a_3(s)},
+```
+
+where `a₃` is the canonical C3 chart factor. Dressing the finite C3 angular
+trace by this ratio produces a trace converging exactly to
+
+```math
+C_0(s)\,\mathrm{Genuine}(s).
+```
+
+The Green form is sesquilinear, so its type-correct comparison is the
+reflected product of the direct and reflected C0 traces. For every complex
+parameter and every finite cutoff, Lean proves the unconditional identity
+
+```math
+\boxed{
+r_3(s)P_{0,M}(s)
+=
+\overline{d_{0\leftarrow3}(s)}\,d_{0\leftarrow3}(s^\#)
+\left(G_{3M}(s)+r_3(s)R_M(s)\right).
+}
+```
+
+Here `G` is the bracket-resolved reflected Green form and `R` is the complete
+angular provenance correction already present in the scalar ledger. There is
+no zero or critical-line hypothesis in this equality.
+
+Since both dressings are nonzero in the strip, the corresponding pure-Green
+equality holds exactly when `r₃(s) R_M(s) = 0`. Thus `C0 ≠ 0` lets Lean
+cancel the vertical normalization, but it cannot delete the provenance term.
+An explicit two-cell witness also proves that no defect detecting the fixed
+diagonal Green relation can factor through the two C0-dressed coarse scalars
+alone.
+
+The exact statement, types, and finite obstruction are recorded in the
+[C0 Genuine / Green boundary audit](docs/C0_GENUINE_GREEN_BOUNDARY_AUDIT.md).
+
+The central public declarations are
+
+```lean
+c0VerticalFactor_ne_zero
+c0ToC3BoundaryDressing_ne_zero
+finiteC0GenuineBoundaryTrace_tendsto
+finiteC0GenuineBoundaryPairing_tendsto
+radialScaledAngularScalarPairing_eq_greenForm_add_correction
+radialScaledC0GenuineBoundaryPairing_eq_dressedGreen_add_correction
+radialScaledC0GenuineBoundaryPairing_eq_pureGreen_iff_correction_eq_zero
+no_finiteC3_boundaryDefect_factorization_through_c0GenuineReadout
+```
+
 ## Canonical nonlocal arithmetic trace
 
 The global prime-camera bridge is now packaged as a genuine unbounded
