@@ -3,3 +3,5 @@ import NativeCarryC3Crosswalk.C3BoundaryJet
 import NativeCarryC3Crosswalk.C3Stationary
 import NativeCarryC3Crosswalk.C3StationaryRoot
 import NativeCarryC3Crosswalk.C3StationaryLedgerBridge
+import NativeCarryC3Crosswalk.ReflectedGreenBoundaryForm
+import NativeCarryC3Crosswalk.EnrichedBoundaryCarrier
