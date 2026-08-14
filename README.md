@@ -1,6 +1,7 @@
 # Native Carry C3 Crosswalk
 
 [![Lean theorem audit](https://github.com/thiagomassensini/native-carry-c3-crosswalk/actions/workflows/lean-audit.yml/badge.svg)](https://github.com/thiagomassensini/native-carry-c3-crosswalk/actions/workflows/lean-audit.yml)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21935705.svg)](https://doi.org/10.5281/zenodo.21935705)
 
 Version `0.1.0` · Lean/Mathlib `v4.32.0` · MIT licensed
 
@@ -326,5 +327,9 @@ publication metadata and GitHub Markdown, and evaluates `#print axioms` for
 every public theorem. The dependency allowlist is restricted to `propext`,
 `Classical.choice`, and `Quot.sound`.
 
-Versioned releases carry `CITATION.cff` and `.zenodo.json` metadata so that a
-GitHub release can be archived by the repository's Zenodo integration.
+Versioned releases carry `CITATION.cff` and `.zenodo.json` metadata. Release
+`v0.1.0` is preserved by Zenodo under the version DOI
+[`10.5281/zenodo.21935706`](https://doi.org/10.5281/zenodo.21935706). The
+concept DOI
+[`10.5281/zenodo.21935705`](https://doi.org/10.5281/zenodo.21935705) resolves
+to the latest archived version of this repository.

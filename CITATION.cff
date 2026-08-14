@@ -10,6 +10,7 @@ url: "https://github.com/thiagomassensini/native-carry-c3-crosswalk"
 license: MIT
 version: 0.1.0
 date-released: 2026-08-14
+doi: 10.5281/zenodo.21935706
 abstract: >-
   A Lean 4 formalization of the exact finite native-to-complex C3 crosswalk,
   the fifth-order oriented boundary jet, corrected velocity and acceleration,
