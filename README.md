@@ -3,8 +3,10 @@
 Lean 4 integration layer proving that the pinned finite native real operator
 and the pinned finite bracket characteristic are literally the same finite
 computation in two coordinate presentations. It also materializes the exact
-fifth-order C3 boundary correction, its first time derivative, and the exact
-stationary equation used by the certified residual ledgers.
+fifth-order C3 boundary correction, its first two time derivatives, the exact
+stationary equation used by the certified residual ledgers, and the rigorous
+promotion from a concrete interval certificate to a unique stationary-root
+family.
 
 The construction introduces no new zero predicate, analytic continuation,
 limit hypothesis, or spectral assumption.
@@ -69,9 +71,9 @@ The visible quadratic energies are also identical:
 =\left\|N_{b,M}(t)\right\|_{\mathbb R^2}^{2}.
 ```
 
-These are finite algebraic identities. They do not assert convergence of the
-C3 corrected residual, existence of a limiting zero, or confinement of any
-infinite zero set.
+These are finite algebraic identities. By themselves they do not assert
+convergence of the C3 corrected residual, existence of a limiting zero, or
+confinement of any infinite zero set.
 
 ## Explicit C3 boundary jet
 
@@ -187,6 +189,23 @@ Their exact differential relation is
 E_M'(t)=2h_M(t).
 ```
 
+Lean also differentiates the velocity exactly:
+
+```math
+A_M^{(2)}(t)=B_M'(t).
+```
+
+The stationary slope is the explicit identity
+
+```math
+h_M'(t)
+=B_M(t)\mathbin{\cdot}B_M(t)
+ +A_M(t)\mathbin{\cdot}A_M^{(2)}(t).
+```
+
+Thus neither the slope nor the acceleration is supplied by numerical
+differentiation.
+
 Consequently, the Lean predicate `IsC3CorrectedStationaryCenter M t`, defined
 by `h_M(t) = 0`, is equivalent to `E_M'(t) = 0`. No decimal approximation is
 used to define a center.
@@ -203,16 +222,56 @@ A_M(t)=0
 This is a finite-dimensional consequence of orthogonality and the oriented
 determinant; it does not assert that a stationary center exists.
 
-The scalar function `c3CorrectedCoreError M t` is exactly
-the norm of the corrected complex residual. Once a corrected stationary
-center `c_M` has been constructed, the ledger quantity is obtained by
-evaluating this function at `t = c_M`.
+## Uniform stationary-root promotion
 
-This package deliberately does **not** choose `c_M` from floating-point
-output, assert existence or uniqueness of such a center uniformly in `M`, or
-prove `c3CorrectedCoreError M (c_M) → 0`. Those are the remaining analytic
-obligations, not consequences of the finite crosswalk and stationary
-identity.
+The stationary-localization ledger fixes the exact cutoff threshold
+
+```math
+M_0=131072
+```
+
+and the exact rational anchor interval
+
+```math
+I=
+[92.491899270558483805857220904387963299360620986373,
+ 92.491899270558484805857220904387963299360620986373].
+```
+
+The kernel-facing structure `C3StationaryIntervalCertificate` asks for the
+three concrete enclosure facts that the localization argument needs:
+
+1. `h_M` is negative at the left endpoint for every `M ≥ M₀`;
+2. `h_M` is positive at the right endpoint for every `M ≥ M₀`;
+3. `h_M'` is positive throughout the open interval for every `M ≥ M₀`.
+
+From exactly these facts, Lean proves
+
+```math
+\forall M\ge M_0,\qquad
+\exists!c_M\in I,\quad h_M(c_M)=0.
+```
+
+It then selects `correctedStationaryCenter certificate M`, proves that it is
+the unique stationary point in `I`, and defines the precise ledger sequence
+
+```math
+Q_M=
+\left\lVert A_M
+  (\mathrm{correctedStationaryCenter}(\mathrm{certificate},M))
+\right\rVert.
+```
+
+No floating-point center enters this definition. Below `M₀` the selector has
+an explicitly documented default value, and no theorem calls that default a
+stationary point.
+
+The external Arb ledger supports the three concrete enclosure facts, but an
+inhabitant of `C3StationaryIntervalCertificate` has **not** yet been proved in
+Lean. Therefore the interval-to-root promotion is kernel-checked, while the
+concrete all-cutoff certificate remains an explicit open bridge. The next
+analytic obligation after that bridge is proving `Q_M → 0`; neither the
+certificate interface nor the root-selection theorem assumes this limit.
 
 ## Pinned foundations
 

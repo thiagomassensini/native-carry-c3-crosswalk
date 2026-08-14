@@ -99,6 +99,78 @@
     },
     {
       "qualified": "NativeCarryC3Crosswalk.c3CorrectedResidual_eq_zero_iff_realDet_eq_zero"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.dirichletSpaceCoefficientExponentSecondDeriv_zero"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.dirichletSpaceCoefficientExponentSecondDeriv_succ"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.dirichletSpaceCoefficientExponentDeriv_hasDerivAt"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.dirichletKernelHigherExponentDeriv_hasDerivAt"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.c3OrientedBoundaryJetExponentDeriv_hasDerivAt"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.c3OrientedBoundaryJetTimeDeriv_hasDerivAt"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.dirichletValueExponentDeriv_hasDerivAt"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.centeredBracketExponentDerivTerm_hasDerivAt"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.centerBracketExponentDeriv_hasDerivAt"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.seedDirichletExponentDeriv_hasDerivAt"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.finiteBracketCharacteristicExponentDeriv_hasDerivAt"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.c3CorrectedCharacteristicVelocity_hasDerivAt"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.deriv_c3CorrectedCharacteristicVelocity"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.package_c3CorrectedRealAcceleration"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.c3CorrectedRealVelocity_hasDerivAt"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.deriv_c3CorrectedStationaryNumerator"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.continuous_c3CorrectedStationaryNumerator"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.c3StationaryAnchorLower_lt_upper"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.c3CorrectedStationaryNumerator_strictMonoOn"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.existsUnique_c3CorrectedStationaryCenter"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.correctedStationaryCenter_mem"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.correctedStationaryCenter_isStationary"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.correctedStationaryCenter_unique"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.c3StationaryCoreError_nonneg"
     }
   ]
 }
