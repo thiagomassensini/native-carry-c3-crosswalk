@@ -1,0 +1,40 @@
+{
+  "title": "Native Carry C3 Crosswalk",
+  "description": "Lean 4 formalization of the exact finite native-to-complex C3 crosswalk, the fifth-order oriented boundary jet, corrected velocity and acceleration, the stationary equation, and the certified promotion from C3 localization enclosures to a unique stationary-root family.",
+  "upload_type": "software",
+  "access_right": "open",
+  "license": "MIT",
+  "version": "0.1.0",
+  "publication_date": "2026-08-14",
+  "language": "eng",
+  "creators": [
+    {
+      "name": "Massensini, Thiago"
+    }
+  ],
+  "keywords": [
+    "Lean 4",
+    "formalized mathematics",
+    "native carry",
+    "C3 operator",
+    "boundary jet",
+    "stationary localization",
+    "interval enclosure",
+    "real-complex crosswalk",
+    "reproducible proof audit"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/thiagomassensini/finite-native-carry-operator/tree/00e9d6beb17226545abf5ddf90bbfede6c7146b0",
+      "relation": "isDerivedFrom",
+      "scheme": "url",
+      "resource_type": "software"
+    },
+    {
+      "identifier": "https://github.com/thiagomassensini/native-carry-spectral-weyl/tree/ca726315be2eb9b421c07224a07967d02d07f0fb",
+      "relation": "isDerivedFrom",
+      "scheme": "url",
+      "resource_type": "software"
+    }
+  ]
+}

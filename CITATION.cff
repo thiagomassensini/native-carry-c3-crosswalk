@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+message: "If you use this formalization, please cite the versioned software release."
+title: "Native Carry C3 Crosswalk"
+type: software
+authors:
+  - family-names: Massensini
+    given-names: Thiago
+repository-code: "https://github.com/thiagomassensini/native-carry-c3-crosswalk"
+url: "https://github.com/thiagomassensini/native-carry-c3-crosswalk"
+license: MIT
+version: 0.1.0
+date-released: 2026-08-14
+abstract: >-
+  A Lean 4 formalization of the exact finite native-to-complex C3 crosswalk,
+  the fifth-order oriented boundary jet, corrected velocity and acceleration,
+  the stationary equation, and the certified promotion from C3 localization
+  enclosures to a unique stationary-root family.
+keywords:
+  - Lean 4
+  - formalized mathematics
+  - native carry
+  - C3 operator
+  - boundary jet
+  - stationary localization
+  - interval enclosure
+  - real-complex crosswalk
+  - reproducible proof audit

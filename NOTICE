@@ -1,0 +1,17 @@
+Native Carry C3 Crosswalk
+
+This repository contains an original Lean integration and consolidation layer
+by Thiago Massensini around the following pinned upstream projects:
+
+  CPFormal / primos
+  https://github.com/thiagomassensini/primos
+  revision 537028681ae6a775c083a1e2fb6e67db24697b82
+
+  Native Carry Spectral Weyl
+  https://github.com/thiagomassensini/native-carry-spectral-weyl
+  revision ca726315be2eb9b421c07224a07967d02d07f0fb
+
+Their transitive dependencies include Finite Native Carry Operator and Green
+Frame at the revisions recorded in `lake-manifest.json`. Dependencies are
+fetched separately by Lake and are not vendored here. Their own terms remain
+applicable to their source code.

@@ -1,5 +1,9 @@
 # Native Carry C3 Crosswalk
 
+[![Lean theorem audit](https://github.com/thiagomassensini/native-carry-c3-crosswalk/actions/workflows/lean-audit.yml/badge.svg)](https://github.com/thiagomassensini/native-carry-c3-crosswalk/actions/workflows/lean-audit.yml)
+
+Version `0.1.0` · Lean/Mathlib `v4.32.0` · MIT licensed
+
 Lean 4 integration layer proving that the pinned finite native real operator
 and the pinned finite bracket characteristic are literally the same finite
 computation in two coordinate presentations. It also materializes the exact
@@ -266,12 +270,38 @@ No floating-point center enters this definition. Below `M₀` the selector has
 an explicitly documented default value, and no theorem calls that default a
 stationary point.
 
-The external Arb ledger supports the three concrete enclosure facts, but an
-inhabitant of `C3StationaryIntervalCertificate` has **not** yet been proved in
-Lean. Therefore the interval-to-root promotion is kernel-checked, while the
-concrete all-cutoff certificate remains an explicit open bridge. The next
-analytic obligation after that bridge is proving `Q_M → 0`; neither the
-certificate interface nor the root-selection theorem assumes this limit.
+The module `C3StationaryLedgerBridge` now reifies the actual limiting-chart
+architecture used by the ledger. It defines the concrete infinite C3
+residual, velocity, acceleration, stationary numerator `H∞`, and stationary
+slope. It also fixes conservative rational bounds implied by the Arb output:
+
+```math
+\begin{aligned}
+H_\infty(a)&\le-9\times10^{-15},
+&9\times10^{-15}&\le H_\infty(b),\\
+21&\le S_\infty(t),
+&|h_M-H_\infty|&\le10^{-15},\\
+&&|h_M'-S_\infty|&\le10^{-12}.
+\end{aligned}
+```
+
+Here `S∞` is the limiting product-rule expression formed from the limiting
+residual, velocity, and acceleration.
+
+Lean verifies the rational margin comparisons and proves that these five
+sound enclosures produce `C3StationaryIntervalCertificate`, hence the unique
+root family. This closes all of the ledger's order arithmetic and logical
+transport in the kernel.
+
+An inhabitant of `C3StationaryLedgerEnclosures` has **not** yet been proved in
+Lean. Its remaining fields are precisely the transcendental interval leaves
+currently evaluated by Arb: limiting endpoint values, limiting slope on the
+anchor interval, and corrected finite-to-limit perturbations. No Arb ball is
+silently promoted to a theorem.
+
+After that explicit bridge is closed, the next analytic obligation is proving
+`Q_M → 0`; neither the enclosure interface nor the root-selection theorem
+assumes this limit.
 
 ## Pinned foundations
 
@@ -292,6 +322,9 @@ bash scripts/audit.sh
 ```
 
 The audit builds with warnings as errors, rejects local trust escapes, checks
-GitHub Markdown, and evaluates `#print axioms` for every public theorem. The
-dependency allowlist is restricted to `propext`, `Classical.choice`, and
-`Quot.sound`.
+publication metadata and GitHub Markdown, and evaluates `#print axioms` for
+every public theorem. The dependency allowlist is restricted to `propext`,
+`Classical.choice`, and `Quot.sound`.
+
+Versioned releases carry `CITATION.cff` and `.zenodo.json` metadata so that a
+GitHub release can be archived by the repository's Zenodo integration.

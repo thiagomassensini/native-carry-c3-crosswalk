@@ -171,6 +171,27 @@
     },
     {
       "qualified": "NativeCarryC3Crosswalk.c3StationaryCoreError_nonneg"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.c3LedgerStationaryError_lt_endpointMargin"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.c3LedgerSlopeError_lt_slopeMargin"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.c3CorrectedStationaryNumerator_left_neg_of_ledgerEnclosures"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.c3CorrectedStationaryNumerator_right_pos_of_ledgerEnclosures"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.c3CorrectedStationarySlope_pos_of_ledgerEnclosures"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.C3StationaryLedgerEnclosures.toIntervalCertificate"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.existsUnique_c3CorrectedStationaryCenter_of_ledgerEnclosures"
     }
   ]
 }
