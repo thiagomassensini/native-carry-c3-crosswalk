@@ -291,6 +291,150 @@
     },
     {
       "qualified": "NativeCarryC3Crosswalk.finiteC3GenuineBracketTfvdGreen_capstone"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.greenForm_finiteC3GenuineBracketGreenBoundaryPair_eq_radialFactorization"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.greenForm_finiteC3GenuineBracketGreenBoundaryPair_tendsto"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.greenForm_finiteC3GenuineBracketGreenBoundaryPair_tendsto_zero_iff"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.genuineZero_greenForm_add_scaledAngularCorrection_tendsto_zero"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.genuineZeros_closeC3GenuineBracketGreenForm_iff_strongNonvanishing"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.arithmeticPrimeDamping_apply"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.arithmeticPrimeDamping_injective"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.arithmeticPrimeDamping_isSymmetric"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.arithmeticPrimeDamping_denseRange"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.arithmeticPrimeDampingPMap_domain"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.arithmeticPrimeDampingPMap_apply"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.arithmeticPrimeDampingPMap_toFun_injective"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.arithmeticPrimeDampingPMap_ker_eq_bot"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.arithmeticPrimeDampingPMap_range"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.mem_range_arithmeticPrimeDamping_iff"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.mem_arithmeticNonlocalTrace_domain_iff"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.arithmeticPrimeDampingPMap_isClosed"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.arithmeticNonlocalTrace_isClosed"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.arithmeticNonlocalTrace_isClosable"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.arithmeticNonlocalTrace_denseDomain"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.arithmeticNonlocalTrace_apply_dampingRangeElement"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.arithmeticNonlocalTrace_apply_coordinate"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.arithmeticNonlocalTrace_isPrimeAmplitudeUpgradeGraphPair"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.arithmeticNonlocalTrace_isFormalAdjoint"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.arithmeticPrimeDamping_apply_arithmeticNonlocalTrace_adjoint"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.arithmeticNonlocalTrace_adjoint_domain_le"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.arithmeticNonlocalTrace_adjoint_le"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.arithmeticNonlocalTrace_isSelfAdjoint"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.arithmeticNonlocalBoundaryRelation_isClosed"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.arithmeticNonlocalBoundaryRelation_isMaximalGreenIsotropic"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.arithmeticNonlocalBoundaryRelation_isGreenIsotropic"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.arithmeticNonlocalBoundaryPort_mem_relation"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.arithmeticBoundaryDefect_eq_zero_iff_mem_relation"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.arithmeticBoundaryDefect_nonlocalBoundaryPort"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.finiteArithmeticNonlocalBoundaryPort_snd_eq_enrichedReadout"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.finiteArithmeticNonlocalBoundaryPort_isGraphPair"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.finiteArithmeticNonlocalBoundaryPort_fst_mem_traceDomain"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.arithmeticNonlocalTrace_finiteArithmeticMassEndpoint"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.finiteArithmeticNonlocalBoundaryPort_mem_relation"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.arithmeticFiniteTrace_intertwines_enrichedBracketTfvdGreen"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.primeMassGreenBulkState_mem_arithmeticNonlocalTrace_domain_iff"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.arithmeticNonlocalTrace_massState_apply"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.no_everywhere_arithmeticNonlocalTrace"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.no_everywhere_globalPrimeVerticalTrace"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.finiteC3CoarseBoundaryReadout_kernelWitness"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.finiteC3CoarseKernelWitness_not_mem_diagonal"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.no_finiteC3_boundaryDefect_factorization_through_coarse"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.genuineZero_to_arithmeticNonlocalTrace_domain_iff_strongNonvanishing"
     }
   ]
 }

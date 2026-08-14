@@ -16,6 +16,102 @@ family.
 The construction introduces no new zero predicate, analytic continuation,
 limit hypothesis, or spectral assumption.
 
+## Canonical nonlocal arithmetic trace
+
+The global prime-camera bridge is now packaged as a genuine unbounded
+operator rather than a graph predicate or a chosen inverse. On
+
+~~~math
+H_{\mathrm{mass}}=\ell^2(\mathbb P;\mathbb R),
+~~~
+
+Lean first constructs the bounded injective damping
+
+~~~math
+R(v)_p=p^{-1/2}v_p
+~~~
+
+and defines
+
+~~~math
+J_{\mathrm{arith}}=R^{-1}
+~~~
+
+as Mathlib's maximal LinearPMap inverse. Its domain and action are exact:
+
+~~~math
+\mathcal D(J_{\mathrm{arith}})=
+\left\{v\in H_{\mathrm{mass}}:
+  \sum_p|\sqrt p\,v_p|^2<\infty
+\right\},
+\qquad
+(J_{\mathrm{arith}}v)_p=\sqrt p\,v_p.
+~~~
+
+Lean proves that this operator is densely defined, closed, and self-adjoint.
+Its graph is therefore a closed maximal Green-isotropic relation. The
+enriched boundary port retains both coordinates
+
+~~~math
+v\longmapsto\left(v,J_{\mathrm{arith}}v\right),
+~~~
+
+and its concrete defect
+
+~~~math
+D_{\partial}(v,w)=w-J_{\mathrm{arith}}v
+~~~
+
+vanishes exactly on that fixed relation.
+
+The finite intertwining is unconditional: the output of the trace on every
+finite prime atlas is literally the existing provenance-preserving
+Genuine-bracket/TFVD/Green readout. Globally, however, the trace is
+necessarily partial. An explicit Lean witness has square-summable state and
+centered bracket but a nonsummable p⁻¹/² trace flux. There is not even an
+everywhere-defined function into ℓ² with the required coordinate formula.
+
+The remaining arithmetic statement is exact and is not hidden in the new
+definition:
+
+~~~math
+\mathrm{massState}(M,s)\in\mathcal D(J_{\mathrm{arith}})
+\quad\Longleftrightarrow\quad
+\mathrm{Re}(s)=\frac12
+~~~
+
+inside the open strip. Asking every Genuine zero to supply that domain
+membership is proved equivalent to the existing
+GenuineStrongNonvanishingInStrip frontier. The repository therefore does not
+claim that implication as a new confinement proof.
+
+At finite cutoff there is a second exact no-go. The provenance direction
+((1,-1),0) is erased by coarse synthesis but does not belong to the fixed
+diagonal relation. Hence a boundary defect that detects that relation cannot
+factor through the two coarse Genuine scalars alone. A successful future
+transport must carry nonlocal endpoint/tail data in addition to finite scalar
+synthesis.
+
+The complete type crosswalk, obstruction, and downstream gate are documented
+in [the arithmetic nonlocal trace audit](docs/ARITHMETIC_NONLOCAL_TRACE_AUDIT.md).
+
+The central public declarations are
+
+~~~lean
+arithmeticNonlocalTrace
+mem_arithmeticNonlocalTrace_domain_iff
+arithmeticNonlocalTrace_isClosed
+arithmeticNonlocalTrace_isSelfAdjoint
+arithmeticNonlocalBoundaryRelation_isMaximalGreenIsotropic
+arithmeticBoundaryDefect_eq_zero_iff_mem_relation
+arithmeticBoundaryDefect_nonlocalBoundaryPort
+finiteArithmeticNonlocalBoundaryPort_mem_relation
+arithmeticFiniteTrace_intertwines_enrichedBracketTfvdGreen
+no_everywhere_globalPrimeVerticalTrace
+no_finiteC3_boundaryDefect_factorization_through_coarse
+genuineZero_to_arithmeticNonlocalTrace_domain_iff_strongNonvanishing
+~~~
+
 ## Genuine bracket → TFVD → Green, before zeros
 
 The direct construction remembered in the research chronology is now exposed
@@ -92,6 +188,64 @@ finiteC3GenuineBracketTfvdGreen_capstone
 The identity does not assert that a scalar chart value alone annihilates the
 bilinear Green form: the endpoint and provenance terms remain explicit rather
 than being hidden in a zero hypothesis.
+
+## Exact radial factorization and the remaining frontier
+
+The bracket-resolved boundary form admits the expected finite radial
+factorization. Write
+
+```math
+\delta=\mathrm{Re}(s)-\frac12,
+\qquad
+D_3(\delta)=3^\delta-3^{-\delta}.
+```
+
+Then Lean proves, for every cutoff `M` and every complex parameter `s`,
+
+```math
+\boxed{
+\mathrm{greenForm}
+\left(B_M^{\mathrm G}(s),B_M^{\mathrm G}(s^\#)\right)
+=D_3(\delta)\,\mathcal E_M^\#(s)
+}.
+```
+
+This factorization is unconditional: it mentions neither zeros nor the
+critical strip. Inside the open Genuine strip, the finite reflected pairing
+converges to a nonzero limit. Consequently, the concrete bracket-resolved
+Green form closes in the limit exactly when
+
+```math
+\mathrm{Re}(s)=\frac12.
+```
+
+The scalar Genuine zero identity has a different, equally exact consequence.
+At a Genuine zero it proves
+
+```math
+\mathrm{greenForm}
+\left(B_{3M}^{\mathrm G}(s),B_{3M}^{\mathrm G}(s^\#)\right)
++D_3(\delta)\,\mathrm{Correction}_M(s)
+\longrightarrow 0.
+```
+
+Here the correction is not a vanishing remainder: its limit is the negative
+of the infinite reflected pairing. Thus the scalar zero cancels the Green
+channel against its retained provenance channel; it does not, by itself,
+annihilate the Green channel separately. The global assertion that every
+Genuine zero closes this Green form is proved equivalent to the existing
+strong nonvanishing statement in the strip. This records the exact
+confinement frontier instead of assuming it inside the factorization.
+
+The public theorems are
+
+```lean
+greenForm_finiteC3GenuineBracketGreenBoundaryPair_eq_radialFactorization
+greenForm_finiteC3GenuineBracketGreenBoundaryPair_tendsto
+greenForm_finiteC3GenuineBracketGreenBoundaryPair_tendsto_zero_iff
+genuineZero_greenForm_add_scaledAngularCorrection_tendsto_zero
+genuineZeros_closeC3GenuineBracketGreenForm_iff_strongNonvanishing
+```
 
 ## Reflected Green form crosswalk
 
@@ -484,7 +638,7 @@ assumes this limit.
 
 | Package | Revision |
 |---|---|
-| `CPFormal` | `537028681ae6a775c083a1e2fb6e67db24697b82` (`v0.62.0`) |
+| `CPFormal` | `65d50f6db1208708e109982ba97e1d51d3039956` (`v0.62.0-1-g65d50f6`) |
 | `NativeCarrySpectralWeyl` | `ca726315be2eb9b421c07224a07967d02d07f0fb` (`v0.53.0`) |
 | `FiniteNativeCarryOperator` | `00e9d6beb17226545abf5ddf90bbfede6c7146b0` (`v0.1.0`, transitive pin) |
 | `GreenFrame` | `cd2d838bee67ad23f869a02f8ed9f0a0feb926fa` (`v2.1.0`, transitive pin) |
