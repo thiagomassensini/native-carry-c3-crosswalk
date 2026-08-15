@@ -828,6 +828,39 @@
     },
     {
       "qualified": "NativeCarryC3Crosswalk.no_bounded_rawPrimeCameraAxis_synthesis"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.structuralCarryGreenDefectEnergy_nonneg"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.structuralCarryGreenDefectEnergy_eq_zero_iff_branchDefect"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.structuralCarryGreenDefectEnergy_eq_zero_iff_compatible"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.structuralCarryGreenDefectEnergy_eq_zero_iff_re_eq_half"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.structuralCarryGreenDefectEnergy_criticalLine"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.structuralCarryGreenDefectEnergy_pos_of_re_ne_half"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.structuralCarryGreenDefectEnergy_pos_iff_re_ne_half"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.structuralCarryGreenDefectEnergy_le_completedReadout_norm_sq"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.completedReadout_zero_implies_structuralDefect_zero"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.completedReadout_zero_implies_re_eq_half"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.genuineBracket_tfvd_green_structuralDefect_capstone"
     }
   ]
 }

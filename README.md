@@ -735,6 +735,71 @@ c3EnrichedTailBranchCompletedReadout_eq_zero_iff_genuine_and_compatible
 c3EnrichedTailBranchCompletedReadout_eq_zero_iff_compatible_of_tailDefect_zero
 ```
 
+### Structural carry--TFVD--Green defect principle
+
+The causal order is now packaged as a separate theorem surface. Positional
+carry defines the branch defect first. The exact C3 identity then proves that
+the differentiated bracket Green form is already the TFVD diagonal, before
+any zero or critical-line assumption. Green is therefore a later readout of
+the TFVD computation, not the source of the equilibrium.
+
+Define the structural Green-scale energy
+
+```math
+\mathcal D_p(s)=
+\left(E_\infty(s)b_p(\mathrm{Re}(s))\right)^2.
+```
+
+In the open strip, Lean proves
+
+```math
+\mathcal D_p(s)=0
+\quad\Longleftrightarrow\quad
+\mathrm{C3Compatible}(\mathrm{Re}(s))
+\quad\Longleftrightarrow\quad
+\mathrm{Re}(s)=\frac12,
+```
+
+and equivalently
+
+```math
+\mathcal D_p(s)>0
+\quad\Longleftrightarrow\quad
+\mathrm{Re}(s)\ne\frac12.
+```
+
+On the half-abscissa, this defect is identically zero for every phase time
+without a zero hypothesis. It is the third orthogonal coordinate of the
+tail-completed readout, so
+
+```math
+\mathcal C_{M,p}(s)=0
+\quad\Longrightarrow\quad
+\mathcal D_p(s)=0
+\quad\Longrightarrow\quad
+\mathrm{Re}(s)=\frac12.
+```
+
+This is a structural necessity theorem for the completed port: the zero does
+not create equilibrium and cannot cancel the prior defect. It does not claim
+that the scalar Genuine coordinate alone annihilates this independent third
+coordinate.
+
+See the
+[structural carry--TFVD--Green defect audit](docs/STRUCTURAL_TFVD_GREEN_DEFECT.md).
+
+The principal declarations are
+
+```lean
+structuralCarryGreenDefectEnergy_eq_zero_iff_compatible
+structuralCarryGreenDefectEnergy_criticalLine
+structuralCarryGreenDefectEnergy_pos_iff_re_ne_half
+structuralCarryGreenDefectEnergy_le_completedReadout_norm_sq
+completedReadout_zero_implies_structuralDefect_zero
+completedReadout_zero_implies_re_eq_half
+genuineBracket_tfvd_green_structuralDefect_capstone
+```
+
 ## Exact radial factorization and the remaining frontier
 
 The bracket-resolved boundary form admits the expected finite radial
