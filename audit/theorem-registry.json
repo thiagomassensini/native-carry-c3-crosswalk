@@ -416,6 +416,15 @@
       "qualified": "NativeCarryC3Crosswalk.finiteC3CoupledGreenFlux_sub_correctedPairBoundary_tendsto_zero_of_genuine_zero"
     },
     {
+      "qualified": "NativeCarryC3Crosswalk.finiteC3CoupledGreenFlux_tendsto_radialBulk_of_genuine_zero"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.finiteCanonicalAngularGreenCorrection_not_tendsto_zero_of_genuine_zero"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.finiteC3CoupledGreenFlux_tendsto_zero_iff_re_eq_half_of_genuine_zero"
+    },
+    {
       "qualified": "NativeCarryC3Crosswalk.c3EnrichedTfvdCorrectedPairBoundaryClosesAt_iff_re_eq_half"
     },
     {

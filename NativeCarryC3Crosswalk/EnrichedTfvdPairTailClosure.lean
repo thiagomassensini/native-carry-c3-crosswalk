@@ -217,6 +217,97 @@ theorem finiteC3CoupledGreenFlux_sub_correctedPairBoundary_tendsto_zero_of_genui
   rw [hfunctions]
   exact hboundary
 
+/-- At a Genuine zero, the coupled Green ledger has the same explicit limit
+as the reflected Green bulk.  The endpoint/tail coordinate disappears, but
+the radial bulk is retained. -/
+theorem finiteC3CoupledGreenFlux_tendsto_radialBulk_of_genuine_zero
+    {s : ℂ} (hs : s ∈ genuineCriticalStrip)
+    (hzero : genuineContinuation s = 0) :
+    Tendsto
+      (fun M : ℕ ↦ finiteCanonicalTfvdCoupledGenuineGreenFlux 3 M s)
+      atTop
+      (nhds
+        (((cpRadialDifference 3
+            (criticalDisplacement s.re) : ℝ) : ℂ) *
+          infiniteReflectedGradientPairing s)) := by
+  have hgreen :=
+    (greenForm_finiteC3GenuineBracketGreenBoundaryPair_tendsto hs).comp
+      tendsto_three_mul_atTop
+  have hboundary := finiteC3GenuineTailGreenBoundary_tendsto_zero
+    (s := s) (by linarith [hs.1])
+  have hsum := hgreen.add hboundary
+  have hfunctions :
+      (fun M : ℕ ↦ finiteCanonicalTfvdCoupledGenuineGreenFlux 3 M s) =
+        (fun M : ℕ ↦
+          greenForm (𝕜 := ℂ)
+              (finiteC3GenuineBracketGreenBoundaryPair (3 * M) s)
+              (finiteC3GenuineBracketGreenBoundaryPair
+                (3 * M) (reflectedParameter s)) +
+            finiteC3GenuineTailGreenBoundary M s) := by
+    funext M
+    exact finiteC3TailResolvedGreenIdentity_of_genuine_zero M hs hzero
+  rw [hfunctions]
+  simpa [Function.comp_def] using hsum
+
+/-- The unscaled angular correction is not an asymptotically vanishing tail
+at a Genuine zero.  Its limit is the negative nonzero reflected pairing. -/
+theorem finiteCanonicalAngularGreenCorrection_not_tendsto_zero_of_genuine_zero
+    {s : ℂ} (hs : s ∈ genuineCriticalStrip)
+    (hzero : genuineContinuation s = 0) :
+    ¬ Tendsto
+        (fun M : ℕ ↦ finiteCanonicalAngularGreenCorrection M s)
+        atTop (nhds 0) := by
+  intro hcloses
+  have hlimit :=
+    finiteCanonicalAngularGreenCorrection_tendsto_neg_infinitePairing_of_genuine_zero
+      hs hzero
+  have hneg : -infiniteReflectedGradientPairing s = 0 :=
+    tendsto_nhds_unique hlimit hcloses
+  exact infiniteReflectedGradientPairing_ne_zero hs (neg_eq_zero.mp hneg)
+
+/-- Pointwise form of the remaining gate: even after assuming a Genuine
+zero, the coupled Green ledger closes exactly when the radial displacement is
+critical.  Thus zero-to-coupled-Green closure cannot be obtained from the
+tail identity alone. -/
+theorem finiteC3CoupledGreenFlux_tendsto_zero_iff_re_eq_half_of_genuine_zero
+    {s : ℂ} (hs : s ∈ genuineCriticalStrip)
+    (hzero : genuineContinuation s = 0) :
+    Tendsto
+        (fun M : ℕ ↦ finiteCanonicalTfvdCoupledGenuineGreenFlux 3 M s)
+        atTop (nhds 0) ↔
+      s.re = (1 : ℝ) / 2 := by
+  constructor
+  · intro hcloses
+    have hlimit :=
+      finiteC3CoupledGreenFlux_tendsto_radialBulk_of_genuine_zero hs hzero
+    have hproduct :
+        (((cpRadialDifference 3
+            (criticalDisplacement s.re) : ℝ) : ℂ) *
+          infiniteReflectedGradientPairing s) = 0 :=
+      tendsto_nhds_unique hlimit hcloses
+    have henergy : infiniteReflectedGradientPairing s ≠ 0 :=
+      infiniteReflectedGradientPairing_ne_zero hs
+    have hcoefficient :
+        ((cpRadialDifference 3
+          (criticalDisplacement s.re) : ℝ) : ℂ) = 0 :=
+      (mul_eq_zero.mp hproduct).resolve_right henergy
+    have hradial :
+        cpRadialDifference 3 (criticalDisplacement s.re) = 0 := by
+      exact_mod_cast hcoefficient
+    have hcritical : criticalDisplacement s.re = 0 :=
+      (cpRadialDifference_eq_zero_iff
+        3 (by norm_num) (criticalDisplacement s.re)).1 hradial
+    unfold criticalDisplacement at hcritical
+    linarith
+  · intro hre
+    have hcritical : criticalDisplacement s.re = 0 := by
+      unfold criticalDisplacement
+      linarith
+    have hlimit :=
+      finiteC3CoupledGreenFlux_tendsto_radialBulk_of_genuine_zero hs hzero
+    rw [hcritical] at hlimit
+    simpa [cpRadialDifference] using hlimit
+
 /-! ## Exact pure-Green frontier -/
 
 /-- Closure of the corrected enriched-pair boundary, kept separate from

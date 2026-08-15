@@ -134,6 +134,47 @@ pair removes the finite arity and provenance obstruction and supplies the
 desired universal tail-defect factorization, but it does not make the final
 zero-to-pure-Green activation a bookkeeping consequence.
 
+## Exact audit of the attempted last step
+
+The remaining asymptotic quantity can be computed, rather than postulated.
+At a Genuine zero, Lean proves
+
+```math
+\mathrm{CoupledGreen}_{3,M}(s)
+\longrightarrow
+D_3\!\left(\mathrm{Re}(s)-\frac12\right)
+\mathcal E_\infty(s),
+```
+
+where the reflected pairing `E_infinity(s)` is nonzero throughout the open
+strip. Consequently,
+
+```math
+\boxed{
+\mathrm{Genuine}(s)=0
+\quad\Longrightarrow\quad
+\left(
+  \mathrm{CoupledGreen}_{3,M}(s)\longrightarrow0
+  \iff
+  \mathrm{Re}(s)=\frac12
+\right).
+}
+```
+
+This also rules out treating the angular correction as a disposable tail.
+At a Genuine zero its unscaled limit is
+
+```math
+-\mathcal E_\infty(s)\ne0.
+```
+
+The endpoint plus unresolved bracket tail does vanish. The angular
+correction does not: it cancels the nonzero reflected pairing inside the
+scalar bracket ledger. Thus the exact first unproved implication remains the
+activation of coupled-Green closure from a Genuine zero. The existing
+factorizations compute what that implication would force, but do not prove it
+without the strong-nonvanishing statement.
+
 ## Public declarations
 
 ```lean
@@ -148,6 +189,9 @@ finiteC3EnrichedTfvdPairTailDefect_eq_neg_factor_mul_genuine
 finiteC3EnrichedTfvdPairTailDefect_eq_zero_iff_genuine_zero
 finiteC3TailResolvedEnrichedTfvdPairIdentity_of_genuine_zero
 finiteC3CoupledGreenFlux_sub_correctedPairBoundary_tendsto_zero_of_genuine_zero
+finiteC3CoupledGreenFlux_tendsto_radialBulk_of_genuine_zero
+finiteCanonicalAngularGreenCorrection_not_tendsto_zero_of_genuine_zero
+finiteC3CoupledGreenFlux_tendsto_zero_iff_re_eq_half_of_genuine_zero
 C3EnrichedTfvdCorrectedPairBoundaryClosesAt
 c3EnrichedTfvdCorrectedPairBoundaryClosesAt_iff_re_eq_half
 genuineZerosCloseC3EnrichedTfvdCorrectedPairBoundary_iff_strongNonvanishing

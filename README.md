@@ -490,6 +490,20 @@ at a Genuine zero. At such a zero, the coupled Green ledger equals the
 corrected pair boundary plus `Outer + Tail` at every cutoff, and the retained
 boundary tends to zero.
 
+The attempted final step is now computed exactly. At a Genuine zero,
+
+```math
+\mathrm{CoupledGreen}_{3,M}(s)
+\longrightarrow
+D_3\!\left(\mathrm{Re}(s)-\frac12\right)\mathcal E_\infty(s),
+```
+
+with `E_infinity(s)` nonzero in the open strip. Hence coupled-Green closure at
+that zero is equivalent to `Re(s) = 1/2`. Lean also proves that the unscaled
+angular correction does not tend to zero at a Genuine zero; its limit is the
+negative nonzero reflected pairing. It therefore cannot be reclassified as a
+vanishing tail.
+
 This closes the nonlocal defect factorization, but it does not silently turn
 that equality into pure Green closure. Lean separately proves
 
@@ -514,6 +528,9 @@ finiteC3EnrichedTfvdPairTailDefect_eq_neg_tailReadout
 finiteC3EnrichedTfvdPairTailDefect_eq_zero_iff_genuine_zero
 finiteC3TailResolvedEnrichedTfvdPairIdentity_of_genuine_zero
 finiteC3CoupledGreenFlux_sub_correctedPairBoundary_tendsto_zero_of_genuine_zero
+finiteC3CoupledGreenFlux_tendsto_radialBulk_of_genuine_zero
+finiteCanonicalAngularGreenCorrection_not_tendsto_zero_of_genuine_zero
+finiteC3CoupledGreenFlux_tendsto_zero_iff_re_eq_half_of_genuine_zero
 c3EnrichedTfvdCorrectedPairBoundaryClosesAt_iff_re_eq_half
 genuineZerosCloseC3EnrichedTfvdCorrectedPairBoundary_iff_strongNonvanishing
 ```
