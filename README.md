@@ -16,6 +16,709 @@ family.
 The construction introduces no new zero predicate, analytic continuation,
 limit hypothesis, or spectral assumption.
 
+## C0 Genuine readout and the exact Green ledger
+
+The historical C2 vertical factor `C0` is exposed using the pinned
+`pairedBridgeFactor` definition. Lean reuses its nonvanishing theorem on the
+open Genuine strip and constructs the nonzero camera dressing
+
+```math
+d_{0\leftarrow3}(s)=\frac{C_0(s)}{a_3(s)},
+```
+
+where `a₃` is the canonical C3 chart factor. Dressing the finite C3 angular
+trace by this ratio produces a trace converging exactly to
+
+```math
+C_0(s)\,\mathrm{Genuine}(s).
+```
+
+The Green form is sesquilinear, so its type-correct comparison is the
+reflected product of the direct and reflected C0 traces. For every complex
+parameter and every finite cutoff, Lean proves the unconditional identity
+
+```math
+\boxed{
+r_3(s)P_{0,M}(s)
+=
+\overline{d_{0\leftarrow3}(s)}\,d_{0\leftarrow3}(s^\#)
+\left(G_{3M}(s)+r_3(s)R_M(s)\right).
+}
+```
+
+Here `G` is the bracket-resolved reflected Green form and `R` is the complete
+angular provenance correction already present in the scalar ledger. There is
+no zero or critical-line hypothesis in this equality.
+
+Since both dressings are nonzero in the strip, the corresponding pure-Green
+equality holds exactly when `r₃(s) R_M(s) = 0`. Thus `C0 ≠ 0` lets Lean
+cancel the vertical normalization, but it cannot delete the provenance term.
+An explicit two-cell witness also proves that no defect detecting the fixed
+diagonal Green relation can factor through the two C0-dressed coarse scalars
+alone.
+
+The exact statement, types, and finite obstruction are recorded in the
+[C0 Genuine / Green boundary audit](docs/C0_GENUINE_GREEN_BOUNDARY_AUDIT.md).
+
+The central public declarations are
+
+```lean
+c0VerticalFactor_ne_zero
+c0ToC3BoundaryDressing_ne_zero
+finiteC0GenuineBoundaryTrace_tendsto
+finiteC0GenuineBoundaryPairing_tendsto
+radialScaledAngularScalarPairing_eq_greenForm_add_correction
+radialScaledC0GenuineBoundaryPairing_eq_dressedGreen_add_correction
+radialScaledC0GenuineBoundaryPairing_eq_pureGreen_iff_correction_eq_zero
+no_finiteC3_boundaryDefect_factorization_through_c0GenuineReadout
+```
+
+## Quadratic C0--Genuine / Green frontier
+
+Keeping the scalar C0-dressed readout and the radial Green defect as
+orthogonal coordinates gives the exact completed energy
+
+```math
+\mathcal E_{p}(s)
+=
+\mathrm{normSq}\!\left(C_0(s)\,\mathrm{Genuine}(s)\right)
++
+\left(r_p(\delta)\,E_{\mathrm{Green}}(s)\right)^2,
+\qquad
+\delta=\mathrm{Re}(s)-\frac12.
+```
+
+This is an unconditional sum-of-squares identity. In the open strip, Lean
+proves the quantitative lower bound
+
+```math
+\left(
+2|\delta|\log(p)\,E_{\mathrm{Green}}(s)
+\right)^2
+\le \mathcal E_p(s),
+```
+
+and the exact kernel
+
+```math
+\mathcal E_p(s)=0
+\quad\Longleftrightarrow\quad
+\mathrm{Genuine}(s)=0
+\quad\mathrm{and}\quad
+\mathrm{Re}(s)=\frac12.
+```
+
+The logical distinction is explicit. If one hypothetically supplies a
+scalar Genuine zero away from the half-abscissa, its completed energy is not
+zero: it is exactly the strictly positive Green-defect square. Therefore the
+quadratic identity proves confinement of the completed port, but it does not
+silently turn scalar Genuine closure into completed-port closure. Lean also
+proves that requiring this last implication for every Genuine zero is
+equivalent to `GenuineStrongNonvanishingInStrip`.
+
+The full statement and circularity audit are in the
+[quadratic C0--Genuine / Green frontier](docs/C0_GENUINE_GREEN_QUADRATIC_FRONTIER.md).
+
+The principal declarations are
+
+```lean
+c0GenuineGreenCompletedEnergy_eq_sum_of_squares
+c0GenuineGreenCompletedEnergy_ge_radial_coercive_square
+c0GenuineGreenCompletedEnergy_eq_zero_iff_re_eq_half
+c0GenuineGreenCompletedEnergy_eq_greenDefect_sq_of_genuine_zero
+c0GenuineGreenCompletedEnergy_pos_of_genuine_zero_off_critical
+genuineZerosCloseC0GenuineGreenCompletedEnergy_iff_strongNonvanishing
+```
+
+## Canonical nonlocal arithmetic trace
+
+The global prime-camera bridge is now packaged as a genuine unbounded
+operator rather than a graph predicate or a chosen inverse. On
+
+~~~math
+H_{\mathrm{mass}}=\ell^2(\mathbb P;\mathbb R),
+~~~
+
+Lean first constructs the bounded injective damping
+
+~~~math
+R(v)_p=p^{-1/2}v_p
+~~~
+
+and defines
+
+~~~math
+J_{\mathrm{arith}}=R^{-1}
+~~~
+
+as Mathlib's maximal LinearPMap inverse. Its domain and action are exact:
+
+~~~math
+\mathcal D(J_{\mathrm{arith}})=
+\left\{v\in H_{\mathrm{mass}}:
+  \sum_p|\sqrt p\,v_p|^2<\infty
+\right\},
+\qquad
+(J_{\mathrm{arith}}v)_p=\sqrt p\,v_p.
+~~~
+
+Lean proves that this operator is densely defined, closed, and self-adjoint.
+Its graph is therefore a closed maximal Green-isotropic relation. The
+enriched boundary port retains both coordinates
+
+~~~math
+v\longmapsto\left(v,J_{\mathrm{arith}}v\right),
+~~~
+
+and its concrete defect
+
+~~~math
+D_{\partial}(v,w)=w-J_{\mathrm{arith}}v
+~~~
+
+vanishes exactly on that fixed relation.
+
+The finite intertwining is unconditional: the output of the trace on every
+finite prime atlas is literally the existing provenance-preserving
+Genuine-bracket/TFVD/Green readout. Globally, however, the trace is
+necessarily partial. An explicit Lean witness has square-summable state and
+centered bracket but a nonsummable p⁻¹/² trace flux. There is not even an
+everywhere-defined function into ℓ² with the required coordinate formula.
+
+The remaining arithmetic statement is exact and is not hidden in the new
+definition:
+
+~~~math
+\mathrm{massState}(M,s)\in\mathcal D(J_{\mathrm{arith}})
+\quad\Longleftrightarrow\quad
+\mathrm{Re}(s)=\frac12
+~~~
+
+inside the open strip. Asking every Genuine zero to supply that domain
+membership is proved equivalent to the existing
+GenuineStrongNonvanishingInStrip frontier. The repository therefore does not
+claim that implication as a new confinement proof.
+
+At finite cutoff there is a second exact no-go. The provenance direction
+((1,-1),0) is erased by coarse synthesis but does not belong to the fixed
+diagonal relation. Hence a boundary defect that detects that relation cannot
+factor through the two coarse Genuine scalars alone. A successful future
+transport must carry nonlocal endpoint/tail data in addition to finite scalar
+synthesis.
+
+The complete type crosswalk, obstruction, and downstream gate are documented
+in [the arithmetic nonlocal trace audit](docs/ARITHMETIC_NONLOCAL_TRACE_AUDIT.md).
+
+The central public declarations are
+
+~~~lean
+arithmeticNonlocalTrace
+mem_arithmeticNonlocalTrace_domain_iff
+arithmeticNonlocalTrace_isClosed
+arithmeticNonlocalTrace_isSelfAdjoint
+arithmeticNonlocalBoundaryRelation_isMaximalGreenIsotropic
+arithmeticBoundaryDefect_eq_zero_iff_mem_relation
+arithmeticBoundaryDefect_nonlocalBoundaryPort
+finiteArithmeticNonlocalBoundaryPort_mem_relation
+arithmeticFiniteTrace_intertwines_enrichedBracketTfvdGreen
+no_everywhere_globalPrimeVerticalTrace
+no_finiteC3_boundaryDefect_factorization_through_coarse
+genuineZero_to_arithmeticNonlocalTrace_domain_iff_strongNonvanishing
+~~~
+
+## Genuine control of the existing quadratic carry energy
+
+No new norm is needed for the coercive side of noncompensation. For every
+nonempty cutoff and every prime camera, Lean proves
+
+~~~math
+\left\lVert
+  \mathrm{primeGreenBulkFiniteState}(M,s,\{p\})
+\right\rVert^2=0
+\quad\Longleftrightarrow\quad
+\mathrm{branchDefect}(p,\mathrm{Re}(s))=0
+\quad\Longleftrightarrow\quad
+\mathrm{Re}(s)=\frac12.
+~~~
+
+Thus one existing camera norm already detects the unique quadratic
+equilibrium. The unresolved direction is the upper transport from the scalar
+Genuine readout to that energy. The direct candidate is
+
+~~~math
+\kappa
+\left\lVert
+  \mathrm{primeGreenBulkFiniteState}(M,s,\{p\})
+\right\rVert^2
+\le
+\mathrm{normSq}\!\left(a_3(s)\,\mathrm{Genuine}(s)\right),
+\qquad \kappa>0.
+~~~
+
+At a Genuine zero, Lean proves that such a positive-coefficient estimate
+holds if and only if `Re(s) = 1/2`. Requiring it at every Genuine zero is
+therefore equivalent to `GenuineStrongNonvanishingInStrip`; it is not supplied
+silently by the existing Pythagorean identity.
+
+The uniform-atlas version is even more rigid. For every nonempty cutoff,
+
+~~~math
+\exists C\ge0,\ \forall S,\quad
+\left\lVert
+  \mathrm{primeGreenBulkFiniteState}(M,s,S)
+\right\rVert^2
+\le C\,\mathrm{normSq}\!\left(a_3(s)\,\mathrm{Genuine}(s)\right)
+\quad\Longleftrightarrow\quad
+\mathrm{Re}(s)=\frac12.
+~~~
+
+Off the half-abscissa, every proposed scalar majorant is exceeded by some
+finite prime atlas. This establishes that the existing norm is the correct
+detector and isolates the sole remaining theorem as scalar-to-Hilbert
+noncompensation, rather than norm construction.
+
+The exact statements and scope guard are documented in the
+[Genuine carry-energy control audit](docs/GENUINE_CARRY_ENERGY_CONTROL_AUDIT.md).
+
+The principal declarations are
+
+~~~lean
+primeGreenBulkSingletonEnergy_eq_zero_iff_branchDefect_eq_zero
+primeGreenBulkSingletonEnergy_eq_zero_iff_re_eq_half
+genuineReadoutCoercivelyControlsSingletonCarryEnergyAt_iff_re_eq_half_of_zero
+genuineZerosHaveCoerciveSingletonCarryEnergyControl_iff_strongNonvanishing
+genuineReadoutControlsPrimeGreenAtlasEnergyAt_iff_critical
+exists_primeGreenAtlas_violating_genuineReadout_majorant_of_re_ne_half
+~~~
+
+## C3 zero versus foundational positional compatibility
+
+The frozen `carry-geometry` kernel is now imported directly. Its existing
+predicate supplies the first step without mentioning the half-abscissa:
+
+~~~math
+\mathrm{C3Compatible}(\sigma)
+\quad:=\quad
+\forall k>0,\qquad
+\left(3^{-k\sigma}\right)^2=3^{-k}.
+~~~
+
+Its purely positional rigidity theorem gives the second step:
+
+~~~math
+\mathrm{C3Compatible}(\sigma)
+\quad\Longleftrightarrow\quad
+\sigma=\frac12.
+~~~
+
+The only new transport statement is then isolated verbatim:
+
+~~~math
+\mathrm{IsNativeC3Zero}(\sigma,t)
+\quad\Longrightarrow\quad
+\mathrm{C3Compatible}(\sigma).
+~~~
+
+Lean confirms that this formulation is minimal, but does not discharge it
+from the foundational theorem. Globally on the open strip, it is equivalent
+to each previously identified form of the remaining gate:
+
+~~~math
+\mathrm{C3ZerosPreserveGeometry}
+\quad\Longleftrightarrow\quad
+\mathrm{BoundaryClosurePreservesMass}
+\quad\Longleftrightarrow\quad
+\mathrm{NativeZeroRigidity}
+\quad\Longleftrightarrow\quad
+\mathrm{GenuineStrongNonvanishingInStrip}.
+~~~
+
+Thus the decomposition removes all unnecessary machinery from the statement,
+but it does not turn scalar boundary cancellation into quadratic compatibility
+for free. The conditional capstone is proved and no unconditional confinement
+claim is made.
+
+The complete logical audit is in the
+[C3 positional-compatibility bridge](docs/C3_POSITIONAL_COMPATIBILITY_BRIDGE.md).
+
+The principal declarations are
+
+~~~lean
+C3PositionalGeometryCompatible
+c3PositionalGeometryCompatible_iff
+C3OperatorZerosPreservePositionalGeometryInStrip
+c3OperatorZero_implies_positionalCompatibility_iff_pointwise_zeroRigidity
+c3OperatorZerosPreservePositionalGeometryInStrip_iff_strongNonvanishing
+c3OperatorZero_positionalCompatibility_capstone
+~~~
+
+## Genuine bracket → TFVD → Green, before zeros
+
+The direct construction remembered in the research chronology is now exposed
+as one public crosswalk. Differentiate the local Genuine bracket identity and
+resolve the center block against the bracket gradient. For C3, the first
+boundary coordinate is
+
+```math
+g_3(s,n)=
+\frac{1}{3}\,\nu_3(s)
+\left(
+  \nabla\mathrm{CenterBlock}_3(s,n)
+  -\nabla\mathrm{Bracket}_3(s,n)
+\right),
+```
+
+where `ν₃(s)` is the existing phase normalizer. Lean proves coordinate by
+coordinate that this is exactly the C3 Green block gradient. If
+
+```math
+B_M^{\mathrm G}(s)=
+\left(
+  \bigl(g_3(s,n)\bigr)_{n<M},
+  \bigl(\nabla^+(s,n)\bigr)_{n<M}
+\right),
+```
+
+then, for every complex `s` and every finite cutoff `M`,
+
+```math
+\boxed{
+\mathrm{greenForm}
+\left(B_M^{\mathrm G}(s),B_M^{\mathrm G}(s^\#)\right)
+=\mathcal W^{\mathrm{Genuine}}_{3,M}(s)
+=\mathrm{TFVDDiagonal}_{3,M}(s)
+}.
+```
+
+This is an identity of the bracket-resolved operator, the enriched TFVD
+carrier, and the Green boundary form. It has no vanishing assumption, strip
+hypothesis, limiting argument, or critical-line hypothesis.
+
+The seeded construction gives the direct finite ledger involving the Genuine
+chart:
+
+```math
+\boxed{
+\mathrm{CoupledGreen}_{3,M}(s)
+=\mathrm{greenForm}
+  \left(B_{3M}^{\mathrm G}(s),B_{3M}^{\mathrm G}(s^\#)\right)
+ +\mathrm{Outer}_{3M}(s)
+ -\mathrm{GenuineChart}_{3,M}(s)
+}.
+```
+
+Equivalently, the seeded TFVD boundary form minus its independently defined
+local provenance channels is exactly the same Green form. The capstone states
+the two readouts together: the scalar readout of the canonical seeded TFVD
+port is the finite bracketed Genuine chart, while its corrected boundary
+readout is the Genuine bracket Green form.
+
+The central public theorems are
+
+```lean
+finiteC3GenuineBracketGreenBoundaryPair_fst_apply_eq_bracketResidual
+finiteC3GenuineBracketGreenBoundaryPair_eq_greenBoundaryPair
+greenForm_finiteC3GenuineBracketGreenBoundaryPair_eq_genuineFlux
+greenForm_finiteC3GenuineBracketGreenBoundaryPair_eq_tfvdDiagonal
+finiteCanonicalSeededTfvdBoundary_sub_provenance_eq_genuineGreenForm
+finiteC3BracketCoupledGenuineGreenFlux_eq_greenForm_add_outer_sub_chart
+finiteC3GenuineBracketTfvdGreen_capstone
+```
+
+The identity does not assert that a scalar chart value alone annihilates the
+bilinear Green form: the endpoint and provenance terms remain explicit rather
+than being hidden in a zero hypothesis.
+
+## Nonlocal tail-coherent Green kernel
+
+The finite coarse kernel contains vectors that do not arise from the canonical
+arithmetic curve. To retain the property that distinguishes a Genuine point,
+the Green ledger now keeps the exact unresolved tail of the same summable
+bracket series. Define
+
+```math
+R^{\mathrm{tail}}_{3,M}(s)
+=\mathrm{Outer}_{3M}(s)+T_{3,M}(s)
+```
+
+and subtract the pure Green form together with this retained boundary from the
+coupled Green flux. Lean first checks the finite sum and its sign explicitly:
+
+```math
+D^{\mathrm{tail}}_{3,M}(s)
+=-\left(\mathrm{BracketChart}_{3,M}(s)+T_{3,M}(s)\right).
+```
+
+The exact head--tail decomposition then proves, at every cutoff and before
+assuming a zero,
+
+```math
+\boxed{
+D^{\mathrm{tail}}_{3,M}(s)
+=-a_3(s)\,\mathrm{Genuine}(s).
+}
+```
+
+Thus the defect is cutoff-independent. Since `a₃` is nonzero in the open
+strip, its kernel is exactly the Genuine kernel:
+
+```math
+D^{\mathrm{tail}}_{3,M}(s)=0
+\quad\Longleftrightarrow\quad
+\mathrm{Genuine}(s)=0.
+```
+
+At such a zero, the coupled Green ledger is exactly the bracket-resolved Green
+form plus `Outer + Tail` at every finite cutoff. The retained boundary tends to
+zero, so the two Green readings become asymptotically equal. This statement
+does not assert that the pure Green form itself vanishes and introduces no
+critical-line or isotropic-membership hypothesis.
+
+The construction and its logical audit are documented in the
+[Genuine tail / Green transport](docs/GENUINE_TAIL_GREEN_TRANSPORT.md).
+
+The central declarations are
+
+```lean
+finiteC3GenuineTailGreenDefect_eq_neg_finiteChart_add_tail
+finiteC3GenuineTailGreenDefect_eq_neg_chart
+finiteC3GenuineTailGreenDefect_cutoff_invariant
+finiteC3GenuineTailGreenDefect_eq_neg_factor_mul_genuine
+finiteC3GenuineTailGreenDefect_eq_zero_iff_genuine_zero
+finiteC3TailResolvedGreenIdentity_iff_genuine_zero
+finiteC3GenuineTailGreenBoundary_tendsto_zero
+finiteC3CoupledGreenFlux_sub_greenForm_tendsto_zero_of_genuine_zero
+isC3TailCoherentGreenKernelPoint_iff_genuine_zero
+```
+
+## Finite-chart / Green transport audit
+
+The exact identity having the linear shape suggested by the C3 bracket is
+
+```math
+\mathrm{FiniteChart}_{3,M}(s)
+=\mathrm{AngularTrace}_M(s)+(3M+1)^{-s}.
+```
+
+Here both the angular trace and the outer value are linear in the Dirichlet
+state. The reflected `greenForm`, by contrast, is a bilinear Wronskian. With
+the already fixed aligned indices, Lean proves the sign-free finite balance
+
+```math
+\boxed{
+\mathrm{FiniteChart}_{3,M}
++\mathrm{CoupledGreen}_{3,M}
+=\mathrm{greenForm}_{3M}+\mathrm{Outer}_{3M}.
+}
+```
+
+Consequently, replacing the angular trace by the reflected Green form is
+equivalent to the closure statement itself:
+
+```math
+\mathrm{FiniteChart}_{3,M}
+=\mathrm{greenForm}_{3M}+\mathrm{Outer}_{3M}
+\quad\Longleftrightarrow\quad
+\mathrm{CoupledGreen}_{3,M}=0.
+```
+
+Adding the canonical bracket tail to both sides does not change this
+equivalence. Lean also proves, using real-axis positivity at
+`s = 1 / 2`, that the proposed bilinear equality fails at some finite cutoff;
+therefore it is not a universal transport identity on the canonical curve.
+
+See the [finite-chart / Green transport audit](docs/FINITE_CHART_GREEN_TRANSPORT_AUDIT.md).
+
+The public theorems are
+
+```lean
+finiteC3Chart_eq_angularTrace_add_linearOuter
+finiteC3Chart_add_coupledGreen_eq_greenForm_add_outer
+finiteC3Chart_eq_greenForm_add_outer_iff_coupledGreen_eq_zero
+finiteC3TailCompletedChart_add_coupledGreen_eq_greenForm_add_boundary
+finiteC3TailCompletedChart_eq_greenForm_add_boundary_iff_coupledGreen_eq_zero
+exists_cutoff_finiteC3Chart_ne_greenForm_add_outer_at_realHalf
+```
+
+## Enriched value/log-jet transport
+
+The finite-chart audit identifies an arity obstruction, not the end of the
+Green route. The scalar chart has already erased the coordinates needed by a
+bilinear boundary form. The corrected finite carrier therefore keeps the
+seeded value port and the seeded log-jet port together, including the third
+dormant edge of every C3 block.
+
+Lean now constructs
+
+```text
+finiteC3EnrichedTfvdPairTransport
+```
+
+for arbitrary typed input pairs. Its output retains both scalar readouts, the
+two local boundary cells of every block, and the complete two-leg Green port
+on all `3M` residues. Before any arithmetic specialization, Lean proves the
+universal identity
+
+```math
+\boxed{
+\mathrm{PairBoundary}_M(x)
+=\mathrm{greenForm}\!\left(J_M^s x,J_M^{s^\#}y\right)
++\mathrm{PairProvenance}_M(x,y).
+}
+```
+
+The provenance term is built from four explicit leg transports per visible
+cell and a separately retained dormant Green cell. It is not defined as a
+global residual.
+
+On the canonical arithmetic value/log-jet pair, the same `J_M` recovers
+literally the finite Genuine chart, the finite log-jet chart, and the complete
+bracket-resolved C3 Green port. Its universal provenance also specializes
+exactly to the previously formalized canonical provenance defect.
+
+No zero, strip, critical-line, tilt, isotropic-membership, or strong
+nonvanishing hypothesis occurs in these transport theorems. The remaining
+gate is narrower: a scalar Genuine zero does not by itself prove that the
+corrected pair boundary `PairBoundary - PairProvenance` vanishes or that the
+transported port belongs to the fixed isotropic relation.
+
+See the [enriched TFVD pair transport audit](docs/ENRICHED_TFVD_PAIR_TRANSPORT.md).
+
+The central declarations are
+
+```lean
+finiteC3EnrichedTfvdPairTransport
+sameSEdgeBoundaryWedge_eq_greenEdge_add_pairChannels
+finiteC3EnrichedTfvdPairBoundary_eq_greenForm_add_provenance
+finiteC3EnrichedTfvdPairTransport_canonical
+finiteC3EnrichedTfvdPairBoundary_sub_provenance_eq_greenForm_transport
+finiteC3EnrichedTfvdPairGreenProvenance_canonical
+```
+
+### Nonlocal closure of the enriched pair
+
+Completing the value readout with the unresolved tail of the same bracket
+series produces a stronger universal identity. Define the corrected pair
+boundary by subtracting its explicit provenance ledger and retain
+`Outer + Tail` as the nonlocal boundary coordinate. Lean proves, for every
+cutoff and before assuming a zero,
+
+```math
+\boxed{
+D^{\mathrm{pair,tail}}_M(s)
+=-\left(Q^{\mathrm{pair}}_M(s)+T_M(s)\right)
+=-a_3(s)\,\mathrm{Genuine}(s).
+}
+```
+
+Therefore the complete tail-resolved enriched-pair defect vanishes exactly
+at a Genuine zero. At such a zero, the coupled Green ledger equals the
+corrected pair boundary plus `Outer + Tail` at every cutoff, and the retained
+boundary tends to zero.
+
+The attempted final step is now computed exactly. At a Genuine zero,
+
+```math
+\mathrm{CoupledGreen}_{3,M}(s)
+\longrightarrow
+D_3\!\left(\mathrm{Re}(s)-\frac12\right)\mathcal E_\infty(s),
+```
+
+with `E_infinity(s)` nonzero in the open strip. Hence coupled-Green closure at
+that zero is equivalent to `Re(s) = 1/2`. Lean also proves that the unscaled
+angular correction does not tend to zero at a Genuine zero; its limit is the
+negative nonzero reflected pairing. It therefore cannot be reclassified as a
+vanishing tail.
+
+This closes the nonlocal defect factorization, but it does not silently turn
+that equality into pure Green closure. Lean separately proves
+
+```math
+\mathrm{PairBoundary}^{\mathrm{corr}}_M(s)\longrightarrow0
+\quad\Longleftrightarrow\quad
+\mathrm{Re}(s)=\frac12.
+```
+
+Accordingly, the rule that every Genuine zero closes the corrected pair
+boundary is kernel-checked to be equivalent to the existing strong
+nonvanishing frontier. The distinction between the closed tail-resolved
+defect and the still-open pure-Green activation is documented in the
+[enriched pair / tail closure audit](docs/ENRICHED_TFVD_PAIR_TAIL_CLOSURE.md).
+
+The central declarations are
+
+```lean
+finiteC3CanonicalEnrichedTfvdCorrectedPairBoundary_eq_greenForm
+finiteC3CanonicalEnrichedTfvdPairTailReadout_eq_factor_mul_genuine
+finiteC3EnrichedTfvdPairTailDefect_eq_neg_tailReadout
+finiteC3EnrichedTfvdPairTailDefect_eq_zero_iff_genuine_zero
+finiteC3TailResolvedEnrichedTfvdPairIdentity_of_genuine_zero
+finiteC3CoupledGreenFlux_sub_correctedPairBoundary_tendsto_zero_of_genuine_zero
+finiteC3CoupledGreenFlux_tendsto_radialBulk_of_genuine_zero
+finiteCanonicalAngularGreenCorrection_not_tendsto_zero_of_genuine_zero
+finiteC3CoupledGreenFlux_tendsto_zero_iff_re_eq_half_of_genuine_zero
+c3EnrichedTfvdCorrectedPairBoundaryClosesAt_iff_re_eq_half
+genuineZerosCloseC3EnrichedTfvdCorrectedPairBoundary_iff_strongNonvanishing
+```
+
+## Exact radial factorization and the remaining frontier
+
+The bracket-resolved boundary form admits the expected finite radial
+factorization. Write
+
+```math
+\delta=\mathrm{Re}(s)-\frac12,
+\qquad
+D_3(\delta)=3^\delta-3^{-\delta}.
+```
+
+Then Lean proves, for every cutoff `M` and every complex parameter `s`,
+
+```math
+\boxed{
+\mathrm{greenForm}
+\left(B_M^{\mathrm G}(s),B_M^{\mathrm G}(s^\#)\right)
+=D_3(\delta)\,\mathcal E_M^\#(s)
+}.
+```
+
+This factorization is unconditional: it mentions neither zeros nor the
+critical strip. Inside the open Genuine strip, the finite reflected pairing
+converges to a nonzero limit. Consequently, the concrete bracket-resolved
+Green form closes in the limit exactly when
+
+```math
+\mathrm{Re}(s)=\frac12.
+```
+
+The scalar Genuine zero identity has a different, equally exact consequence.
+At a Genuine zero it proves
+
+```math
+\mathrm{greenForm}
+\left(B_{3M}^{\mathrm G}(s),B_{3M}^{\mathrm G}(s^\#)\right)
++D_3(\delta)\,\mathrm{Correction}_M(s)
+\longrightarrow 0.
+```
+
+Here the correction is not a vanishing remainder: its limit is the negative
+of the infinite reflected pairing. Thus the scalar zero cancels the Green
+channel against its retained provenance channel; it does not, by itself,
+annihilate the Green channel separately. The global assertion that every
+Genuine zero closes this Green form is proved equivalent to the existing
+strong nonvanishing statement in the strip. This records the exact
+confinement frontier instead of assuming it inside the factorization.
+
+The public theorems are
+
+```lean
+greenForm_finiteC3GenuineBracketGreenBoundaryPair_eq_radialFactorization
+greenForm_finiteC3GenuineBracketGreenBoundaryPair_tendsto
+greenForm_finiteC3GenuineBracketGreenBoundaryPair_tendsto_zero_iff
+genuineZero_greenForm_add_scaledAngularCorrection_tendsto_zero
+genuineZeros_closeC3GenuineBracketGreenForm_iff_strongNonvanishing
+```
+
 ## Reflected Green form crosswalk
 
 The package also compares the reflected CP Green flux with the abstract
@@ -407,7 +1110,8 @@ assumes this limit.
 
 | Package | Revision |
 |---|---|
-| `CPFormal` | `537028681ae6a775c083a1e2fb6e67db24697b82` (`v0.62.0`) |
+| `CarryGeometry` | `1f85b8c3ab5ded27a0782956e1ada0dd8a1b6fd4` (`v0.1.0`) |
+| `CPFormal` | `65d50f6db1208708e109982ba97e1d51d3039956` (`v0.62.0-1-g65d50f6`) |
 | `NativeCarrySpectralWeyl` | `ca726315be2eb9b421c07224a07967d02d07f0fb` (`v0.53.0`) |
 | `FiniteNativeCarryOperator` | `00e9d6beb17226545abf5ddf90bbfede6c7146b0` (`v0.1.0`, transitive pin) |
 | `GreenFrame` | `cd2d838bee67ad23f869a02f8ed9f0a0feb926fa` (`v2.1.0`, transitive pin) |
