@@ -1432,6 +1432,56 @@ norm_cameraVector_prime_sq
 no_bounded_rawPrimeCameraAxis_synthesis
 ```
 
+## Full endpoint and exact Poisson return
+
+The normalized Green-frame endpoint reconstructs its bulk exactly through
+the existing Poisson operator:
+
+```math
+E x=0
+\Longrightarrow
+M(E x)=B x=0.
+```
+
+When the bulk norm realizes the structural carry--Green defect, Lean then
+derives zero defect and `Re(s) = 1/2`. The finite C3 full port has the exact
+factorization
+
+```math
+\mathrm{Bulk}_{M}(s)
+=
+\mathrm{RadialDifference}_3(s)\,
+\mathrm{ReflectedPairing}_{M}(s).
+```
+
+The endpoint must not be confused with its scalar synthesis. At a Genuine
+zero the tail-completed scalar readout is zero, while the canonical complete
+Green port remains nonzero at every nonempty cutoff. Thus the remaining
+activation condition is Green isotropy of the complete direct/reflected
+ports, not vanishing of the endpoint itself.
+
+See the [full-endpoint audit](docs/FULL_ENDPOINT_POISSON_DEFECT.md).
+
+## Universal linear-kernel guardrail
+
+On the minimal joint carrier retaining both coarse synthesis and full Green
+provenance, Lean proves
+
+```math
+\ker(\mathrm{stateReadout})
+\not\subseteq
+\ker(\mathrm{GreenBulk}).
+```
+
+The same obstruction has a witness inside the universal enriched TFVD
+transport with seed `1` and a complete block. This does not refute a theorem
+specific to the canonical Dirichlet curve; it proves that such a theorem
+must use the global one-parameter coherence of that curve and cannot follow
+from a universal linear carrier alone.
+
+See the
+[arithmetic linear-kernel audit](docs/ARITHMETIC_LINEAR_KERNEL_AUDIT.md).
+
 ## Pinned foundations
 
 | Package | Revision |

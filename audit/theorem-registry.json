@@ -969,6 +969,42 @@
     },
     {
       "qualified": "NativeCarryC3Crosswalk.simpleGenuineRoot_completedPort_traceClosure_capstone"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.normalizedFullEndpoint_zero_implies_bulk_zero"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.structuralDefect_zero_of_normalizedFullEndpoint_zero"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.re_eq_half_of_normalizedFullEndpoint_zero"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.c3FullStatePortGreenBulk_canonical"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.c3FullStatePortGreenBulk_eq_zero_of_fullEndpoint_zero"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.structuralDefect_zero_of_canonicalFullStateGreenBulk_zero"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.fullC3Endpoint_zero_structuralDefect_zero_re_eq_half"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.finiteC3GenuineFullGreenEndpoint_ne_zero"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.canonicalEnrichedTfvdFullStatePort_ne_zero"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.genuineZero_tailStateReadout_zero_fullStatePort_ne_zero"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.finiteC3Arithmetic_readoutKernel_not_le_bulkKernel"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.exists_enrichedTfvdPairTransport_valueKernel_greenPort_nonzero"
     }
   ]
 }
