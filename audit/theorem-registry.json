@@ -23,6 +23,81 @@
       "qualified": "NativeCarryC3Crosswalk.normSq_finiteBracketCharacteristic_eq_realEnergy"
     },
     {
+      "qualified": "NativeCarryC3Crosswalk.cameraBoundaryWidth_eq_halfRange"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.finiteCameraWindow_eq_slope_add_halfRange"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.cameraSlope_pos_of_supported"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.halfRange_lt_cameraSlope"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.halfRange_mem_radiusSet"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.included_center_has_both_legs_in_window"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.last_right_leg_eq_finiteCameraWindow"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.center_only_horizon_is_not_complete"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.c2_complete_horizon"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.natural_complete_horizon"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.completeCenterCount_two"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.completeCenterCount_natural"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.c2_one_complete_center_iff"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.natural_one_complete_center_iff"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.finiteCameraWindow_le_initialAtlasCompleteHorizon"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.initialAtlasCompleteHorizon_is_complete"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.cutoff_le_completeCenterCount_iff"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.completeCenterCount_is_complete"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.finiteFamilyWindow_is_camera_complete"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.finiteCoefficient_eq_zero_above_complete_horizon"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.even_endpoint_records_head_tail_incidence"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.complete_head_add_complete_center_tail"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.complete_head_add_complete_center_tail_of_mem_domain"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.complete_head_add_complete_center_tail_eq_factor_mul_nativeScalar"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.finite_head_eq_neg_complete_center_tail_of_nativeScalar_zero"
+    },
+    {
       "qualified": "NativeCarryC3Crosswalk.dirichletSpaceCoefficient_zero"
     },
     {
@@ -687,6 +762,249 @@
     },
     {
       "qualified": "NativeCarryC3Crosswalk.c3OperatorZero_positionalCompatibility_capstone"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.branchToGreenTransferCoefficient_pos"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.branchDefect_eq_neg_transfer_mul_radialDifference"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.c0GenuineBranchCompletedReadout_zero_apply"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.c0GenuineBranchCompletedReadout_one_apply"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.c0GenuineBranchCompletedReadout_two_apply"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.c0GenuineBranchCompletedReadout_inner_self"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.branchTransfer_sq_mul_c0GenuineGreenCompletedEnergy"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.c0GenuineBranchCompletedReadout_inner_self_eq_scaled_completedEnergy"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.c0GenuineBranchCompletedReadout_norm_sq_eq_scaled_completedEnergy"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.branchDefectGreenEnergy_sq_le_completedReadout_norm_sq"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.c0GenuineBranchCompletedReadout_eq_zero_iff"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.c0GenuineBranchCompletedReadout_eq_zero_iff_genuine_and_compatible"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.c0GenuineBranchCompletedReadout_eq_zero_iff_compatible_of_genuine_zero"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.c0GenuineBranchCompletedReadout_eq_zero_iff_compatible_of_tailDefect_zero"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.c3EnrichedTailBranchCompletedReadout_zero_apply"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.c3EnrichedTailBranchCompletedReadout_one_apply"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.c3EnrichedTailBranchCompletedReadout_two_apply"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.c3EnrichedTailBranchCompletedReadout_inner_self"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.c3EnrichedTailBranchCompletedReadout_norm_sq"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.c3EnrichedTailBranchCompletedReadout_norm_sq_eq_genuine_branch"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.c3EnrichedTailBranchCompletedReadout_cutoff_invariant"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.branchDefectGreenEnergy_sq_le_enrichedTailCompletedReadout_norm_sq"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.c3EnrichedTailBranchCompletedReadout_eq_zero_iff"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.c3EnrichedTailBranchCompletedReadout_eq_zero_iff_genuine_and_compatible"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.c3EnrichedTailBranchCompletedReadout_eq_zero_iff_compatible_of_tailDefect_zero"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.packageRealPlaneCameraCoreMap_apply"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.packageRealPlaneCameraHilbertMap_apply"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.extend_packageRealPlaneCameraCoreMap"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.packageRealPlane_extended_eq_zero_iff"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.normSq_packageRealPlane_extended_eq_realEnergy"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.primeCameraIndexEmbedding_apply"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.primeCameraCoreReindex_apply"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.primeCameraCoreReindex_single"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.primeCameraCoreReindex_injective"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.primeCameraGramCoreElement_coe"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.extendPrimeCameraGramCoreFunctional_apply"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.extendPrimeCameraGramCoreFunctional_norm"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.extendPrimeCameraGramCoreToHilbert_apply"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.extendPrimeCameraGramCoreToHilbert_norm"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.extendPrimeCameraGramCoreToHilbert_bound"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.extendPrimeCameraGramCoreRealPlaneMap_apply"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.extendPrimeCameraGramCoreRealPlaneMap_norm"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.extendPrimeCameraGramCoreRealPlaneToHilbert_apply"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.extendPrimeCameraGramCoreRealPlaneToHilbert_norm"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.gramKernel_primeCameraIndex_self"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.norm_cameraVector_prime_sq"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.no_bounded_rawPrimeCameraAxis_synthesis"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.branchDefect_mul_finiteReflectedGradientPairing_eq_neg_transfer_mul_greenForm"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.structuralCarryGreenDefectEnergy_nonneg"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.structuralCarryGreenDefectEnergy_eq_zero_iff_branchDefect"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.structuralCarryGreenDefectEnergy_eq_zero_iff_compatible"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.structuralCarryGreenDefectEnergy_eq_zero_iff_re_eq_half"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.structuralCarryGreenDefectEnergy_criticalLine"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.structuralCarryGreenDefectEnergy_pos_of_re_ne_half"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.structuralCarryGreenDefectEnergy_pos_iff_re_ne_half"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.structuralCarryGreenDefectEnergy_le_completedReadout_norm_sq"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.c3EnrichedTailBranchCompletedReadout_norm_sq_of_genuine_zero"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.c3EnrichedTailBranchCompletedReadout_norm_pos_of_genuine_zero_off_critical"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.c3EnrichedTailBranchCompletedReadout_eq_zero_iff_re_eq_half_of_genuine_zero"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.completedReadout_zero_implies_structuralDefect_zero"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.completedReadout_zero_implies_re_eq_half"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.genuineBracket_tfvd_green_structuralDefect_capstone"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.genuineZero_tfvd_completedStructuralResidual_capstone"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.structuralCarryGreenDefectEnergy_eq_zero_iff_massState_mem_traceDomain"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.c3EnrichedTailBranchCompletedReadout_eq_zero_iff_massState_mem_traceDomain"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.c3EnrichedTailBranchCompletedReadout_norm_pos_iff_massState_not_mem_traceDomain"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.massState_mem_traceDomain_iff_simpleRoot_globalTraceDomain"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.c3EnrichedTailBranchCompletedReadout_eq_zero_iff_simpleRoot_globalTraceDomain"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.simpleGenuineRoot_completedPort_traceClosure_capstone"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.normalizedFullEndpoint_zero_implies_bulk_zero"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.structuralDefect_zero_of_normalizedFullEndpoint_zero"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.re_eq_half_of_normalizedFullEndpoint_zero"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.c3FullStatePortGreenBulk_canonical"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.c3FullStatePortGreenBulk_eq_zero_of_fullEndpoint_zero"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.structuralDefect_zero_of_canonicalFullStateGreenBulk_zero"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.fullC3Endpoint_zero_structuralDefect_zero_re_eq_half"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.finiteC3GenuineFullGreenEndpoint_ne_zero"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.canonicalEnrichedTfvdFullStatePort_ne_zero"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.genuineZero_tailStateReadout_zero_fullStatePort_ne_zero"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.finiteC3Arithmetic_readoutKernel_not_le_bulkKernel"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.exists_enrichedTfvdPairTransport_valueKernel_greenPort_nonzero"
     }
   ]
 }

@@ -3,7 +3,7 @@
 [![Lean theorem audit](https://github.com/thiagomassensini/native-carry-c3-crosswalk/actions/workflows/lean-audit.yml/badge.svg)](https://github.com/thiagomassensini/native-carry-c3-crosswalk/actions/workflows/lean-audit.yml)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21935705.svg)](https://doi.org/10.5281/zenodo.21935705)
 
-Version `0.1.0` · Lean/Mathlib `v4.32.0` · MIT licensed
+Version `0.2.0` · Lean/Mathlib `v4.32.0` · MIT licensed
 
 Lean 4 integration layer proving that the pinned finite native real operator
 and the pinned finite bracket characteristic are literally the same finite
@@ -14,7 +14,69 @@ promotion from a concrete interval certificate to a unique stationary-root
 family.
 
 The construction introduces no new zero predicate, analytic continuation,
-limit hypothesis, or spectral assumption.
+limit hypothesis, or spectral assumption. Version `0.2.0` additionally
+records the enriched TFVD/Green carrier, camera-complete cutoffs, exact
+head--tail ledgers, the Pythagorean branch defect and the full-endpoint
+Poisson guardrail, with every remaining implication stated explicitly.
+
+The latest form-first bridge also keeps the native target in its original
+two-coordinate real plane. The C3 complex notation is used only through the
+already-proved coordinate equivalence, and the finite prime-camera core is
+embedded into the intrinsic all-bases Gram core before completion.
+
+## Camera-complete cutoffs
+
+Finite native cutoffs are now exposed explicitly as cutoffs by complete
+bracket centers. A retained center always includes every camera radius and
+both legs. The exact last positive index is
+
+~~~math
+H_2(M)=4M+1
+~~~
+
+for the aligned C2 camera, and
+
+~~~math
+H_b(M)=bM+\left\lfloor\frac b2\right\rfloor,
+\qquad b\ge3,
+~~~
+
+for a natural camera. Hence a high-base camera is active at a raw horizon
+`N` only after at least one whole cell fits:
+
+~~~math
+N\ge b+\left\lfloor\frac b2\right\rfloor.
+~~~
+
+For an initial atlas through `B`, the common camera-complete horizon for `M`
+centers is
+
+~~~math
+\max\left(4M+1,\;BM+\left\lfloor\frac B2\right\rfloor\right).
+~~~
+
+The analytic remainder is also kept at the same geometric arity. Lean proves
+before any zero hypothesis that
+
+~~~math
+\text{complete finite head}
++\text{tail of complete omitted centers}
+=\text{infinite camera}
+=a_b(s)Z_{\mathrm{native}}(s).
+~~~
+
+For even cameras, the final antipodal point is recorded with finite
+coefficient `1`; the second incidence belongs to the first omitted center
+and raises the infinite periodic coefficient to `2`. This endpoint is not
+discarded or hidden by normalization.
+
+This closes the cutoff-completeness issue and rules out artificial defects
+from severed legs. It does not assume that a scalar zero annihilates the
+remaining central Green defect: noncompensation of that enriched channel is
+still a distinct analytic gate.
+
+The definitions, exact head--tail ledger, and scope audit are in
+[geometric cutoff completeness](docs/GEOMETRIC_CUTOFF_COMPLETENESS.md).
 
 ## C0 Genuine readout and the exact Green ledger
 
@@ -661,6 +723,216 @@ c3EnrichedTfvdCorrectedPairBoundaryClosesAt_iff_re_eq_half
 genuineZerosCloseC3EnrichedTfvdCorrectedPairBoundary_iff_strongNonvanishing
 ```
 
+### Pythagorean branch / Green crosswalk
+
+The positional branch defect and the reflected radial Green difference are
+not merely zero at the same abscissa. For every prime camera and positive
+abscissa, Lean proves the exact signed factorization
+
+```math
+b_p(\sigma)
+=-\tau_p(\sigma)D_p\!\left(\sigma-\frac12\right),
+\qquad
+\tau_p(\sigma)
+=p^{-(\sigma-1/2)}\left(1-p^{-2\sigma}\right)^{-1}>0.
+```
+
+This supplies a canonical positive transfer coefficient between the existing
+quadratic carry geometry and the existing radial Green coordinate. Using the
+complete enriched-pair tail defect, Lean then forms the real Hilbert vector
+
+```math
+\mathcal C_{M,p}(s)=
+\left(
+  \tau_p\,\mathrm{Re}(D_M^{\mathrm{pair,tail}}),
+  \tau_p\,\mathrm{Im}(D_M^{\mathrm{pair,tail}}),
+  E_\infty(s)b_p(\mathrm{Re}(s))
+\right).
+```
+
+Its energy is the exact Pythagorean ledger
+
+```math
+\left\lVert\mathcal C_{M,p}(s)\right\rVert^2
+=\tau_p^2\,
+  \mathrm{normSq}\!\left(D_M^{\mathrm{pair,tail}}(s)\right)
+ +\left(E_\infty(s)b_p(\mathrm{Re}(s))\right)^2.
+```
+
+The vector is cutoff-invariant. In the open strip its kernel is exactly
+
+```math
+\mathcal C_{M,p}(s)=0
+\quad\Longleftrightarrow\quad
+\mathrm{Genuine}(s)=0
+\quad\mathrm{and}\quad
+\mathrm{C3Compatible}(\mathrm{Re}(s)).
+```
+
+Thus the construction forbids cancellation between the complete Genuine
+tail channel and the positional defect channel. It also identifies the
+remaining gate without circularity: after the tail/Genuine coordinate has
+vanished, vanishing of the completed vector is equivalent to positional
+compatibility. The tail zero alone does not annihilate that orthogonal third
+coordinate, so no unconditional confinement claim is added.
+
+The exact formulas and scope audit are in the
+[branch / Green quadratic crosswalk](docs/BRANCH_GREEN_QUADRATIC_CROSSWALK.md).
+
+The principal declarations are
+
+```lean
+branchToGreenTransferCoefficient_pos
+branchDefect_eq_neg_transfer_mul_radialDifference
+c3EnrichedTailBranchCompletedReadout_norm_sq
+c3EnrichedTailBranchCompletedReadout_norm_sq_eq_genuine_branch
+c3EnrichedTailBranchCompletedReadout_cutoff_invariant
+branchDefectGreenEnergy_sq_le_enrichedTailCompletedReadout_norm_sq
+c3EnrichedTailBranchCompletedReadout_eq_zero_iff_genuine_and_compatible
+c3EnrichedTailBranchCompletedReadout_eq_zero_iff_compatible_of_tailDefect_zero
+```
+
+### Structural carry--TFVD--Green defect principle
+
+The causal order is now packaged as a separate theorem surface. Positional
+carry defines the branch defect first. The exact C3 identity then proves that
+the differentiated bracket Green form is already the TFVD diagonal, before
+any zero or critical-line assumption. Green is therefore a later readout of
+the TFVD computation, not the source of the equilibrium.
+
+The defect is also tied directly to this same finite readout:
+
+```math
+b_3(\mathrm{Re}(s))P_M(s)
+=
+-T_3(\mathrm{Re}(s))\,
+\mathrm{greenForm}\left(B_M(s),B_M(s^\#)\right).
+```
+
+This unconditional identity shows that the structural axis is an exact
+positive rescaling of the bracket--TFVD--Green mechanism, not an unrelated
+coordinate added afterward.
+
+Define the structural Green-scale energy
+
+```math
+\mathcal D_p(s)=
+\left(E_\infty(s)b_p(\mathrm{Re}(s))\right)^2.
+```
+
+In the open strip, Lean proves
+
+```math
+\mathcal D_p(s)=0
+\quad\Longleftrightarrow\quad
+\mathrm{C3Compatible}(\mathrm{Re}(s))
+\quad\Longleftrightarrow\quad
+\mathrm{Re}(s)=\frac12,
+```
+
+and equivalently
+
+```math
+\mathcal D_p(s)>0
+\quad\Longleftrightarrow\quad
+\mathrm{Re}(s)\ne\frac12.
+```
+
+On the half-abscissa, this defect is identically zero for every phase time
+without a zero hypothesis. It is the third orthogonal coordinate of the
+tail-completed readout, so
+
+```math
+\mathcal C_{M,p}(s)=0
+\quad\Longrightarrow\quad
+\mathcal D_p(s)=0
+\quad\Longrightarrow\quad
+\mathrm{Re}(s)=\frac12.
+```
+
+This is a structural necessity theorem for the completed port: the zero does
+not create equilibrium and cannot cancel the prior defect. It does not claim
+that the scalar Genuine coordinate alone annihilates this independent third
+coordinate.
+
+What scalar vanishing does is now recorded exactly:
+
+```math
+\mathrm{Genuine}(s)=0
+\quad\Longrightarrow\quad
+\left\lVert\mathcal C_{M,p}(s)\right\rVert^2=\mathcal D_p(s).
+```
+
+Hence an off-critical scalar zero would leave a strictly positive completed
+TFVD norm entirely in the structural leg.
+
+See the
+[structural carry--TFVD--Green defect audit](docs/STRUCTURAL_TFVD_GREEN_DEFECT.md).
+
+The principal declarations are
+
+```lean
+branchDefect_mul_finiteReflectedGradientPairing_eq_neg_transfer_mul_greenForm
+structuralCarryGreenDefectEnergy_eq_zero_iff_compatible
+structuralCarryGreenDefectEnergy_criticalLine
+structuralCarryGreenDefectEnergy_pos_iff_re_ne_half
+structuralCarryGreenDefectEnergy_le_completedReadout_norm_sq
+c3EnrichedTailBranchCompletedReadout_norm_sq_of_genuine_zero
+c3EnrichedTailBranchCompletedReadout_norm_pos_of_genuine_zero_off_critical
+c3EnrichedTailBranchCompletedReadout_eq_zero_iff_re_eq_half_of_genuine_zero
+completedReadout_zero_implies_structuralDefect_zero
+completedReadout_zero_implies_re_eq_half
+genuineBracket_tfvd_green_structuralDefect_capstone
+genuineZero_tfvd_completedStructuralResidual_capstone
+```
+
+### Canonical-state trace closure
+
+The remaining analytic regularity is now expressed using objects that were
+already present in the pinned foundations. Let `m_M(s)` be the canonical
+all-prime mass endpoint and let `J_arith` be the closed arithmetic
+nonlocal trace. Before any zero is assumed, Lean proves
+
+```math
+\mathcal D_p(s)=0
+\quad\Longleftrightarrow\quad
+m_M(s)\in\mathrm{dom}(J_{\mathrm{arith}}).
+```
+
+At a scalar Genuine zero, this becomes an exact characterization of closure
+of the three-coordinate completed TFVD port:
+
+```math
+\mathcal C_{N,p}(s)=0
+\quad\Longleftrightarrow\quad
+m_M(s)\in\mathrm{dom}(J_{\mathrm{arith}}).
+```
+
+For a multiplicity-one Genuine root, the right-hand side is further
+identified with square summability of the material vertical trace of the
+canonical global root-tangent mass state already constructed in CPFormal.
+Thus the last gate is now a concrete state-specific domain theorem rather
+than an unspecified scalar-kernel transport.
+
+This crosswalk does not assert the missing domain membership. Finite TFVD
+reconstruction and Pythagorean conservation remain compatible with an
+off-domain structural leg; proving that the canonical root-derived trace is
+globally square summable is still new analytic work.
+
+See the
+[canonical-state trace closure audit](docs/CANONICAL_STATE_TRACE_CLOSURE.md).
+
+The principal declarations are
+
+```lean
+structuralCarryGreenDefectEnergy_eq_zero_iff_massState_mem_traceDomain
+c3EnrichedTailBranchCompletedReadout_eq_zero_iff_massState_mem_traceDomain
+c3EnrichedTailBranchCompletedReadout_norm_pos_iff_massState_not_mem_traceDomain
+massState_mem_traceDomain_iff_simpleRoot_globalTraceDomain
+c3EnrichedTailBranchCompletedReadout_eq_zero_iff_simpleRoot_globalTraceDomain
+simpleGenuineRoot_completedPort_traceClosure_capstone
+```
+
 ## Exact radial factorization and the remaining frontier
 
 The bracket-resolved boundary form admits the expected finite radial
@@ -1106,13 +1378,120 @@ After that explicit bridge is closed, the next analytic obligation is proving
 `Q_M → 0`; neither the enclosure interface nor the root-selection theorem
 assumes this limit.
 
+## Prime-to-all-bases camera form bridge
+
+The native real plane and its complex notation remain literally the same
+two-coordinate readout after all-bases completion. Lean proves
+
+```math
+\mathrm{extend}\!\left(\mathrm{pack}\circ q\right)
+=
+\mathrm{pack}\circ\mathrm{extend}(q),
+```
+
+so packaging preserves both zeros and quadratic energy after completion.
+
+Finite prime-camera coefficients embed injectively into `CameraFinsupp`. The
+selected prime carrier inherits the intrinsic all-bases Gram norm. Every
+bounded scalar functional on this carrier extends to `CameraHilbert` with the
+same norm. The same theorem is proved for a native real-plane readout by
+extending its two real coordinates and reassembling the pair:
+
+```math
+\widehat q\!\left(\mathrm{cameraEmbedding}(\iota_{\mathbb P}u)\right)
+=q(u),
+\qquad
+\lVert\widehat q\rVert=\lVert q\rVert.
+```
+
+Lean also computes, for every odd prime,
+
+```math
+\lVert v_p\rVert^2=p(p-1),
+```
+
+and proves that no bounded map can send the norm-one axes of the raw
+unweighted prime Hilbert space to these camera vectors. Therefore the missing
+research estimate must be stated in the intrinsic Gram norm. The actual
+enriched Green/Haar core formula and its uniform Gram bound remain the next
+analytic gate; this bridge asserts no zero-to-Green implication and no global
+confinement theorem.
+
+See the
+[prime-to-all-bases camera form audit](docs/PRIME_ALL_BASES_CAMERA_FORM.md).
+
+The principal new declarations are
+
+```lean
+extend_packageRealPlaneCameraCoreMap
+packageRealPlane_extended_eq_zero_iff
+normSq_packageRealPlane_extended_eq_realEnergy
+primeCameraCoreReindex_injective
+extendPrimeCameraGramCoreToHilbert_norm
+extendPrimeCameraGramCoreRealPlaneToHilbert_apply
+extendPrimeCameraGramCoreRealPlaneToHilbert_norm
+gramKernel_primeCameraIndex_self
+norm_cameraVector_prime_sq
+no_bounded_rawPrimeCameraAxis_synthesis
+```
+
+## Full endpoint and exact Poisson return
+
+The normalized Green-frame endpoint reconstructs its bulk exactly through
+the existing Poisson operator:
+
+```math
+E x=0
+\Longrightarrow
+M(E x)=B x=0.
+```
+
+When the bulk norm realizes the structural carry--Green defect, Lean then
+derives zero defect and `Re(s) = 1/2`. The finite C3 full port has the exact
+factorization
+
+```math
+\mathrm{Bulk}_{M}(s)
+=
+\mathrm{RadialDifference}_3(s)\,
+\mathrm{ReflectedPairing}_{M}(s).
+```
+
+The endpoint must not be confused with its scalar synthesis. At a Genuine
+zero the tail-completed scalar readout is zero, while the canonical complete
+Green port remains nonzero at every nonempty cutoff. Thus the remaining
+activation condition is Green isotropy of the complete direct/reflected
+ports, not vanishing of the endpoint itself.
+
+See the [full-endpoint audit](docs/FULL_ENDPOINT_POISSON_DEFECT.md).
+
+## Universal linear-kernel guardrail
+
+On the minimal joint carrier retaining both coarse synthesis and full Green
+provenance, Lean proves
+
+```math
+\ker(\mathrm{stateReadout})
+\not\subseteq
+\ker(\mathrm{GreenBulk}).
+```
+
+The same obstruction has a witness inside the universal enriched TFVD
+transport with seed `1` and a complete block. This does not refute a theorem
+specific to the canonical Dirichlet curve; it proves that such a theorem
+must use the global one-parameter coherence of that curve and cannot follow
+from a universal linear carrier alone.
+
+See the
+[arithmetic linear-kernel audit](docs/ARITHMETIC_LINEAR_KERNEL_AUDIT.md).
+
 ## Pinned foundations
 
 | Package | Revision |
 |---|---|
 | `CarryGeometry` | `1f85b8c3ab5ded27a0782956e1ada0dd8a1b6fd4` (`v0.1.0`) |
 | `CPFormal` | `65d50f6db1208708e109982ba97e1d51d3039956` (`v0.62.0-1-g65d50f6`) |
-| `NativeCarrySpectralWeyl` | `ca726315be2eb9b421c07224a07967d02d07f0fb` (`v0.53.0`) |
+| `NativeCarrySpectralWeyl` | `298d83c9351e308a5213b9f5ac32e44087f98a9f` (form-first extension) |
 | `FiniteNativeCarryOperator` | `00e9d6beb17226545abf5ddf90bbfede6c7146b0` (`v0.1.0`, transitive pin) |
 | `GreenFrame` | `cd2d838bee67ad23f869a02f8ed9f0a0feb926fa` (`v2.1.0`, transitive pin) |
 | Lean / Mathlib | `v4.32.0` |
@@ -1131,8 +1510,9 @@ every public theorem. The dependency allowlist is restricted to `propext`,
 `Classical.choice`, and `Quot.sound`.
 
 Versioned releases carry `CITATION.cff` and `.zenodo.json` metadata. Release
-`v0.1.0` is preserved by Zenodo under the version DOI
+`v0.1.0` remains preserved by Zenodo under the version DOI
 [`10.5281/zenodo.21935706`](https://doi.org/10.5281/zenodo.21935706). The
 concept DOI
 [`10.5281/zenodo.21935705`](https://doi.org/10.5281/zenodo.21935705) resolves
-to the latest archived version of this repository.
+to the latest archived version of this repository, including `v0.2.0` after
+the GitHub release is ingested.

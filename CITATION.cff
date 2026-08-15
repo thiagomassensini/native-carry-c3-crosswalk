@@ -8,14 +8,14 @@ authors:
 repository-code: "https://github.com/thiagomassensini/native-carry-c3-crosswalk"
 url: "https://github.com/thiagomassensini/native-carry-c3-crosswalk"
 license: MIT
-version: 0.1.0
-date-released: 2026-08-14
-doi: 10.5281/zenodo.21935706
+version: 0.2.0
+date-released: 2026-08-15
+doi: 10.5281/zenodo.21935705
 abstract: >-
-  A Lean 4 formalization of the exact finite native-to-complex C3 crosswalk,
-  the fifth-order oriented boundary jet, corrected velocity and acceleration,
-  the stationary equation, and the certified promotion from C3 localization
-  enclosures to a unique stationary-root family.
+  A Lean 4 formalization of the exact native real-to-C3 coordinate crosswalk,
+  enriched TFVD and Green transport, camera-complete cutoff and head-tail
+  identities, the Pythagorean branch-defect ledger, arithmetic nonlocal trace,
+  and full-endpoint Poisson guardrails.
 keywords:
   - Lean 4
   - formalized mathematics
@@ -25,4 +25,8 @@ keywords:
   - stationary localization
   - interval enclosure
   - real-complex crosswalk
+  - TFVD
+  - Green boundary form
+  - complete cutoffs
+  - Poisson reconstruction
   - reproducible proof audit
