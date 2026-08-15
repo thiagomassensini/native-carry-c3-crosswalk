@@ -291,6 +291,67 @@ genuineReadoutControlsPrimeGreenAtlasEnergyAt_iff_critical
 exists_primeGreenAtlas_violating_genuineReadout_majorant_of_re_ne_half
 ~~~
 
+## C3 zero versus foundational positional compatibility
+
+The frozen `carry-geometry` kernel is now imported directly. Its existing
+predicate supplies the first step without mentioning the half-abscissa:
+
+~~~math
+\mathrm{C3Compatible}(\sigma)
+\quad:=\quad
+\forall k>0,\qquad
+\left(3^{-k\sigma}\right)^2=3^{-k}.
+~~~
+
+Its purely positional rigidity theorem gives the second step:
+
+~~~math
+\mathrm{C3Compatible}(\sigma)
+\quad\Longleftrightarrow\quad
+\sigma=\frac12.
+~~~
+
+The only new transport statement is then isolated verbatim:
+
+~~~math
+\mathrm{IsNativeC3Zero}(\sigma,t)
+\quad\Longrightarrow\quad
+\mathrm{C3Compatible}(\sigma).
+~~~
+
+Lean confirms that this formulation is minimal, but does not discharge it
+from the foundational theorem. Globally on the open strip, it is equivalent
+to each previously identified form of the remaining gate:
+
+~~~math
+\mathrm{C3ZerosPreserveGeometry}
+\quad\Longleftrightarrow\quad
+\mathrm{BoundaryClosurePreservesMass}
+\quad\Longleftrightarrow\quad
+\mathrm{NativeZeroRigidity}
+\quad\Longleftrightarrow\quad
+\mathrm{GenuineStrongNonvanishingInStrip}.
+~~~
+
+Thus the decomposition removes all unnecessary machinery from the statement,
+but it does not turn scalar boundary cancellation into quadratic compatibility
+for free. The conditional capstone is proved and no unconditional confinement
+claim is made.
+
+The complete logical audit is in the
+[C3 positional-compatibility bridge](docs/C3_POSITIONAL_COMPATIBILITY_BRIDGE.md).
+
+The principal declarations are
+
+~~~lean
+C3PositionalGeometryCompatible
+c3PositionalGeometryCompatible_iff
+C3OperatorZerosPreservePositionalGeometryInStrip
+c3OperatorZero_implies_positionalCompatibility_iff_pointwise_zeroRigidity
+c3OperatorZerosPreservePositionalGeometryInStrip_iff_strongNonvanishing
+c3OperatorZero_positionalCompatibility_capstone
+~~~
+
 ## Genuine bracket → TFVD → Green, before zeros
 
 The direct construction remembered in the research chronology is now exposed
@@ -1049,6 +1110,7 @@ assumes this limit.
 
 | Package | Revision |
 |---|---|
+| `CarryGeometry` | `1f85b8c3ab5ded27a0782956e1ada0dd8a1b6fd4` (`v0.1.0`) |
 | `CPFormal` | `65d50f6db1208708e109982ba97e1d51d3039956` (`v0.62.0-1-g65d50f6`) |
 | `NativeCarrySpectralWeyl` | `ca726315be2eb9b421c07224a07967d02d07f0fb` (`v0.53.0`) |
 | `FiniteNativeCarryOperator` | `00e9d6beb17226545abf5ddf90bbfede6c7146b0` (`v0.1.0`, transitive pin) |

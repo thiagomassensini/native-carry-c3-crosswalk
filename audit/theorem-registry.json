@@ -666,6 +666,27 @@
     },
     {
       "qualified": "NativeCarryC3Crosswalk.exists_primeGreenAtlas_positive_energy_of_genuine_zero_off_critical"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.c3PositionalGeometryCompatible_iff"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.c3PositionalGeometryCompatible_iff_nativeRealPlaneMassCompatible"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.c3OperatorZero_implies_positionalCompatibility_iff_pointwise_zeroRigidity"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.c3OperatorZerosPreservePositionalGeometryInStrip_iff_boundaryClosurePreservesMass"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.c3OperatorZerosPreservePositionalGeometryInStrip_iff_nativeZeroRigidity"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.c3OperatorZerosPreservePositionalGeometryInStrip_iff_strongNonvanishing"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.c3OperatorZero_positionalCompatibility_capstone"
     }
   ]
 }

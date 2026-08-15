@@ -14,3 +14,8 @@ rev = "65d50f6db1208708e109982ba97e1d51d3039956"
 name = "NativeCarrySpectralWeyl"
 git = "https://github.com/thiagomassensini/native-carry-spectral-weyl.git"
 rev = "ca726315be2eb9b421c07224a07967d02d07f0fb"
+
+[[require]]
+name = "CarryGeometry"
+git = "https://github.com/thiagomassensini/carry-geometry.git"
+rev = "1f85b8c3ab5ded27a0782956e1ada0dd8a1b6fd4"
