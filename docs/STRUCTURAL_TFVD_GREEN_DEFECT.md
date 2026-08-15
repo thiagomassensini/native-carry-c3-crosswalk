@@ -37,6 +37,20 @@ TFVD diagonal, and the Green boundary form are one finite computation:
 Thus Green does not introduce the positional obstruction. It is a later
 boundary readout of the TFVD computation.
 
+More strongly, the branch coordinate itself is already carried by that same
+finite computation. For `Re(s) > 0`, Lean proves
+
+```math
+b_3(\mathrm{Re}(s))P_M(s)
+=
+-T_3(\mathrm{Re}(s))\,
+\mathrm{greenForm}\left(B_M(s),B_M(s^\#)\right),
+```
+
+where `P_M` is the reflected gradient pairing and `T_3` is strictly positive.
+Thus the structural coordinate is not an unrelated detector appended after
+TFVD: it is an exact rescaling of the bracket--TFVD--Green readout.
+
 ## Structural defect energy
 
 In the open strip, the infinite reflected Green energy is strictly positive.
@@ -100,6 +114,22 @@ Therefore Lean proves without a Genuine-zero hypothesis:
 \mathrm{Re}(s)=\frac12.
 ```
 
+At a scalar Genuine zero, the statement becomes even more explicit. The two
+tail/TFVD coordinates vanish and the completed norm is exactly the structural
+energy:
+
+```math
+\mathrm{Genuine}(s)=0
+\quad\Longrightarrow\quad
+\left\lVert\mathcal C_{M,p}(s)\right\rVert^2
+=\mathcal D_p(s).
+```
+
+Consequently, a hypothetical scalar zero away from the half-abscissa leaves
+a strictly positive completed norm. No cancellation with the carrier is
+possible inside this orthogonal ledger; what is not yet proved is that scalar
+vanishing must also close the completed port.
+
 This is the precise formal meaning of structural necessity: a zero of the
 completed geometric port does not push the parameter onto the equilibrium
 line. The port can vanish only after the prior positional defect has already
@@ -121,6 +151,7 @@ geometry without hiding that later gate in the definition of a zero.
 
 ```lean
 structuralCarryGreenDefectEnergy
+branchDefect_mul_finiteReflectedGradientPairing_eq_neg_transfer_mul_greenForm
 structuralCarryGreenDefectEnergy_nonneg
 structuralCarryGreenDefectEnergy_eq_zero_iff_branchDefect
 structuralCarryGreenDefectEnergy_eq_zero_iff_compatible
@@ -128,8 +159,11 @@ structuralCarryGreenDefectEnergy_eq_zero_iff_re_eq_half
 structuralCarryGreenDefectEnergy_criticalLine
 structuralCarryGreenDefectEnergy_pos_iff_re_ne_half
 structuralCarryGreenDefectEnergy_le_completedReadout_norm_sq
+c3EnrichedTailBranchCompletedReadout_norm_sq_of_genuine_zero
+c3EnrichedTailBranchCompletedReadout_norm_pos_of_genuine_zero_off_critical
+c3EnrichedTailBranchCompletedReadout_eq_zero_iff_re_eq_half_of_genuine_zero
 completedReadout_zero_implies_structuralDefect_zero
 completedReadout_zero_implies_re_eq_half
 genuineBracket_tfvd_green_structuralDefect_capstone
+genuineZero_tfvd_completedStructuralResidual_capstone
 ```
-

@@ -34,6 +34,25 @@ whether any Genuine or completed readout vanishes. -/
 def structuralCarryGreenDefectEnergy (p : ℕ) (s : ℂ) : ℝ :=
   (infiniteReflectedGreenEnergy s * branchDefect p s.re) ^ 2
 
+/-- The C3 positional defect is not an unrelated coordinate appended after
+TFVD.  At every finite cutoff it is exactly a positive transfer multiple of
+the same bracket-resolved TFVD--Green form.  This identity is valid before
+any zero, critical-line, tail, or isotropy condition is imposed. -/
+theorem branchDefect_mul_finiteReflectedGradientPairing_eq_neg_transfer_mul_greenForm
+    (M : ℕ) {s : ℂ} (hs : 0 < s.re) :
+    ((branchDefect 3 s.re : ℝ) : ℂ) *
+        finiteReflectedGradientPairing M s =
+      -((branchToGreenTransferCoefficient 3 s.re : ℝ) : ℂ) *
+        greenForm
+          (finiteC3GenuineBracketGreenBoundaryPair M s)
+          (finiteC3GenuineBracketGreenBoundaryPair M
+            (reflectedParameter s)) := by
+  rw [branchDefect_eq_neg_transfer_mul_radialDifference
+      3 (by norm_num) hs,
+    greenForm_finiteC3GenuineBracketGreenBoundaryPair_eq_radialFactorization]
+  push_cast
+  ring
+
 theorem structuralCarryGreenDefectEnergy_nonneg (p : ℕ) (s : ℂ) :
     0 ≤ structuralCarryGreenDefectEnergy p s := by
   exact sq_nonneg _
@@ -129,6 +148,56 @@ theorem structuralCarryGreenDefectEnergy_le_completedReadout_norm_sq
   exact branchDefectGreenEnergy_sq_le_enrichedTailCompletedReadout_norm_sq
     M kappa omega p s
 
+/-- At a scalar Genuine zero the two tail/TFVD coordinates disappear, so the
+completed norm is *exactly* the pre-existing structural defect energy.  The
+zero does not annihilate that energy; it merely exposes it as the only
+remaining orthogonal coordinate. -/
+theorem c3EnrichedTailBranchCompletedReadout_norm_sq_of_genuine_zero
+    (M : ℕ) {kappa : ℂ} (hkappa : kappa ≠ 0)
+    (omega : ℕ → ℂ) (homega : ∀ m, omega m ≠ 0)
+    (p : ℕ) {s : ℂ} (hs : s ∈ genuineCriticalStrip)
+    (hzero : genuineContinuation s = 0) :
+    ‖c3EnrichedTailBranchCompletedReadout M kappa omega p s‖ ^ 2 =
+      structuralCarryGreenDefectEnergy p s := by
+  rw [c3EnrichedTailBranchCompletedReadout_norm_sq_eq_genuine_branch
+    M hkappa omega homega p hs, hzero]
+  simp [structuralCarryGreenDefectEnergy]
+
+/-- Consequently, a hypothetical scalar Genuine zero away from the
+half-abscissa leaves a strictly positive completed TFVD norm. -/
+theorem c3EnrichedTailBranchCompletedReadout_norm_pos_of_genuine_zero_off_critical
+    (M : ℕ) {kappa : ℂ} (hkappa : kappa ≠ 0)
+    (omega : ℕ → ℂ) (homega : ∀ m, omega m ≠ 0)
+    (p : ℕ) (hp : Nat.Prime p)
+    {s : ℂ} (hs : s ∈ genuineCriticalStrip)
+    (hzero : genuineContinuation s = 0)
+    (hoff : s.re ≠ (1 : ℝ) / 2) :
+    0 < ‖c3EnrichedTailBranchCompletedReadout M kappa omega p s‖ := by
+  have henergy : 0 < structuralCarryGreenDefectEnergy p s :=
+    structuralCarryGreenDefectEnergy_pos_of_re_ne_half p hp hs hoff
+  have hledger :=
+    c3EnrichedTailBranchCompletedReadout_norm_sq_of_genuine_zero
+      M hkappa omega homega p hs hzero
+  have hnorm :
+      0 ≤ ‖c3EnrichedTailBranchCompletedReadout M kappa omega p s‖ :=
+    norm_nonneg _
+  nlinarith
+
+/-- Pointwise kernel statement after the scalar Genuine coordinate has
+vanished: the completed TFVD port closes exactly at positional equilibrium. -/
+theorem c3EnrichedTailBranchCompletedReadout_eq_zero_iff_re_eq_half_of_genuine_zero
+    (M : ℕ) {kappa : ℂ} (hkappa : kappa ≠ 0)
+    (omega : ℕ → ℂ) (homega : ∀ m, omega m ≠ 0)
+    (p : ℕ) (hp : Nat.Prime p)
+    {s : ℂ} (hs : s ∈ genuineCriticalStrip)
+    (hzero : genuineContinuation s = 0) :
+    c3EnrichedTailBranchCompletedReadout M kappa omega p s = 0 ↔
+      s.re = (1 : ℝ) / 2 := by
+  rw [c3EnrichedTailBranchCompletedReadout_eq_zero_iff_genuine_and_compatible
+      M hkappa omega homega p hp hs,
+    and_iff_right hzero,
+    c3PositionalGeometryCompatible_iff]
+
 /-- A zero of the enriched completed port cannot create equilibrium; it can
 only occur after the pre-existing structural defect has vanished. -/
 theorem completedReadout_zero_implies_structuralDefect_zero
@@ -172,6 +241,33 @@ theorem genuineBracket_tfvd_green_structuralDefect_capstone
     ⟨greenForm_finiteC3GenuineBracketGreenBoundaryPair_eq_tfvdDiagonal M s,
       structuralCarryGreenDefectEnergy_eq_zero_iff_compatible p hp hs,
       structuralCarryGreenDefectEnergy_pos_iff_re_ne_half p hp hs⟩
+
+/-- Zero-side mechanism capstone.  Scalar Genuine vanishing removes exactly
+the two tail/TFVD coordinates.  The remaining completed norm is the prior
+structural Green defect, and closing that full port is equivalent to the
+half-abscissa.  In particular, no scalar-to-completed implication is inserted
+into the statement. -/
+theorem genuineZero_tfvd_completedStructuralResidual_capstone
+    (M : ℕ) {kappa : ℂ} (hkappa : kappa ≠ 0)
+    (omega : ℕ → ℂ) (homega : ∀ m, omega m ≠ 0)
+    (p : ℕ) (hp : Nat.Prime p)
+    {s : ℂ} (hs : s ∈ genuineCriticalStrip)
+    (hzero : genuineContinuation s = 0) :
+    (greenForm
+        (finiteC3GenuineBracketGreenBoundaryPair M s)
+        (finiteC3GenuineBracketGreenBoundaryPair M
+          (reflectedParameter s)) =
+      finiteTfvdCpGreenDiagonal 3 M s) ∧
+    (‖c3EnrichedTailBranchCompletedReadout M kappa omega p s‖ ^ 2 =
+      structuralCarryGreenDefectEnergy p s) ∧
+    (c3EnrichedTailBranchCompletedReadout M kappa omega p s = 0 ↔
+      s.re = (1 : ℝ) / 2) := by
+  exact
+    ⟨greenForm_finiteC3GenuineBracketGreenBoundaryPair_eq_tfvdDiagonal M s,
+      c3EnrichedTailBranchCompletedReadout_norm_sq_of_genuine_zero
+        M hkappa omega homega p hs hzero,
+      c3EnrichedTailBranchCompletedReadout_eq_zero_iff_re_eq_half_of_genuine_zero
+        M hkappa omega homega p hp hs hzero⟩
 
 end
 

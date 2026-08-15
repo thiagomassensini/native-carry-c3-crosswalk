@@ -743,6 +743,19 @@ the differentiated bracket Green form is already the TFVD diagonal, before
 any zero or critical-line assumption. Green is therefore a later readout of
 the TFVD computation, not the source of the equilibrium.
 
+The defect is also tied directly to this same finite readout:
+
+```math
+b_3(\mathrm{Re}(s))P_M(s)
+=
+-T_3(\mathrm{Re}(s))\,
+\mathrm{greenForm}\left(B_M(s),B_M(s^\#)\right).
+```
+
+This unconditional identity shows that the structural axis is an exact
+positive rescaling of the bracket--TFVD--Green mechanism, not an unrelated
+coordinate added afterward.
+
 Define the structural Green-scale energy
 
 ```math
@@ -785,19 +798,35 @@ not create equilibrium and cannot cancel the prior defect. It does not claim
 that the scalar Genuine coordinate alone annihilates this independent third
 coordinate.
 
+What scalar vanishing does is now recorded exactly:
+
+```math
+\mathrm{Genuine}(s)=0
+\quad\Longrightarrow\quad
+\left\lVert\mathcal C_{M,p}(s)\right\rVert^2=\mathcal D_p(s).
+```
+
+Hence an off-critical scalar zero would leave a strictly positive completed
+TFVD norm entirely in the structural leg.
+
 See the
 [structural carry--TFVD--Green defect audit](docs/STRUCTURAL_TFVD_GREEN_DEFECT.md).
 
 The principal declarations are
 
 ```lean
+branchDefect_mul_finiteReflectedGradientPairing_eq_neg_transfer_mul_greenForm
 structuralCarryGreenDefectEnergy_eq_zero_iff_compatible
 structuralCarryGreenDefectEnergy_criticalLine
 structuralCarryGreenDefectEnergy_pos_iff_re_ne_half
 structuralCarryGreenDefectEnergy_le_completedReadout_norm_sq
+c3EnrichedTailBranchCompletedReadout_norm_sq_of_genuine_zero
+c3EnrichedTailBranchCompletedReadout_norm_pos_of_genuine_zero_off_critical
+c3EnrichedTailBranchCompletedReadout_eq_zero_iff_re_eq_half_of_genuine_zero
 completedReadout_zero_implies_structuralDefect_zero
 completedReadout_zero_implies_re_eq_half
 genuineBracket_tfvd_green_structuralDefect_capstone
+genuineZero_tfvd_completedStructuralResidual_capstone
 ```
 
 ## Exact radial factorization and the remaining frontier
