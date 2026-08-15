@@ -469,6 +469,55 @@ finiteC3EnrichedTfvdPairBoundary_sub_provenance_eq_greenForm_transport
 finiteC3EnrichedTfvdPairGreenProvenance_canonical
 ```
 
+### Nonlocal closure of the enriched pair
+
+Completing the value readout with the unresolved tail of the same bracket
+series produces a stronger universal identity. Define the corrected pair
+boundary by subtracting its explicit provenance ledger and retain
+`Outer + Tail` as the nonlocal boundary coordinate. Lean proves, for every
+cutoff and before assuming a zero,
+
+```math
+\boxed{
+D^{\mathrm{pair,tail}}_M(s)
+=-\left(Q^{\mathrm{pair}}_M(s)+T_M(s)\right)
+=-a_3(s)\,\mathrm{Genuine}(s).
+}
+```
+
+Therefore the complete tail-resolved enriched-pair defect vanishes exactly
+at a Genuine zero. At such a zero, the coupled Green ledger equals the
+corrected pair boundary plus `Outer + Tail` at every cutoff, and the retained
+boundary tends to zero.
+
+This closes the nonlocal defect factorization, but it does not silently turn
+that equality into pure Green closure. Lean separately proves
+
+```math
+\mathrm{PairBoundary}^{\mathrm{corr}}_M(s)\longrightarrow0
+\quad\Longleftrightarrow\quad
+\mathrm{Re}(s)=\frac12.
+```
+
+Accordingly, the rule that every Genuine zero closes the corrected pair
+boundary is kernel-checked to be equivalent to the existing strong
+nonvanishing frontier. The distinction between the closed tail-resolved
+defect and the still-open pure-Green activation is documented in the
+[enriched pair / tail closure audit](docs/ENRICHED_TFVD_PAIR_TAIL_CLOSURE.md).
+
+The central declarations are
+
+```lean
+finiteC3CanonicalEnrichedTfvdCorrectedPairBoundary_eq_greenForm
+finiteC3CanonicalEnrichedTfvdPairTailReadout_eq_factor_mul_genuine
+finiteC3EnrichedTfvdPairTailDefect_eq_neg_tailReadout
+finiteC3EnrichedTfvdPairTailDefect_eq_zero_iff_genuine_zero
+finiteC3TailResolvedEnrichedTfvdPairIdentity_of_genuine_zero
+finiteC3CoupledGreenFlux_sub_correctedPairBoundary_tendsto_zero_of_genuine_zero
+c3EnrichedTfvdCorrectedPairBoundaryClosesAt_iff_re_eq_half
+genuineZerosCloseC3EnrichedTfvdCorrectedPairBoundary_iff_strongNonvanishing
+```
+
 ## Exact radial factorization and the remaining frontier
 
 The bracket-resolved boundary form admits the expected finite radial

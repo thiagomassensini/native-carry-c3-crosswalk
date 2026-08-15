@@ -389,6 +389,39 @@
       "qualified": "NativeCarryC3Crosswalk.finiteC3EnrichedTfvdPairGreenProvenance_canonical"
     },
     {
+      "qualified": "NativeCarryC3Crosswalk.finiteC3CanonicalEnrichedTfvdCorrectedPairBoundary_eq_greenForm"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.finiteC3CanonicalEnrichedTfvdPairTailReadout_eq_chart"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.finiteC3CanonicalEnrichedTfvdPairTailReadout_eq_factor_mul_genuine"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.finiteC3EnrichedTfvdPairTailDefect_eq_genuineTailGreenDefect"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.finiteC3EnrichedTfvdPairTailDefect_eq_neg_tailReadout"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.finiteC3EnrichedTfvdPairTailDefect_eq_neg_factor_mul_genuine"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.finiteC3EnrichedTfvdPairTailDefect_eq_zero_iff_genuine_zero"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.finiteC3TailResolvedEnrichedTfvdPairIdentity_of_genuine_zero"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.finiteC3CoupledGreenFlux_sub_correctedPairBoundary_tendsto_zero_of_genuine_zero"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.c3EnrichedTfvdCorrectedPairBoundaryClosesAt_iff_re_eq_half"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.genuineZerosCloseC3EnrichedTfvdCorrectedPairBoundary_iff_strongNonvanishing"
+    },
+    {
       "qualified": "NativeCarryC3Crosswalk.greenForm_finiteC3GenuineBracketGreenBoundaryPair_eq_radialFactorization"
     },
     {

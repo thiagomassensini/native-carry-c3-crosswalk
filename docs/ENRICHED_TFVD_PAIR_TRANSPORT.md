@@ -117,6 +117,12 @@ the relevant limit, or equivalently that its transported port lands in the
 fixed isotropic relation. Neither assertion is inserted into the transport
 definition.
 
+The canonical unresolved tail has now been composed with this carrier. That
+follow-up proves an exact factorization of the complete tail-resolved defect
+through the tail-completed value readout. It also proves that pure corrected
+boundary closure remains exactly the half-abscissa condition. See the
+[enriched pair / tail closure audit](ENRICHED_TFVD_PAIR_TAIL_CLOSURE.md).
+
 ## Public declarations
 
 ~~~lean
