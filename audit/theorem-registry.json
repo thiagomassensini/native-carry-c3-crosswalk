@@ -23,6 +23,81 @@
       "qualified": "NativeCarryC3Crosswalk.normSq_finiteBracketCharacteristic_eq_realEnergy"
     },
     {
+      "qualified": "NativeCarryC3Crosswalk.cameraBoundaryWidth_eq_halfRange"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.finiteCameraWindow_eq_slope_add_halfRange"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.cameraSlope_pos_of_supported"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.halfRange_lt_cameraSlope"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.halfRange_mem_radiusSet"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.included_center_has_both_legs_in_window"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.last_right_leg_eq_finiteCameraWindow"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.center_only_horizon_is_not_complete"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.c2_complete_horizon"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.natural_complete_horizon"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.completeCenterCount_two"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.completeCenterCount_natural"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.c2_one_complete_center_iff"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.natural_one_complete_center_iff"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.finiteCameraWindow_le_initialAtlasCompleteHorizon"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.initialAtlasCompleteHorizon_is_complete"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.cutoff_le_completeCenterCount_iff"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.completeCenterCount_is_complete"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.finiteFamilyWindow_is_camera_complete"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.finiteCoefficient_eq_zero_above_complete_horizon"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.even_endpoint_records_head_tail_incidence"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.complete_head_add_complete_center_tail"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.complete_head_add_complete_center_tail_of_mem_domain"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.complete_head_add_complete_center_tail_eq_factor_mul_nativeScalar"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.finite_head_eq_neg_complete_center_tail_of_nativeScalar_zero"
+    },
+    {
       "qualified": "NativeCarryC3Crosswalk.dirichletSpaceCoefficient_zero"
     },
     {

@@ -21,6 +21,60 @@ two-coordinate real plane. The C3 complex notation is used only through the
 already-proved coordinate equivalence, and the finite prime-camera core is
 embedded into the intrinsic all-bases Gram core before completion.
 
+## Camera-complete cutoffs
+
+Finite native cutoffs are now exposed explicitly as cutoffs by complete
+bracket centers. A retained center always includes every camera radius and
+both legs. The exact last positive index is
+
+~~~math
+H_2(M)=4M+1
+~~~
+
+for the aligned C2 camera, and
+
+~~~math
+H_b(M)=bM+\left\lfloor\frac b2\right\rfloor,
+\qquad b\ge3,
+~~~
+
+for a natural camera. Hence a high-base camera is active at a raw horizon
+`N` only after at least one whole cell fits:
+
+~~~math
+N\ge b+\left\lfloor\frac b2\right\rfloor.
+~~~
+
+For an initial atlas through `B`, the common camera-complete horizon for `M`
+centers is
+
+~~~math
+\max\left(4M+1,\;BM+\left\lfloor\frac B2\right\rfloor\right).
+~~~
+
+The analytic remainder is also kept at the same geometric arity. Lean proves
+before any zero hypothesis that
+
+~~~math
+\text{complete finite head}
++\text{tail of complete omitted centers}
+=\text{infinite camera}
+=a_b(s)Z_{\mathrm{native}}(s).
+~~~
+
+For even cameras, the final antipodal point is recorded with finite
+coefficient `1`; the second incidence belongs to the first omitted center
+and raises the infinite periodic coefficient to `2`. This endpoint is not
+discarded or hidden by normalization.
+
+This closes the cutoff-completeness issue and rules out artificial defects
+from severed legs. It does not assume that a scalar zero annihilates the
+remaining central Green defect: noncompensation of that enriched channel is
+still a distinct analytic gate.
+
+The definitions, exact head--tail ledger, and scope audit are in
+[geometric cutoff completeness](docs/GEOMETRIC_CUTOFF_COMPLETENESS.md).
+
 ## C0 Genuine readout and the exact Green ledger
 
 The historical C2 vertical factor `C0` is exposed using the pinned

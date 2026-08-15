@@ -1,4 +1,5 @@
 import NativeCarryC3Crosswalk.FinitePackaging
+import NativeCarryC3Crosswalk.GeometricCutoffCompleteness
 import NativeCarryC3Crosswalk.C3BoundaryJet
 import NativeCarryC3Crosswalk.C3Stationary
 import NativeCarryC3Crosswalk.C3StationaryRoot
