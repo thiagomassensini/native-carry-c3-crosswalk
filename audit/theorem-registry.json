@@ -762,6 +762,72 @@
     },
     {
       "qualified": "NativeCarryC3Crosswalk.c3EnrichedTailBranchCompletedReadout_eq_zero_iff_compatible_of_tailDefect_zero"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.packageRealPlaneCameraCoreMap_apply"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.packageRealPlaneCameraHilbertMap_apply"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.extend_packageRealPlaneCameraCoreMap"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.packageRealPlane_extended_eq_zero_iff"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.normSq_packageRealPlane_extended_eq_realEnergy"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.primeCameraIndexEmbedding_apply"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.primeCameraCoreReindex_apply"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.primeCameraCoreReindex_single"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.primeCameraCoreReindex_injective"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.primeCameraGramCoreElement_coe"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.extendPrimeCameraGramCoreFunctional_apply"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.extendPrimeCameraGramCoreFunctional_norm"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.extendPrimeCameraGramCoreToHilbert_apply"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.extendPrimeCameraGramCoreToHilbert_norm"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.extendPrimeCameraGramCoreToHilbert_bound"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.extendPrimeCameraGramCoreRealPlaneMap_apply"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.extendPrimeCameraGramCoreRealPlaneMap_norm"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.extendPrimeCameraGramCoreRealPlaneToHilbert_apply"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.extendPrimeCameraGramCoreRealPlaneToHilbert_norm"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.gramKernel_primeCameraIndex_self"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.norm_cameraVector_prime_sq"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.no_bounded_rawPrimeCameraAxis_synthesis"
     }
   ]
 }

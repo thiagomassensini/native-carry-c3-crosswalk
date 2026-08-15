@@ -16,6 +16,11 @@ family.
 The construction introduces no new zero predicate, analytic continuation,
 limit hypothesis, or spectral assumption.
 
+The latest form-first bridge also keeps the native target in its original
+two-coordinate real plane. The C3 complex notation is used only through the
+already-proved coordinate equivalence, and the finite prime-camera core is
+embedded into the intrinsic all-bases Gram core before completion.
+
 ## C0 Genuine readout and the exact Green ledger
 
 The historical C2 vertical factor `C0` is exposed using the pinned
@@ -1175,13 +1180,70 @@ After that explicit bridge is closed, the next analytic obligation is proving
 `Q_M → 0`; neither the enclosure interface nor the root-selection theorem
 assumes this limit.
 
+## Prime-to-all-bases camera form bridge
+
+The native real plane and its complex notation remain literally the same
+two-coordinate readout after all-bases completion. Lean proves
+
+```math
+\mathrm{extend}\!\left(\mathrm{pack}\circ q\right)
+=
+\mathrm{pack}\circ\mathrm{extend}(q),
+```
+
+so packaging preserves both zeros and quadratic energy after completion.
+
+Finite prime-camera coefficients embed injectively into `CameraFinsupp`. The
+selected prime carrier inherits the intrinsic all-bases Gram norm. Every
+bounded scalar functional on this carrier extends to `CameraHilbert` with the
+same norm. The same theorem is proved for a native real-plane readout by
+extending its two real coordinates and reassembling the pair:
+
+```math
+\widehat q\!\left(\mathrm{cameraEmbedding}(\iota_{\mathbb P}u)\right)
+=q(u),
+\qquad
+\lVert\widehat q\rVert=\lVert q\rVert.
+```
+
+Lean also computes, for every odd prime,
+
+```math
+\lVert v_p\rVert^2=p(p-1),
+```
+
+and proves that no bounded map can send the norm-one axes of the raw
+unweighted prime Hilbert space to these camera vectors. Therefore the missing
+research estimate must be stated in the intrinsic Gram norm. The actual
+enriched Green/Haar core formula and its uniform Gram bound remain the next
+analytic gate; this bridge asserts no zero-to-Green implication and no global
+confinement theorem.
+
+See the
+[prime-to-all-bases camera form audit](docs/PRIME_ALL_BASES_CAMERA_FORM.md).
+
+The principal new declarations are
+
+```lean
+extend_packageRealPlaneCameraCoreMap
+packageRealPlane_extended_eq_zero_iff
+normSq_packageRealPlane_extended_eq_realEnergy
+primeCameraCoreReindex_injective
+extendPrimeCameraGramCoreToHilbert_norm
+extendPrimeCameraGramCoreRealPlaneToHilbert_apply
+extendPrimeCameraGramCoreRealPlaneToHilbert_norm
+gramKernel_primeCameraIndex_self
+norm_cameraVector_prime_sq
+no_bounded_rawPrimeCameraAxis_synthesis
+```
+
 ## Pinned foundations
 
 | Package | Revision |
 |---|---|
 | `CarryGeometry` | `1f85b8c3ab5ded27a0782956e1ada0dd8a1b6fd4` (`v0.1.0`) |
 | `CPFormal` | `65d50f6db1208708e109982ba97e1d51d3039956` (`v0.62.0-1-g65d50f6`) |
-| `NativeCarrySpectralWeyl` | `ca726315be2eb9b421c07224a07967d02d07f0fb` (`v0.53.0`) |
+| `NativeCarrySpectralWeyl` | `298d83c9351e308a5213b9f5ac32e44087f98a9f` (form-first extension) |
 | `FiniteNativeCarryOperator` | `00e9d6beb17226545abf5ddf90bbfede6c7146b0` (`v0.1.0`, transitive pin) |
 | `GreenFrame` | `cd2d838bee67ad23f869a02f8ed9f0a0feb926fa` (`v2.1.0`, transitive pin) |
 | Lean / Mathlib | `v4.32.0` |
