@@ -3,7 +3,7 @@
 [![Lean theorem audit](https://github.com/thiagomassensini/native-carry-c3-crosswalk/actions/workflows/lean-audit.yml/badge.svg)](https://github.com/thiagomassensini/native-carry-c3-crosswalk/actions/workflows/lean-audit.yml)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21935705.svg)](https://doi.org/10.5281/zenodo.21935705)
 
-Version `0.1.0` · Lean/Mathlib `v4.32.0` · MIT licensed
+Version `0.2.0` · Lean/Mathlib `v4.32.0` · MIT licensed
 
 Lean 4 integration layer proving that the pinned finite native real operator
 and the pinned finite bracket characteristic are literally the same finite
@@ -14,7 +14,10 @@ promotion from a concrete interval certificate to a unique stationary-root
 family.
 
 The construction introduces no new zero predicate, analytic continuation,
-limit hypothesis, or spectral assumption.
+limit hypothesis, or spectral assumption. Version `0.2.0` additionally
+records the enriched TFVD/Green carrier, camera-complete cutoffs, exact
+head--tail ledgers, the Pythagorean branch defect and the full-endpoint
+Poisson guardrail, with every remaining implication stated explicitly.
 
 The latest form-first bridge also keeps the native target in its original
 two-coordinate real plane. The C3 complex notation is used only through the
@@ -1507,8 +1510,9 @@ every public theorem. The dependency allowlist is restricted to `propext`,
 `Classical.choice`, and `Quot.sound`.
 
 Versioned releases carry `CITATION.cff` and `.zenodo.json` metadata. Release
-`v0.1.0` is preserved by Zenodo under the version DOI
+`v0.1.0` remains preserved by Zenodo under the version DOI
 [`10.5281/zenodo.21935706`](https://doi.org/10.5281/zenodo.21935706). The
 concept DOI
 [`10.5281/zenodo.21935705`](https://doi.org/10.5281/zenodo.21935705) resolves
-to the latest archived version of this repository.
+to the latest archived version of this repository, including `v0.2.0` after
+the GitHub release is ingested.
