@@ -661,6 +661,75 @@ c3EnrichedTfvdCorrectedPairBoundaryClosesAt_iff_re_eq_half
 genuineZerosCloseC3EnrichedTfvdCorrectedPairBoundary_iff_strongNonvanishing
 ```
 
+### Pythagorean branch / Green crosswalk
+
+The positional branch defect and the reflected radial Green difference are
+not merely zero at the same abscissa. For every prime camera and positive
+abscissa, Lean proves the exact signed factorization
+
+```math
+b_p(\sigma)
+=-\tau_p(\sigma)D_p\!\left(\sigma-\frac12\right),
+\qquad
+\tau_p(\sigma)
+=p^{-(\sigma-1/2)}\left(1-p^{-2\sigma}\right)^{-1}>0.
+```
+
+This supplies a canonical positive transfer coefficient between the existing
+quadratic carry geometry and the existing radial Green coordinate. Using the
+complete enriched-pair tail defect, Lean then forms the real Hilbert vector
+
+```math
+\mathcal C_{M,p}(s)=
+\left(
+  \tau_p\,\mathrm{Re}(D_M^{\mathrm{pair,tail}}),
+  \tau_p\,\mathrm{Im}(D_M^{\mathrm{pair,tail}}),
+  E_\infty(s)b_p(\mathrm{Re}(s))
+\right).
+```
+
+Its energy is the exact Pythagorean ledger
+
+```math
+\left\lVert\mathcal C_{M,p}(s)\right\rVert^2
+=\tau_p^2\,
+  \mathrm{normSq}\!\left(D_M^{\mathrm{pair,tail}}(s)\right)
+ +\left(E_\infty(s)b_p(\mathrm{Re}(s))\right)^2.
+```
+
+The vector is cutoff-invariant. In the open strip its kernel is exactly
+
+```math
+\mathcal C_{M,p}(s)=0
+\quad\Longleftrightarrow\quad
+\mathrm{Genuine}(s)=0
+\quad\mathrm{and}\quad
+\mathrm{C3Compatible}(\mathrm{Re}(s)).
+```
+
+Thus the construction forbids cancellation between the complete Genuine
+tail channel and the positional defect channel. It also identifies the
+remaining gate without circularity: after the tail/Genuine coordinate has
+vanished, vanishing of the completed vector is equivalent to positional
+compatibility. The tail zero alone does not annihilate that orthogonal third
+coordinate, so no unconditional confinement claim is added.
+
+The exact formulas and scope audit are in the
+[branch / Green quadratic crosswalk](docs/BRANCH_GREEN_QUADRATIC_CROSSWALK.md).
+
+The principal declarations are
+
+```lean
+branchToGreenTransferCoefficient_pos
+branchDefect_eq_neg_transfer_mul_radialDifference
+c3EnrichedTailBranchCompletedReadout_norm_sq
+c3EnrichedTailBranchCompletedReadout_norm_sq_eq_genuine_branch
+c3EnrichedTailBranchCompletedReadout_cutoff_invariant
+branchDefectGreenEnergy_sq_le_enrichedTailCompletedReadout_norm_sq
+c3EnrichedTailBranchCompletedReadout_eq_zero_iff_genuine_and_compatible
+c3EnrichedTailBranchCompletedReadout_eq_zero_iff_compatible_of_tailDefect_zero
+```
+
 ## Exact radial factorization and the remaining frontier
 
 The bracket-resolved boundary form admits the expected finite radial
