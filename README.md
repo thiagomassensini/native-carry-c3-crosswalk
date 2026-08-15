@@ -829,6 +829,53 @@ genuineBracket_tfvd_green_structuralDefect_capstone
 genuineZero_tfvd_completedStructuralResidual_capstone
 ```
 
+### Canonical-state trace closure
+
+The remaining analytic regularity is now expressed using objects that were
+already present in the pinned foundations. Let `m_M(s)` be the canonical
+all-prime mass endpoint and let `J_arith` be the closed arithmetic
+nonlocal trace. Before any zero is assumed, Lean proves
+
+```math
+\mathcal D_p(s)=0
+\quad\Longleftrightarrow\quad
+m_M(s)\in\mathrm{dom}(J_{\mathrm{arith}}).
+```
+
+At a scalar Genuine zero, this becomes an exact characterization of closure
+of the three-coordinate completed TFVD port:
+
+```math
+\mathcal C_{N,p}(s)=0
+\quad\Longleftrightarrow\quad
+m_M(s)\in\mathrm{dom}(J_{\mathrm{arith}}).
+```
+
+For a multiplicity-one Genuine root, the right-hand side is further
+identified with square summability of the material vertical trace of the
+canonical global root-tangent mass state already constructed in CPFormal.
+Thus the last gate is now a concrete state-specific domain theorem rather
+than an unspecified scalar-kernel transport.
+
+This crosswalk does not assert the missing domain membership. Finite TFVD
+reconstruction and Pythagorean conservation remain compatible with an
+off-domain structural leg; proving that the canonical root-derived trace is
+globally square summable is still new analytic work.
+
+See the
+[canonical-state trace closure audit](docs/CANONICAL_STATE_TRACE_CLOSURE.md).
+
+The principal declarations are
+
+```lean
+structuralCarryGreenDefectEnergy_eq_zero_iff_massState_mem_traceDomain
+c3EnrichedTailBranchCompletedReadout_eq_zero_iff_massState_mem_traceDomain
+c3EnrichedTailBranchCompletedReadout_norm_pos_iff_massState_not_mem_traceDomain
+massState_mem_traceDomain_iff_simpleRoot_globalTraceDomain
+c3EnrichedTailBranchCompletedReadout_eq_zero_iff_simpleRoot_globalTraceDomain
+simpleGenuineRoot_completedPort_traceClosure_capstone
+```
+
 ## Exact radial factorization and the remaining frontier
 
 The bracket-resolved boundary form admits the expected finite radial

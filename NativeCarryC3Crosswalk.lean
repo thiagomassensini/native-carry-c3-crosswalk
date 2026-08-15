@@ -20,3 +20,4 @@ import NativeCarryC3Crosswalk.ArithmeticNonlocalTrace
 import NativeCarryC3Crosswalk.RealPlaneCameraExtension
 import NativeCarryC3Crosswalk.PrimeAllBasesCameraForm
 import NativeCarryC3Crosswalk.StructuralTfvdGreenDefect
+import NativeCarryC3Crosswalk.CanonicalStateTraceClosure

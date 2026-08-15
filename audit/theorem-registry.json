@@ -876,6 +876,24 @@
     },
     {
       "qualified": "NativeCarryC3Crosswalk.genuineZero_tfvd_completedStructuralResidual_capstone"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.structuralCarryGreenDefectEnergy_eq_zero_iff_massState_mem_traceDomain"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.c3EnrichedTailBranchCompletedReadout_eq_zero_iff_massState_mem_traceDomain"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.c3EnrichedTailBranchCompletedReadout_norm_pos_iff_massState_not_mem_traceDomain"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.massState_mem_traceDomain_iff_simpleRoot_globalTraceDomain"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.c3EnrichedTailBranchCompletedReadout_eq_zero_iff_simpleRoot_globalTraceDomain"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.simpleGenuineRoot_completedPort_traceClosure_capstone"
     }
   ]
 }
