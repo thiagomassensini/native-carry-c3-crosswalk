@@ -226,6 +226,71 @@ no_finiteC3_boundaryDefect_factorization_through_coarse
 genuineZero_to_arithmeticNonlocalTrace_domain_iff_strongNonvanishing
 ~~~
 
+## Genuine control of the existing quadratic carry energy
+
+No new norm is needed for the coercive side of noncompensation. For every
+nonempty cutoff and every prime camera, Lean proves
+
+~~~math
+\left\lVert
+  \mathrm{primeGreenBulkFiniteState}(M,s,\{p\})
+\right\rVert^2=0
+\quad\Longleftrightarrow\quad
+\mathrm{branchDefect}(p,\mathrm{Re}(s))=0
+\quad\Longleftrightarrow\quad
+\mathrm{Re}(s)=\frac12.
+~~~
+
+Thus one existing camera norm already detects the unique quadratic
+equilibrium. The unresolved direction is the upper transport from the scalar
+Genuine readout to that energy. The direct candidate is
+
+~~~math
+\kappa
+\left\lVert
+  \mathrm{primeGreenBulkFiniteState}(M,s,\{p\})
+\right\rVert^2
+\le
+\mathrm{normSq}\!\left(a_3(s)\,\mathrm{Genuine}(s)\right),
+\qquad \kappa>0.
+~~~
+
+At a Genuine zero, Lean proves that such a positive-coefficient estimate
+holds if and only if `Re(s) = 1/2`. Requiring it at every Genuine zero is
+therefore equivalent to `GenuineStrongNonvanishingInStrip`; it is not supplied
+silently by the existing Pythagorean identity.
+
+The uniform-atlas version is even more rigid. For every nonempty cutoff,
+
+~~~math
+\exists C\ge0,\ \forall S,\quad
+\left\lVert
+  \mathrm{primeGreenBulkFiniteState}(M,s,S)
+\right\rVert^2
+\le C\,\mathrm{normSq}\!\left(a_3(s)\,\mathrm{Genuine}(s)\right)
+\quad\Longleftrightarrow\quad
+\mathrm{Re}(s)=\frac12.
+~~~
+
+Off the half-abscissa, every proposed scalar majorant is exceeded by some
+finite prime atlas. This establishes that the existing norm is the correct
+detector and isolates the sole remaining theorem as scalar-to-Hilbert
+noncompensation, rather than norm construction.
+
+The exact statements and scope guard are documented in the
+[Genuine carry-energy control audit](docs/GENUINE_CARRY_ENERGY_CONTROL_AUDIT.md).
+
+The principal declarations are
+
+~~~lean
+primeGreenBulkSingletonEnergy_eq_zero_iff_branchDefect_eq_zero
+primeGreenBulkSingletonEnergy_eq_zero_iff_re_eq_half
+genuineReadoutCoercivelyControlsSingletonCarryEnergyAt_iff_re_eq_half_of_zero
+genuineZerosHaveCoerciveSingletonCarryEnergyControl_iff_strongNonvanishing
+genuineReadoutControlsPrimeGreenAtlasEnergyAt_iff_critical
+exists_primeGreenAtlas_violating_genuineReadout_majorant_of_re_ne_half
+~~~
+
 ## Genuine bracket → TFVD → Green, before zeros
 
 The direct construction remembered in the research chronology is now exposed

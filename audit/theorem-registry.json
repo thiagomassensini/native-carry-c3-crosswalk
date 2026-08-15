@@ -633,6 +633,39 @@
     },
     {
       "qualified": "NativeCarryC3Crosswalk.genuineZero_to_arithmeticNonlocalTrace_domain_iff_strongNonvanishing"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.primeGreenBulkSingletonEnergy_eq_zero_iff_branchDefect_eq_zero"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.primeGreenBulkSingletonEnergy_eq_zero_iff_re_eq_half"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.genuineReadoutControlsSingletonCarryEnergyAt_iff_re_eq_half_of_zero"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.genuineReadoutCoercivelyControlsSingletonCarryEnergyAt_iff_re_eq_half_of_zero"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.genuineZerosControlSingletonCarryEnergy_iff_strongNonvanishing"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.genuineZerosHaveCoerciveSingletonCarryEnergyControl_iff_strongNonvanishing"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.genuineReadoutControlsPrimeGreenAtlasEnergyAt_iff_critical"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.genuineReadoutControlsPrimeGreenAtlasEnergyAt_iff_branchNormSq"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.exists_primeGreenAtlas_violating_scalar_majorant_of_re_ne_half"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.exists_primeGreenAtlas_violating_genuineReadout_majorant_of_re_ne_half"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.exists_primeGreenAtlas_positive_energy_of_genuine_zero_off_critical"
     }
   ]
 }
