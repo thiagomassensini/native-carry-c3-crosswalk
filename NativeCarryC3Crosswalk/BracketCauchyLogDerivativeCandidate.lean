@@ -551,17 +551,32 @@ def c3CauchyComplexCoefficient (lambda : ℂ) (x : ℝ) : ℂ :=
 /-- The two real Cauchy blocks are exactly the negative Mathlib resolvent
 kernel after passage to logarithmic spectral coordinates. -/
 theorem c3CauchyComplexCoefficient_eq_neg_resolvent
-    (lambda : ℂ) (_hlambda : lambda.im ≠ 0) (x : ℝ) :
+    (lambda : ℂ) (hlambda : lambda.im ≠ 0) (x : ℝ) :
     c3CauchyComplexCoefficient lambda x =
       -resolvent lambda (logarithmicCoordinate x) := by
-  apply Complex.ext <;>
-    simp [c3CauchyComplexCoefficient, resolvent,
-      Ring.inverse_eq_inv',
-      logarithmicResolventRealCoefficient,
-      logarithmicResolventImaginaryCoefficient,
-      logarithmicResolventDenominator,
-      Complex.normSq_apply] <;>
-    ring
+  have hmul :
+      (lambda - (logarithmicCoordinate x : ℂ)) *
+          c3CauchyComplexCoefficient lambda x = 1 := by
+    apply Complex.ext
+    · simpa [c3CauchyComplexCoefficient, mul_comm] using
+        logarithmicResolventCoefficient_real_identity
+          hlambda x
+    · simpa [c3CauchyComplexCoefficient, add_comm,
+        mul_comm] using
+        logarithmicResolventCoefficient_imaginary_identity
+          lambda x
+  calc
+    c3CauchyComplexCoefficient lambda x =
+        (lambda - (logarithmicCoordinate x : ℂ))⁻¹ :=
+      eq_inv_of_mul_eq_one_right hmul
+    _ = -resolvent lambda (logarithmicCoordinate x) := by
+      rw [resolvent, Ring.inverse_eq_inv']
+      have hsub :
+          ((logarithmicCoordinate x : ℂ) - lambda) =
+            -(lambda - (logarithmicCoordinate x : ℂ)) := by
+        ring
+      rw [hsub, inv_neg]
+      simp
 
 /-- The assembled C3 coefficient is integrable against the finite base
 measure at every nonreal spectral parameter. -/
@@ -635,11 +650,15 @@ theorem c3CauchyScalarAt_eq_neg_resolventTransform
                 lambda hlambda x
     _ = ∫ y, -resolvent lambda y
           ∂c3CauchySpectralMeasure := by
+            have hmeasurable :
+                Measurable
+                  (fun y : ℝ =>
+                    -resolvent lambda y) :=
+              MeasureTheory.measurable_resolvent.neg
             rw [c3CauchySpectralMeasure,
               integral_map
                 measurable_logarithmicCoordinate.aemeasurable
-                (MeasureTheory.measurable_resolvent.neg
-                  .aestronglyMeasurable)]
+                hmeasurable.aestronglyMeasurable]
     _ = -MeasureTheory.resolventTransform
           c3CauchySpectralMeasure lambda := by
             rw [MeasureTheory.resolventTransform_apply,
