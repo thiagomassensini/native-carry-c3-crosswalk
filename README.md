@@ -24,6 +24,24 @@ two-coordinate real plane. The C3 complex notation is used only through the
 already-proved coordinate equivalence, and the finite prime-camera core is
 embedded into the intrinsic all-bases Gram core before completion.
 
+
+## Global relational bracket law
+
+The common invariant is now packaged explicitly across the native real,
+analytic bracket, Genuine, TFVD, Green, structural-energy, and arithmetic
+trace presentations. Lean distinguishes the scalar bracket value, which a
+Genuine zero annihilates, from the differentiated Green bracket, whose
+closure is exactly zero tilt.
+
+Pointwise, the closed-trace domain, maximal Green-isotropic graph, Green
+bracket closure, vanishing structural defect, and \(\operatorname{Re}(s)=1/2\)
+are equivalent presentations. Globally, activating trace admissibility or
+Green-bracket closure at every Genuine zero is proved equivalent to
+GenuineStrongNonvanishingInStrip. No activation implication is assumed.
+
+The statements and exact scope are recorded in the
+[global relational law of the bracket](docs/BRACKET_GLOBAL_RELATIONAL_LAW.md).
+
 ## Camera-complete cutoffs
 
 Finite native cutoffs are now exposed explicitly as cutoffs by complete

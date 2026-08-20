@@ -1005,6 +1005,36 @@
     },
     {
       "qualified": "NativeCarryC3Crosswalk.exists_enrichedTfvdPairTransport_valueKernel_greenPort_nonzero"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.finiteNativeGenuineTfvdGreenBracketLaw"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.genuineZero_scalarBracketChart_eq_zero"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.c3GenuineBracketGreenClosesAt_iff_re_eq_half"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.primeMassGreenBulkState_mem_traceDomain_iff_c3GenuineBracketGreenClosesAt"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.structuralCarryGreenDefectEnergy_eq_zero_iff_c3GenuineBracketGreenClosesAt"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.canonicalMassTraceDomain_realizesBracketLaw"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.genuineZero_bracketRelationalLaw"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.genuineZerosCloseC3GenuineBracketGreenForm_iff_strongNonvanishing"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.genuineZerosLieInTraceDomain_iff_closeC3GenuineBracketGreenForm"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.genuineBracket_global_relational_capstone"
     }
   ]
 }
