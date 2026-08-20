@@ -480,6 +480,196 @@ theorem c3CauchyImaginaryQuadratic_eq_integral
       real_inner_smul_self_right, pow_two]
   · simp [hx]
 
+/-- The real C3 quadratic form is integration of the real resolvent
+coefficient against the canonical finite base measure. -/
+theorem c3CauchyRealQuadratic_eq_baseMeasure_integral
+    (lambda : ℂ) (hlambda : lambda.im ≠ 0) :
+    inner ℝ c3CauchyCameraVector
+        (allBasesCauchyRealPart lambda hlambda
+          c3CauchyCameraVector) =
+      ∫ x, logarithmicResolventRealCoefficient lambda x
+        ∂c3CauchyBaseMeasure := by
+  rw [c3CauchyRealQuadratic_eq_integral]
+  unfold c3CauchyBaseMeasure
+  rw [integral_smul_nnreal_measure]
+  change
+    (∫ x,
+      (cameraInterval c3CauchyCamera).indicator
+        (fun y =>
+          logarithmicResolventRealCoefficient lambda y *
+            (c3CauchyKolmogorovMass : ℝ)) x
+      ∂positiveLebesgueMeasure) =
+      (c3CauchyKolmogorovMass : ℝ) *
+        ∫ x, logarithmicResolventRealCoefficient lambda x
+          ∂positiveLebesgueMeasure.restrict
+            (cameraInterval c3CauchyCamera)
+  rw [← integral_const_mul,
+    ← integral_indicator (cameraInterval_measurable c3CauchyCamera)]
+  apply integral_congr_ae
+  filter_upwards with x
+  by_cases hx : x ∈ cameraInterval c3CauchyCamera
+  · simp [hx, mul_comm]
+  · simp [hx]
+
+/-- The imaginary C3 quadratic form is integration of the imaginary resolvent
+coefficient against the canonical finite base measure. -/
+theorem c3CauchyImaginaryQuadratic_eq_baseMeasure_integral
+    (lambda : ℂ) (hlambda : lambda.im ≠ 0) :
+    inner ℝ c3CauchyCameraVector
+        (allBasesCauchyImaginaryPart lambda hlambda
+          c3CauchyCameraVector) =
+      ∫ x, logarithmicResolventImaginaryCoefficient lambda x
+        ∂c3CauchyBaseMeasure := by
+  rw [c3CauchyImaginaryQuadratic_eq_integral]
+  unfold c3CauchyBaseMeasure
+  rw [integral_smul_nnreal_measure]
+  change
+    (∫ x,
+      (cameraInterval c3CauchyCamera).indicator
+        (fun y =>
+          logarithmicResolventImaginaryCoefficient lambda y *
+            (c3CauchyKolmogorovMass : ℝ)) x
+      ∂positiveLebesgueMeasure) =
+      (c3CauchyKolmogorovMass : ℝ) *
+        ∫ x, logarithmicResolventImaginaryCoefficient lambda x
+          ∂positiveLebesgueMeasure.restrict
+            (cameraInterval c3CauchyCamera)
+  rw [← integral_const_mul,
+    ← integral_indicator (cameraInterval_measurable c3CauchyCamera)]
+  apply integral_congr_ae
+  filter_upwards with x
+  by_cases hx : x ∈ cameraInterval c3CauchyCamera
+  · simp [hx, mul_comm]
+  · simp [hx]
+
+/-- Complex scalar coefficient assembled from the two real Cauchy blocks. -/
+def c3CauchyComplexCoefficient (lambda : ℂ) (x : ℝ) : ℂ :=
+  (logarithmicResolventRealCoefficient lambda x : ℂ) +
+    (logarithmicResolventImaginaryCoefficient lambda x : ℂ) *
+      Complex.I
+
+/-- The two real Cauchy blocks are exactly the negative Mathlib resolvent
+kernel after passage to logarithmic spectral coordinates. -/
+theorem c3CauchyComplexCoefficient_eq_neg_resolvent
+    (lambda : ℂ) (_hlambda : lambda.im ≠ 0) (x : ℝ) :
+    c3CauchyComplexCoefficient lambda x =
+      -resolvent lambda (logarithmicCoordinate x) := by
+  apply Complex.ext <;>
+    simp [c3CauchyComplexCoefficient, resolvent,
+      Ring.inverse_eq_inv',
+      logarithmicResolventRealCoefficient,
+      logarithmicResolventImaginaryCoefficient,
+      logarithmicResolventDenominator,
+      Complex.normSq_apply] <;>
+    ring
+
+/-- The assembled C3 coefficient is integrable against the finite base
+measure at every nonreal spectral parameter. -/
+theorem c3CauchyComplexCoefficient_integrable
+    (lambda : ℂ) (hlambda : lambda.im ≠ 0) :
+    Integrable (c3CauchyComplexCoefficient lambda)
+      c3CauchyBaseMeasure := by
+  have hnot :
+      lambda ∉ algebraMap ℝ ℂ ''
+        c3CauchySpectralMeasure.support := by
+    rintro ⟨x, _hx, rfl⟩
+    simp at hlambda
+  have hresolvent :
+      Integrable (resolvent lambda)
+        c3CauchySpectralMeasure :=
+    MeasureTheory.integrable_resolvent hnot
+  have hcomposed :
+      Integrable
+        (fun x : ℝ =>
+          resolvent lambda (logarithmicCoordinate x))
+        c3CauchyBaseMeasure := by
+    rw [c3CauchySpectralMeasure] at hresolvent
+    exact
+      (integrable_map_measure
+        MeasureTheory.measurable_resolvent.aestronglyMeasurable
+        measurable_logarithmicCoordinate.aemeasurable).1
+          hresolvent
+  have heq :
+      c3CauchyComplexCoefficient lambda =
+        fun x : ℝ =>
+          -resolvent lambda (logarithmicCoordinate x) := by
+    funext x
+    exact c3CauchyComplexCoefficient_eq_neg_resolvent
+      lambda hlambda x
+  rw [heq]
+  exact hcomposed.neg
+
+/-- The scalar C3 compression is the complex coefficient integral against
+the canonical base measure. -/
+theorem c3CauchyScalarAt_eq_baseMeasure_integral
+    (lambda : ℂ) (hlambda : lambda.im ≠ 0) :
+    c3CauchyScalarAt lambda hlambda =
+      ∫ x, c3CauchyComplexCoefficient lambda x
+        ∂c3CauchyBaseMeasure := by
+  rw [c3CauchyScalarAt,
+    c3CauchyRealQuadratic_eq_baseMeasure_integral,
+    c3CauchyImaginaryQuadratic_eq_baseMeasure_integral]
+  simpa [c3CauchyComplexCoefficient] using
+    (integral_re_add_im
+      (c3CauchyComplexCoefficient_integrable
+        lambda hlambda))
+
+/-- The scalar C3 compression is the negative resolvent transform of the
+canonical finite logarithmic spectral measure. -/
+theorem c3CauchyScalarAt_eq_neg_resolventTransform
+    (lambda : ℂ) (hlambda : lambda.im ≠ 0) :
+    c3CauchyScalarAt lambda hlambda =
+      -MeasureTheory.resolventTransform
+        c3CauchySpectralMeasure lambda := by
+  rw [c3CauchyScalarAt_eq_baseMeasure_integral]
+  calc
+    (∫ x, c3CauchyComplexCoefficient lambda x
+        ∂c3CauchyBaseMeasure) =
+        ∫ x,
+          -resolvent lambda (logarithmicCoordinate x)
+          ∂c3CauchyBaseMeasure := by
+            apply integral_congr_ae
+            filter_upwards with x
+            exact
+              c3CauchyComplexCoefficient_eq_neg_resolvent
+                lambda hlambda x
+    _ = ∫ y, -resolvent lambda y
+          ∂c3CauchySpectralMeasure := by
+            rw [c3CauchySpectralMeasure,
+              integral_map
+                measurable_logarithmicCoordinate.aemeasurable
+                (MeasureTheory.measurable_resolvent.neg
+                  .aestronglyMeasurable)]
+    _ = -MeasureTheory.resolventTransform
+          c3CauchySpectralMeasure lambda := by
+            rw [MeasureTheory.resolventTransform_apply,
+              integral_neg]
+
+/-- Off the half-abscissa, the fixed C3 candidate has its canonical finite
+spectral-measure representation. -/
+theorem c3BracketCauchyLogDerivativeCandidate_eq_neg_resolventTransform
+    {s : ℂ} (hoff : s.re ≠ (1 : ℝ) / 2) :
+    c3BracketCauchyLogDerivativeCandidate s =
+      -MeasureTheory.resolventTransform
+        c3CauchySpectralMeasure
+          (c3BracketSpectralParameter s) := by
+  have hheight :
+      (c3BracketSpectralParameter s).im ≠ 0 :=
+    (c3BracketSpectralParameter_im_ne_zero_iff s).2 hoff
+  unfold c3BracketCauchyLogDerivativeCandidate
+  rw [c3CauchyScalarReadout_eq _ hheight]
+  exact c3CauchyScalarAt_eq_neg_resolventTransform
+    _ hheight
+
+/-- Canonical finite spectral-measure certificate for the fixed C3 Cauchy
+candidate. -/
+def c3CauchyCanonicalFiniteSpectralMeasureRepresentation :
+    C3CauchyFiniteSpectralMeasureRepresentation where
+  measure := c3CauchySpectralMeasure
+  finiteMeasure := inferInstance
+  readout_eq_offCritical :=
+    c3BracketCauchyLogDerivativeCandidate_eq_neg_resolventTransform
+
 end
 
 end NativeCarryC3Crosswalk
