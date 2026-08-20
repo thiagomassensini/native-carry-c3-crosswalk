@@ -21,10 +21,10 @@ python3 -m json.tool .zenodo.json >/dev/null
 test -s CITATION.cff
 test -s LICENSE
 test -s NOTICE
-version="$(awk -F '\"' '/^version = / { print $2 }' lakefile.toml)"
+version="$(awk -F '"' '/^version = / { print $2 }' lakefile.toml)"
 test -n "$version"
 grep -q "^version: $version$" CITATION.cff
-grep -q "\\\"version\\\": \\\"$version\\\"" .zenodo.json
+grep -Fq "\"version\": \"$version\"" .zenodo.json
 test -s ".release/v${version}.md"
 python3 scripts/check_github_markdown.py
 bash -n scripts/audit.sh scripts/static_audit.sh
