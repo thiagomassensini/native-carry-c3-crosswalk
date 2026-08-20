@@ -3,7 +3,7 @@
 [![Lean theorem audit](https://github.com/thiagomassensini/native-carry-c3-crosswalk/actions/workflows/lean-audit.yml/badge.svg)](https://github.com/thiagomassensini/native-carry-c3-crosswalk/actions/workflows/lean-audit.yml)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21935705.svg)](https://doi.org/10.5281/zenodo.21935705)
 
-Version `0.2.0` · Lean/Mathlib `v4.32.0` · MIT licensed
+Version `0.3.0` · Lean/Mathlib `v4.32.0` · MIT licensed
 
 Lean 4 integration layer proving that the pinned finite native real operator
 and the pinned finite bracket characteristic are literally the same finite
@@ -14,15 +14,35 @@ promotion from a concrete interval certificate to a unique stationary-root
 family.
 
 The construction introduces no new zero predicate, analytic continuation,
-limit hypothesis, or spectral assumption. Version `0.2.0` additionally
-records the enriched TFVD/Green carrier, camera-complete cutoffs, exact
-head--tail ledgers, the Pythagorean branch defect and the full-endpoint
-Poisson guardrail, with every remaining implication stated explicitly.
+limit hypothesis, or spectral assumption. Version `0.3.0` additionally formalizes the relational bracket law, the
+multiplicity-independent analytic-order reduction, a canonical finite C3
+spectral certificate, and the exact polarized two-variable raw C3
+Green--gamma identity. It also proves that the uncalibrated raw positive
+Cauchy readout is not the completed Genuine logarithmic derivative and keeps
+the completed trace identity as the explicit remaining gate.
 
 The latest form-first bridge also keeps the native target in its original
 two-coordinate real plane. The C3 complex notation is used only through the
 already-proved coordinate equivalence, and the finite prime-camera core is
 embedded into the intrinsic all-bases Gram core before completion.
+
+
+## Global relational bracket law
+
+The common invariant is now packaged explicitly across the native real,
+analytic bracket, Genuine, TFVD, Green, structural-energy, and arithmetic
+trace presentations. Lean distinguishes the scalar bracket value, which a
+Genuine zero annihilates, from the differentiated Green bracket, whose
+closure is exactly zero tilt.
+
+Pointwise, the closed-trace domain, maximal Green-isotropic graph, Green
+bracket closure, vanishing structural defect, and `Re(s) = 1/2`
+are equivalent presentations. Globally, activating trace admissibility or
+Green-bracket closure at every Genuine zero is proved equivalent to
+GenuineStrongNonvanishingInStrip. No activation implication is assumed.
+
+The statements and exact scope are recorded in the
+[global relational law of the bracket](docs/BRACKET_GLOBAL_RELATIONAL_LAW.md).
 
 ## Camera-complete cutoffs
 
@@ -1514,5 +1534,5 @@ Versioned releases carry `CITATION.cff` and `.zenodo.json` metadata. Release
 [`10.5281/zenodo.21935706`](https://doi.org/10.5281/zenodo.21935706). The
 concept DOI
 [`10.5281/zenodo.21935705`](https://doi.org/10.5281/zenodo.21935705) resolves
-to the latest archived version of this repository, including `v0.2.0` after
+to the latest archived version of this repository, including `v0.3.0` after
 the GitHub release is ingested.
