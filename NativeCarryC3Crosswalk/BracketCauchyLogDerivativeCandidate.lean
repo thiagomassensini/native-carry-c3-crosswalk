@@ -1,5 +1,6 @@
 import Mathlib.MeasureTheory.Measure.ResolventTransform
 import CPFormal.Analytic.CpNativeCarrySpectrumExhaustion
+import CPFormal.Analytic.CpGenuineRiemannZetaIdentification
 import NativeCarrySpectralWeyl.Infinite.Cauchy
 import NativeCarryC3Crosswalk.BracketLogDerivativeConfinement
 
@@ -35,6 +36,7 @@ open CPFormal.Analytic.Cp
 open NativeCarrySpectralWeyl.Infinite
 open MeasureTheory Measure
 open Filter
+open ComplexConjugate
 
 noncomputable section
 
@@ -682,6 +684,121 @@ def c3CauchyCanonicalFiniteSpectralMeasureRepresentation :
   finiteMeasure := inferInstance
   readout_eq_offCritical :=
     c3BracketCauchyLogDerivativeCandidate_eq_neg_resolventTransform
+
+
+/-! ## Real-axis compatibility audit of the raw Cauchy readout -/
+
+/-- On the open critical strip, the Genuine continuation obeys Schwarz
+conjugation. -/
+theorem genuineContinuation_conj_on_strip
+    {s : ℂ} (hs : s ∈ genuineCriticalStrip) :
+    genuineContinuation (conj s) =
+      conj (genuineContinuation s) := by
+  have hconj : conj s ∈ genuineCriticalStrip := by
+    constructor
+    · simpa using hs.1
+    · simpa using hs.2
+  rw [genuineContinuation_eq_riemannZeta hconj,
+    genuineContinuation_eq_riemannZeta hs]
+  exact riemannZeta_conj s
+
+/-- The Genuine continuation is real-valued on the real part of the open
+critical strip. -/
+theorem genuineContinuation_ofReal_im_eq_zero
+    {sigma : ℝ} (hzero : 0 < sigma) (hone : sigma < 1) :
+    (genuineContinuation (sigma : ℂ)).im = 0 := by
+  have hstrip : (sigma : ℂ) ∈ genuineCriticalStrip := by
+    constructor <;> simpa
+  have hsymmetry :=
+    genuineContinuation_conj_on_strip hstrip
+  have him := congrArg Complex.im hsymmetry
+  simp at him
+  linarith
+
+/-- The complex derivative of the Genuine continuation is real on the real
+part of the open critical strip. -/
+theorem deriv_genuineContinuation_ofReal_im_eq_zero
+    {sigma : ℝ} (hzero : 0 < sigma) (hone : sigma < 1) :
+    (deriv genuineContinuation (sigma : ℂ)).im = 0 := by
+  have hstrip : (sigma : ℂ) ∈ genuineCriticalStrip := by
+    constructor <;> simpa
+  have hopen : genuineCriticalStrip ∈ 𝓝 (sigma : ℂ) := by
+    have hopenStrip : IsOpen genuineCriticalStrip := by
+      change IsOpen {z : ℂ | 0 < z.re ∧ z.re < 1}
+      exact
+        (isOpen_lt continuous_const Complex.continuous_re).inter
+          (isOpen_lt Complex.continuous_re continuous_const)
+    exact hopenStrip.mem_nhds hstrip
+  have hsymmetry :
+      (conj ∘ genuineContinuation ∘ conj) =ᶠ[𝓝 (sigma : ℂ)]
+        genuineContinuation := by
+    filter_upwards [hopen] with z hz
+    simp only [Function.comp_apply]
+    rw [genuineContinuation_conj_on_strip hz]
+    simp
+  have hderiv :
+      deriv (conj ∘ genuineContinuation ∘ conj) (sigma : ℂ) =
+        deriv genuineContinuation (sigma : ℂ) :=
+    hsymmetry.deriv_eq
+  rw [deriv_conj_conj] at hderiv
+  have hfixed :
+      conj (deriv genuineContinuation (sigma : ℂ)) =
+        deriv genuineContinuation (sigma : ℂ) := by
+    simpa [Function.comp_apply] using hderiv
+  have him := congrArg Complex.im hfixed
+  simp at him
+  linarith
+
+/-- The raw positive-measure C3 Cauchy compression cannot satisfy the proposed
+Genuine differential identity.  At the real point `3/4`, the Genuine value
+and derivative are real and the Genuine value is nonzero, while the raw Cauchy
+readout has strictly positive imaginary part. -/
+theorem not_c3CauchyGenuineDifferentialIdentity :
+    ¬ C3CauchyGenuineDifferentialIdentity := by
+  intro hODE
+  let s : ℂ := ((3 / 4 : ℝ) : ℂ)
+  have hstrip : s ∈ genuineCriticalStrip := by
+    constructor <;> norm_num [s]
+  have hoff : s.re ≠ (1 : ℝ) / 2 := by
+    norm_num [s]
+  have hpoint := (hODE hstrip hoff).eq_of_nhds
+  change
+    deriv genuineContinuation s =
+      -(c3BracketCauchyLogDerivativeCandidate s *
+        genuineContinuation s) at hpoint
+  have hgenuineIm :
+      (genuineContinuation s).im = 0 := by
+    simpa [s] using
+      genuineContinuation_ofReal_im_eq_zero
+        (sigma := (3 / 4 : ℝ)) (by norm_num) (by norm_num)
+  have hderivIm :
+      (deriv genuineContinuation s).im = 0 := by
+    simpa [s] using
+      deriv_genuineContinuation_ofReal_im_eq_zero
+        (sigma := (3 / 4 : ℝ)) (by norm_num) (by norm_num)
+  have hgenuineNe :
+      genuineContinuation s ≠ 0 := by
+    simpa [s] using
+      genuineContinuation_ofReal_ne_zero
+        (sigma := (3 / 4 : ℝ)) (by norm_num) (by norm_num)
+  have hgenuineRe :
+      (genuineContinuation s).re ≠ 0 := by
+    intro hre
+    apply hgenuineNe
+    apply Complex.ext
+    · simpa using hre
+    · simpa using hgenuineIm
+  have hcauchyPos :
+      0 < (c3BracketCauchyLogDerivativeCandidate s).im :=
+    c3BracketCauchyLogDerivativeCandidate_im_pos_of_half_lt_re
+      (s := s) (by norm_num [s])
+  have himEquality := congrArg Complex.im hpoint
+  have hproduct :
+      (c3BracketCauchyLogDerivativeCandidate s).im *
+          (genuineContinuation s).re = 0 := by
+    simp [Complex.mul_im, hgenuineIm, hderivIm] at himEquality
+    linarith
+  exact (mul_ne_zero hcauchyPos.ne' hgenuineRe) hproduct
 
 end
 
