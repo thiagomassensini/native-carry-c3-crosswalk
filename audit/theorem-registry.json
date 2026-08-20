@@ -1139,6 +1139,9 @@
       "qualified": "NativeCarryC3Crosswalk.c3BracketCauchyLogDerivativeCandidate_eq_neg_resolventTransform"
     },
     {
+      "qualified": "NativeCarryC3Crosswalk.c3CauchyCanonicalFiniteSpectralMeasureRepresentation"
+    },
+    {
       "qualified": "NativeCarryC3Crosswalk.genuineContinuation_conj_on_strip"
     },
     {
