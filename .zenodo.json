@@ -1,11 +1,11 @@
 {
   "title": "Native Carry C3 Crosswalk",
-  "description": "Lean 4 formalization of the exact native real-to-C3 coordinate crosswalk, enriched TFVD and Green transport, camera-complete cutoff and head-tail identities, the Pythagorean branch-defect ledger, arithmetic nonlocal trace, and full-endpoint Poisson guardrails.",
+  "description": "Lean 4 formalization of the exact native real-to-C3 coordinate crosswalk, enriched TFVD and Green transport, and the global relational bracket route. Version 0.3.0 adds the multiplicity-independent analytic-order reduction, the canonical finite C3 spectral certificate, the exact no-go theorem for the raw positive scalar Cauchy readout, and the polarized two-variable raw C3 Green--gamma identity. The completed trace identity remains an explicit open gate; no unconditional global confinement theorem is promoted.",
   "upload_type": "software",
   "access_right": "open",
   "license": "MIT",
-  "version": "0.2.0",
-  "publication_date": "2026-08-15",
+  "version": "0.3.0",
+  "publication_date": "2026-08-20",
   "language": "eng",
   "creators": [
     {
@@ -25,7 +25,11 @@
     "Green boundary form",
     "complete cutoffs",
     "Poisson reconstruction",
-    "reproducible proof audit"
+    "reproducible proof audit",
+    "relational bracket law",
+    "finite spectral certificate",
+    "Green-gamma identity",
+    "logarithmic derivative audit"
   ],
   "related_identifiers": [
     {
