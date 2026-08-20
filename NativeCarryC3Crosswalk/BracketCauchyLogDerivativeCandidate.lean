@@ -573,6 +573,8 @@ theorem c3CauchyComplexCoefficient_eq_neg_resolvent
       eq_inv_of_mul_eq_one_right hmul
     _ = -resolvent lambda (logarithmicCoordinate x) := by
       rw [resolvent, Ring.inverse_eq_inv', ← inv_neg, neg_sub]
+      congr 1
+      apply Complex.ext <;> simp
 
 /-- The assembled C3 coefficient is integrable against the finite base
 measure at every nonreal spectral parameter. -/
@@ -780,7 +782,7 @@ theorem not_c3CauchyGenuineDifferentialIdentity :
       genuineContinuation s ≠ 0 := by
     simpa [s] using
       genuineContinuation_ofReal_ne_zero
-        (sigma := (3 / 4 : ℝ)) (by norm_num) (by norm_num)
+        (σ := (3 / 4 : ℝ)) (by norm_num) (by norm_num)
   have hgenuineRe :
       (genuineContinuation s).re ≠ 0 := by
     intro hre
@@ -793,12 +795,10 @@ theorem not_c3CauchyGenuineDifferentialIdentity :
     c3BracketCauchyLogDerivativeCandidate_im_pos_of_half_lt_re
       (s := s) (by norm_num [s])
   have himEquality := congrArg Complex.im hpoint
-  have hproduct :
-      (c3BracketCauchyLogDerivativeCandidate s).im *
-          (genuineContinuation s).re = 0 := by
-    simp [Complex.mul_im, hgenuineIm, hderivIm] at himEquality
-    linarith
-  exact (mul_ne_zero hcauchyPos.ne' hgenuineRe) hproduct
+  simp [Complex.mul_im, hgenuineIm, hderivIm] at himEquality
+  rcases himEquality with hcauchyZero | hgenuineZero
+  · exact hcauchyPos.ne' hcauchyZero
+  · exact hgenuineRe hgenuineZero
 
 end
 
