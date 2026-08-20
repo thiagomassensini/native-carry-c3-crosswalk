@@ -304,7 +304,14 @@ theorem analyticAt_neg_resolventTransform_comp_c3BracketSpectralParameter
     analyticAt_resolventTransform_realMeasure_of_im_ne_zero mu hheight
   have hcomp :=
     houter.comp (analyticAt_c3BracketSpectralParameter s)
-  simpa only [Function.comp_apply] using hcomp.neg
+  exact hcomp.neg.congr
+    (Filter.Eventually.of_forall fun z => by
+      change
+        -(MeasureTheory.resolventTransform mu
+            (c3BracketSpectralParameter z)) =
+          -MeasureTheory.resolventTransform mu
+            (c3BracketSpectralParameter z)
+      rfl)
 
 /-- A finite spectral-measure representation of the already fixed C3 Cauchy
 candidate.  This is representation data, not a new choice of logarithmic
@@ -362,7 +369,7 @@ def C3CauchyGenuineDifferentialIdentity : Prop :=
 
 /-- A finite spectral-measure representation plus the arithmetic differential
 identity fills the concrete C3 identification. -/
-def C3CauchyBracketLogDerivativeIdentification.ofSpectralMeasure
+theorem C3CauchyBracketLogDerivativeIdentification.ofSpectralMeasure
     (model : C3CauchyFiniteSpectralMeasureRepresentation)
     (hODE : C3CauchyGenuineDifferentialIdentity) :
     C3CauchyBracketLogDerivativeIdentification where
