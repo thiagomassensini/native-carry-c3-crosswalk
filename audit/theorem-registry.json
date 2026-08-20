@@ -1089,6 +1089,27 @@
     },
     {
       "qualified": "NativeCarryC3Crosswalk.genuineZerosCloseC3GenuineBracketGreenForm_of_c3CauchyBracketIdentification"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.c3BracketSpectralParameter_eq_affine"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.analyticAt_c3BracketSpectralParameter"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.analyticAt_resolventTransform_realMeasure_of_im_ne_zero"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.analyticAt_neg_resolventTransform_comp_c3BracketSpectralParameter"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.C3CauchyFiniteSpectralMeasureRepresentation.eventuallyEq_offCritical"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.C3CauchyFiniteSpectralMeasureRepresentation.analyticAt_offCritical"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.genuineStrongNonvanishingInStrip_of_c3CauchySpectralMeasure_and_differentialIdentity"
     }
   ]
 }

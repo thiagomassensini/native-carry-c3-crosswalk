@@ -1,3 +1,4 @@
+import Mathlib.MeasureTheory.Measure.ResolventTransform
 import CPFormal.Analytic.CpNativeCarrySpectrumExhaustion
 import NativeCarrySpectralWeyl.Infinite.Cauchy
 import NativeCarryC3Crosswalk.BracketLogDerivativeConfinement
@@ -237,6 +238,141 @@ theorem genuineZerosCloseC3GenuineBracketGreenForm_of_c3CauchyBracketIdentificat
     GenuineZerosCloseC3GenuineBracketGreenForm :=
   genuineZerosCloseC3GenuineBracketGreenForm_of_regularBracketLogDerivative
     identification.toRegularBridge
+
+
+/-! ## Finite spectral-measure certificate for off-axis analyticity -/
+
+/-- The intrinsic height coordinate is the holomorphic affine map
+`-I * (s - 1/2)`. -/
+theorem c3BracketSpectralParameter_eq_affine (s : ℂ) :
+    c3BracketSpectralParameter s =
+      -Complex.I * (s - (1 / 2 : ℂ)) := by
+  apply Complex.ext <;>
+    simp [c3BracketSpectralParameter, carryComplexTimeOfParameter,
+      criticalDisplacement] <;> ring
+
+/-- The intrinsic height coordinate is analytic everywhere. -/
+theorem analyticAt_c3BracketSpectralParameter (s : ℂ) :
+    AnalyticAt ℂ c3BracketSpectralParameter s := by
+  have haffine :
+      AnalyticAt ℂ
+        (fun z : ℂ => -Complex.I * (z - (1 / 2 : ℂ))) s := by
+    fun_prop
+  exact haffine.congr
+    (Filter.Eventually.of_forall fun z =>
+      (c3BracketSpectralParameter_eq_affine z).symm)
+
+/-- The resolvent transform of a finite real measure is analytic at every
+nonreal parameter. -/
+theorem analyticAt_resolventTransform_realMeasure_of_im_ne_zero
+    (mu : Measure ℝ) [IsFiniteMeasure mu]
+    {lambda : ℂ} (hlambda : lambda.im ≠ 0) :
+    AnalyticAt ℂ (MeasureTheory.resolventTransform mu) lambda := by
+  have hnot :
+      lambda ∉ algebraMap ℝ ℂ '' mu.support := by
+    rintro ⟨x, _hx, rfl⟩
+    simp at hlambda
+  have hopen :
+      IsOpen (algebraMap ℝ ℂ '' mu.support)ᶜ := by
+    apply isOpen_compl_iff.mpr
+    refine
+      (Topology.IsClosedEmbedding.isClosed_iff_image_isClosed ?_).mp
+        Measure.isClosed_support
+    exact (algebraMap_isometry ℝ ℂ).isClosedEmbedding
+  exact
+    (MeasureTheory.analyticOn_resolventTransform (mu := mu)).analyticAt
+      (hopen.mem_nhds hnot)
+
+/-- Composing a finite real spectral measure's resolvent transform with the
+intrinsic height coordinate gives an analytic off-critical function.  The
+minus sign matches the convention `(lambda - y)⁻¹` used by the native Cauchy
+operator. -/
+theorem analyticAt_neg_resolventTransform_comp_c3BracketSpectralParameter
+    (mu : Measure ℝ) [IsFiniteMeasure mu]
+    {s : ℂ} (hoff : s.re ≠ (1 : ℝ) / 2) :
+    AnalyticAt ℂ
+      (fun z : ℂ =>
+        -MeasureTheory.resolventTransform mu
+          (c3BracketSpectralParameter z)) s := by
+  have hheight :
+      (c3BracketSpectralParameter s).im ≠ 0 :=
+    (c3BracketSpectralParameter_im_ne_zero_iff s).2 hoff
+  have houter :
+      AnalyticAt ℂ (MeasureTheory.resolventTransform mu)
+        (c3BracketSpectralParameter s) :=
+    analyticAt_resolventTransform_realMeasure_of_im_ne_zero mu hheight
+  have hcomp :=
+    houter.comp (analyticAt_c3BracketSpectralParameter s)
+  simpa only [Function.comp_apply] using hcomp.neg
+
+/-- A finite spectral-measure representation of the already fixed C3 Cauchy
+candidate.  This is representation data, not a new choice of logarithmic
+derivative. -/
+structure C3CauchyFiniteSpectralMeasureRepresentation where
+  measure : Measure ℝ
+  finiteMeasure : IsFiniteMeasure measure
+  readout_eq_offCritical :
+    ∀ {s : ℂ}, s.re ≠ (1 : ℝ) / 2 →
+      c3BracketCauchyLogDerivativeCandidate s =
+        -MeasureTheory.resolventTransform measure
+          (c3BracketSpectralParameter s)
+
+/-- The pointwise spectral-measure representation is an equality of germs at
+every off-critical point. -/
+theorem C3CauchyFiniteSpectralMeasureRepresentation.eventuallyEq_offCritical
+    (model : C3CauchyFiniteSpectralMeasureRepresentation)
+    {s : ℂ} (hoff : s.re ≠ (1 : ℝ) / 2) :
+    c3BracketCauchyLogDerivativeCandidate =ᶠ[𝓝 s]
+      fun z : ℂ =>
+        -MeasureTheory.resolventTransform model.measure
+          (c3BracketSpectralParameter z) := by
+  have hopen :
+      IsOpen {z : ℂ | z.re ≠ (1 : ℝ) / 2} :=
+    isOpen_ne Complex.continuous_re continuous_const
+  filter_upwards [hopen.mem_nhds hoff] with z hz
+  exact model.readout_eq_offCritical hz
+
+/-- A finite spectral-measure representation discharges off-critical
+analyticity of the concrete C3 Cauchy candidate. -/
+theorem C3CauchyFiniteSpectralMeasureRepresentation.analyticAt_offCritical
+    (model : C3CauchyFiniteSpectralMeasureRepresentation)
+    {s : ℂ} (hoff : s.re ≠ (1 : ℝ) / 2) :
+    AnalyticAt ℂ c3BracketCauchyLogDerivativeCandidate s := by
+  letI : IsFiniteMeasure model.measure := model.finiteMeasure
+  have hresolvent :=
+    analyticAt_neg_resolventTransform_comp_c3BracketSpectralParameter
+      model.measure hoff
+  exact hresolvent.congr
+    (model.eventuallyEq_offCritical hoff).symm
+
+/-- The remaining arithmetic statement after the Cauchy candidate and its
+spectral-measure regularity have been fixed. -/
+def C3CauchyGenuineDifferentialIdentity : Prop :=
+  ∀ {s : ℂ}, s ∈ genuineCriticalStrip →
+    s.re ≠ (1 : ℝ) / 2 →
+      deriv genuineContinuation =ᶠ[𝓝 s]
+        -(c3BracketCauchyLogDerivativeCandidate * genuineContinuation)
+
+/-- A finite spectral-measure representation plus the arithmetic differential
+identity fills the concrete C3 identification. -/
+def C3CauchyBracketLogDerivativeIdentification.ofSpectralMeasure
+    (model : C3CauchyFiniteSpectralMeasureRepresentation)
+    (hODE : C3CauchyGenuineDifferentialIdentity) :
+    C3CauchyBracketLogDerivativeIdentification where
+  analyticAt_offCritical := by
+    intro s _hs hoff
+    exact model.analyticAt_offCritical hoff
+  differential_identity := hODE
+
+/-- After the spectral-measure representation, the arithmetic differential
+identity alone closes strong nonvanishing. -/
+theorem genuineStrongNonvanishingInStrip_of_c3CauchySpectralMeasure_and_differentialIdentity
+    (model : C3CauchyFiniteSpectralMeasureRepresentation)
+    (hODE : C3CauchyGenuineDifferentialIdentity) :
+    GenuineStrongNonvanishingInStrip :=
+  genuineStrongNonvanishingInStrip_of_c3CauchyBracketIdentification
+    (C3CauchyBracketLogDerivativeIdentification.ofSpectralMeasure
+      model hODE)
 
 end
 
