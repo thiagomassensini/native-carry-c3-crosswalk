@@ -570,13 +570,7 @@ theorem c3CauchyComplexCoefficient_eq_neg_resolvent
         (lambda - (logarithmicCoordinate x : ℂ))⁻¹ :=
       eq_inv_of_mul_eq_one_right hmul
     _ = -resolvent lambda (logarithmicCoordinate x) := by
-      rw [resolvent, Ring.inverse_eq_inv']
-      have hsub :
-          ((logarithmicCoordinate x : ℂ) - lambda) =
-            -(lambda - (logarithmicCoordinate x : ℂ)) := by
-        ring
-      rw [hsub, inv_neg]
-      simp
+      rw [resolvent, Ring.inverse_eq_inv', ← inv_neg, neg_sub]
 
 /-- The assembled C3 coefficient is integrable against the finite base
 measure at every nonreal spectral parameter. -/
