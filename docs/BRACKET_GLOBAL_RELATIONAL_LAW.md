@@ -13,7 +13,7 @@ flux and the TFVD diagonal. The same form has the exact factorization
 ~~~math
 B_M(s)
 =
-\Delta_3\!\left(\operatorname{Re}(s)-\frac12\right)
+\Delta_3\!\left(\mathrm{Re}(s)-\frac12\right)
 P_M(s).
 ~~~
 
@@ -35,9 +35,9 @@ must not be conflated.
 Inside the open Genuine strip,
 
 ~~~math
-\operatorname{Chart}_3(s)
+\mathrm{Chart}_3(s)
 =
-a_3(s)\operatorname{Genuine}(s),
+a_3(s)\mathrm{Genuine}(s),
 \qquad a_3(s)\ne0.
 ~~~
 
@@ -53,7 +53,7 @@ The differentiated Green bracket instead satisfies
 ~~~math
 B_\infty(s)=0
 \quad\Longleftrightarrow\quad
-\operatorname{Re}(s)=\frac12,
+\mathrm{Re}(s)=\frac12,
 ~~~
 
 because the limiting reflected pairing is nonzero. This is exposed through
@@ -78,7 +78,7 @@ state, Lean proves the pointwise law
 \quad\Longleftrightarrow\quad
 B_\infty(s)=0
 \quad\Longleftrightarrow\quad
-\operatorname{Re}(s)=\frac12.
+\mathrm{Re}(s)=\frac12.
 ~~~
 
 The first equivalence is
@@ -108,7 +108,7 @@ of one pointwise condition.
 At a Genuine zero, Lean now packages the exact distinction:
 
 ~~~math
-\operatorname{Chart}_3(s)=0,
+\mathrm{Chart}_3(s)=0,
 ~~~
 
 while
@@ -118,7 +118,7 @@ while
 \quad\Longleftrightarrow\quad
 B_\infty(s)=0
 \quad\Longleftrightarrow\quad
-\operatorname{Re}(s)=\frac12.
+\mathrm{Re}(s)=\frac12.
 ~~~
 
 The declaration is

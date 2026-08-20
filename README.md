@@ -34,7 +34,7 @@ Genuine zero annihilates, from the differentiated Green bracket, whose
 closure is exactly zero tilt.
 
 Pointwise, the closed-trace domain, maximal Green-isotropic graph, Green
-bracket closure, vanishing structural defect, and \(\operatorname{Re}(s)=1/2\)
+bracket closure, vanishing structural defect, and `Re(s) = 1/2`
 are equivalent presentations. Globally, activating trace admissibility or
 Green-bracket closure at every Genuine zero is proved equivalent to
 GenuineStrongNonvanishingInStrip. No activation implication is assumed.
