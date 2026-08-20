@@ -8,14 +8,17 @@ authors:
 repository-code: "https://github.com/thiagomassensini/native-carry-c3-crosswalk"
 url: "https://github.com/thiagomassensini/native-carry-c3-crosswalk"
 license: MIT
-version: 0.2.0
-date-released: 2026-08-15
+version: 0.3.0
+date-released: 2026-08-20
 doi: 10.5281/zenodo.21935705
 abstract: >-
   A Lean 4 formalization of the exact native real-to-C3 coordinate crosswalk,
-  enriched TFVD and Green transport, camera-complete cutoff and head-tail
-  identities, the Pythagorean branch-defect ledger, arithmetic nonlocal trace,
-  and full-endpoint Poisson guardrails.
+  enriched TFVD and Green transport, and the global relational bracket route.
+  Version 0.3.0 adds the multiplicity-independent analytic-order reduction,
+  the canonical finite C3 spectral certificate, the exact no-go theorem for
+  the raw positive scalar Cauchy readout, and the polarized two-variable raw
+  C3 Green--gamma identity, while retaining the completed trace identity as
+  an explicit open gate.
 keywords:
   - Lean 4
   - formalized mathematics
@@ -30,3 +33,7 @@ keywords:
   - complete cutoffs
   - Poisson reconstruction
   - reproducible proof audit
+  - relational bracket law
+  - finite spectral certificate
+  - Green-gamma identity
+  - logarithmic derivative audit
