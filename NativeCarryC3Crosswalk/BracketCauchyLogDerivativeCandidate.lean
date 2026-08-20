@@ -26,6 +26,8 @@ the Genuine continuation.  Supplying those two facts constructs the previous
 bridge without choosing any further function.
 -/
 
+open scoped Topology
+
 namespace NativeCarryC3Crosswalk
 
 open CPFormal.Analytic.Cp
