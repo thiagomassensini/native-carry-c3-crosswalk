@@ -1035,6 +1035,30 @@
     },
     {
       "qualified": "NativeCarryC3Crosswalk.genuineBracket_global_relational_capstone"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.isPreconnected_genuineCriticalStrip"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.analyticOrderAt_genuineContinuation_ne_top"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.no_zero_of_regular_analytic_logDerivative"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.regular_analytic_logDerivative_impossible_at_zero"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.genuineContinuation_ne_zero_offCritical_of_regularBracketLogDerivative"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.genuineZero_re_eq_half_of_regularBracketLogDerivative"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.genuineStrongNonvanishingInStrip_of_regularBracketLogDerivative"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.genuineZerosCloseC3GenuineBracketGreenForm_of_regularBracketLogDerivative"
     }
   ]
 }
