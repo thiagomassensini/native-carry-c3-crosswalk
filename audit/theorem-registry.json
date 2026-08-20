@@ -1059,6 +1059,36 @@
     },
     {
       "qualified": "NativeCarryC3Crosswalk.genuineZerosCloseC3GenuineBracketGreenForm_of_regularBracketLogDerivative"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.c3CauchyCameraVector_ne_zero"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.c3CauchyScalarReadout_im_neg"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.c3CauchyScalarReadout_im_pos"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.c3BracketSpectralParameter_im_ne_zero_iff"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.c3BracketCauchyLogDerivativeCandidate_im_neg_of_re_lt_half"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.c3BracketCauchyLogDerivativeCandidate_im_pos_of_half_lt_re"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.c3BracketCauchyLogDerivativeCandidate_ne_zero_of_re_ne_half"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.genuineZero_re_eq_half_of_c3CauchyBracketIdentification"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.genuineStrongNonvanishingInStrip_of_c3CauchyBracketIdentification"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.genuineZerosCloseC3GenuineBracketGreenForm_of_c3CauchyBracketIdentification"
     }
   ]
 }
