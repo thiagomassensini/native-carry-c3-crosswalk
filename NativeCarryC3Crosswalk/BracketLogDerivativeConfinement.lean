@@ -58,9 +58,9 @@ theorem isPreconnected_genuineCriticalStrip :
     · rcases eq_or_lt_of_le hb with rfl | hbPos
       · have haOne : a = 1 := by linarith
         simpa [haOne] using hz.2
-      · have hleft : a * z.re ≤ a :=
+      · have hleft : a * z.re ≤ a * 1 :=
           mul_le_mul_of_nonneg_left (le_of_lt hz.2) ha
-        have hright : b * w.re < b :=
+        have hright : b * w.re < b * 1 :=
           mul_lt_mul_of_pos_left hw.2 hbPos
         linarith
   exact hconv.isPreconnected
