@@ -33,6 +33,7 @@ namespace NativeCarryC3Crosswalk
 
 open CPFormal.Analytic.Cp
 open NativeCarrySpectralWeyl.Infinite
+open MeasureTheory Measure
 open Filter
 
 noncomputable section
@@ -249,7 +250,7 @@ theorem c3BracketSpectralParameter_eq_affine (s : ℂ) :
       -Complex.I * (s - (1 / 2 : ℂ)) := by
   apply Complex.ext <;>
     simp [c3BracketSpectralParameter, carryComplexTimeOfParameter,
-      criticalDisplacement] <;> ring
+      criticalDisplacement]
 
 /-- The intrinsic height coordinate is analytic everywhere. -/
 theorem analyticAt_c3BracketSpectralParameter (s : ℂ) :
@@ -280,7 +281,7 @@ theorem analyticAt_resolventTransform_realMeasure_of_im_ne_zero
         Measure.isClosed_support
     exact (algebraMap_isometry ℝ ℂ).isClosedEmbedding
   exact
-    (MeasureTheory.analyticOn_resolventTransform (mu := mu)).analyticAt
+    (MeasureTheory.analyticOn_resolventTransform (μ := mu)).analyticAt
       (hopen.mem_nhds hnot)
 
 /-- Composing a finite real spectral measure's resolvent transform with the
@@ -326,11 +327,17 @@ theorem C3CauchyFiniteSpectralMeasureRepresentation.eventuallyEq_offCritical
       fun z : ℂ =>
         -MeasureTheory.resolventTransform model.measure
           (c3BracketSpectralParameter z) := by
-  have hopen :
-      IsOpen {z : ℂ | z.re ≠ (1 : ℝ) / 2} :=
-    isOpen_ne Complex.continuous_re continuous_const
-  filter_upwards [hopen.mem_nhds hoff] with z hz
-  exact model.readout_eq_offCritical hz
+  rcases lt_or_gt_of_ne hoff with hleft | hright
+  · have hopen :
+        {z : ℂ | z.re < (1 : ℝ) / 2} ∈ 𝓝 s :=
+      (isOpen_lt Complex.continuous_re continuous_const).mem_nhds hleft
+    filter_upwards [hopen] with z hz
+    exact model.readout_eq_offCritical (by linarith)
+  · have hopen :
+        {z : ℂ | (1 : ℝ) / 2 < z.re} ∈ 𝓝 s :=
+      (isOpen_lt continuous_const Complex.continuous_re).mem_nhds hright
+    filter_upwards [hopen] with z hz
+    exact model.readout_eq_offCritical (by linarith)
 
 /-- A finite spectral-measure representation discharges off-critical
 analyticity of the concrete C3 Cauchy candidate. -/
