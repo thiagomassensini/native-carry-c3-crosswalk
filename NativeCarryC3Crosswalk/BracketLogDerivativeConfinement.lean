@@ -84,7 +84,7 @@ theorem analyticOrderAt_genuineContinuation_ne_top
   have hxOrder : analyticOrderAt genuineContinuation x ≠ ⊤ := by
     rw [hxAnalytic.analyticOrderAt_eq_zero.mpr hxNe]
     simp
-  exact analyticOrderAt_ne_top_of_isPreconnected
+  exact AnalyticOnNhd.analyticOrderAt_ne_top_of_isPreconnected
     analyticOnNhd_genuineContinuation_genuineCriticalStrip
     isPreconnected_genuineCriticalStrip hx hs hxOrder
 
