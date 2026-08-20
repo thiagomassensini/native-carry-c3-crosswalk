@@ -22,10 +22,13 @@ strict transverse sign comes directly from the Cauchy operator:
 * to the right it is strictly positive;
 * hence it is nonzero at every off-critical point.
 
-The remaining identification is stated with this concrete function fixed.  It
-asks for off-axis analyticity and the arithmetic differential identity with
-the Genuine continuation.  Supplying those two facts constructs the previous
-bridge without choosing any further function.
+The canonical finite scalar spectral measure is constructed below, so
+off-axis analyticity is now unconditional for this readout.  A real-axis
+compatibility audit then proves that the raw positive-measure compression
+cannot satisfy the proposed Genuine differential identity: at `s = 3/4` its
+imaginary part is strictly positive, while the Genuine value and derivative
+are real and the value is nonzero.  Thus the next global construction must
+change the spectral state, rather than assume that false identification.
 -/
 
 open scoped Topology
@@ -189,12 +192,13 @@ theorem c3BracketCauchyLogDerivativeCandidate_ne_zero_of_re_ne_half
       c3BracketCauchyLogDerivativeCandidate_im_pos_of_half_lt_re hright
     linarith
 
-/-- Exact remaining identification for the concrete C3 Cauchy candidate.
+/-- Proposed identification for the concrete C3 Cauchy candidate.
 
 The function is no longer a field of the structure: it has been fixed above
-from the canonical C3 camera and the all-bases resolvent.  The two fields are
-the operator-analytic regularity and the arithmetic log-jet identity that must
-be established for that fixed readout. -/
+from the canonical C3 camera and the all-bases resolvent.  This interface is
+retained to state the exact implication of analyticity plus the arithmetic
+log-jet identity.  The real-axis audit below proves that the raw positive-
+measure readout does not inhabit this structure. -/
 structure C3CauchyBracketLogDerivativeIdentification : Prop where
   analyticAt_offCritical :
     ∀ {s : ℂ}, s ∈ genuineCriticalStrip →
@@ -361,8 +365,8 @@ theorem C3CauchyFiniteSpectralMeasureRepresentation.analyticAt_offCritical
   exact hresolvent.congr
     (model.eventuallyEq_offCritical hoff).symm
 
-/-- The remaining arithmetic statement after the Cauchy candidate and its
-spectral-measure regularity have been fixed. -/
+/-- The proposed raw arithmetic statement after the Cauchy candidate and its
+spectral-measure regularity have been fixed.  Its negation is proved below. -/
 def C3CauchyGenuineDifferentialIdentity : Prop :=
   ∀ {s : ℂ}, s ∈ genuineCriticalStrip →
     s.re ≠ (1 : ℝ) / 2 →
@@ -574,7 +578,6 @@ theorem c3CauchyComplexCoefficient_eq_neg_resolvent
     _ = -resolvent lambda (logarithmicCoordinate x) := by
       rw [resolvent, Ring.inverse_eq_inv', ← inv_neg, neg_sub]
       congr 1
-      apply Complex.ext <;> simp
 
 /-- The assembled C3 coefficient is integrable against the finite base
 measure at every nonreal spectral parameter. -/

@@ -1110,6 +1110,45 @@
     },
     {
       "qualified": "NativeCarryC3Crosswalk.genuineStrongNonvanishingInStrip_of_c3CauchySpectralMeasure_and_differentialIdentity"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.c3CauchyRealQuadratic_eq_integral"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.c3CauchyImaginaryQuadratic_eq_integral"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.c3CauchyRealQuadratic_eq_baseMeasure_integral"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.c3CauchyImaginaryQuadratic_eq_baseMeasure_integral"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.c3CauchyComplexCoefficient_eq_neg_resolvent"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.c3CauchyComplexCoefficient_integrable"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.c3CauchyScalarAt_eq_baseMeasure_integral"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.c3CauchyScalarAt_eq_neg_resolventTransform"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.c3BracketCauchyLogDerivativeCandidate_eq_neg_resolventTransform"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.genuineContinuation_conj_on_strip"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.genuineContinuation_ofReal_im_eq_zero"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.deriv_genuineContinuation_ofReal_im_eq_zero"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.not_c3CauchyGenuineDifferentialIdentity"
     }
   ]
 }
