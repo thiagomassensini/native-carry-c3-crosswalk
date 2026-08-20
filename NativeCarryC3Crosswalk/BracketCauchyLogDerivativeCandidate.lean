@@ -393,10 +393,8 @@ theorem genuineStrongNonvanishingInStrip_of_c3CauchySpectralMeasure_and_differen
 
 /-- Squared Kolmogorov mass carried by the canonical C3 Naimark vector. -/
 def c3CauchyKolmogorovMass : ℝ≥0 :=
-  ⟨inner ℝ
-      (kolmogorovVector c3CauchyCamera)
-      (kolmogorovVector c3CauchyCamera),
-    real_inner_self_nonneg⟩
+  ⟨‖kolmogorovVector c3CauchyCamera‖ ^ 2,
+    sq_nonneg ‖kolmogorovVector c3CauchyCamera‖⟩
 
 /-- Finite scalar measure before passage to logarithmic spectral
 coordinates. -/
@@ -451,9 +449,9 @@ theorem c3CauchyRealQuadratic_eq_integral
         (naimarkCameraVector c3CauchyCamera)] with x hvector hoperator
   rw [hvector, hoperator, hvector]
   by_cases hx : x ∈ cameraInterval c3CauchyCamera
-  · simp [Set.indicator_of_mem hx, c3CauchyKolmogorovMass,
-      real_inner_smul_right]
-  · simp [Set.indicator_of_not_mem hx]
+  · simp [hx, c3CauchyKolmogorovMass,
+      real_inner_smul_self_right, pow_two]
+  · simp [hx]
 
 /-- The imaginary C3 Cauchy quadratic form is the explicit interval integral
 of the imaginary scalar resolvent coefficient. -/
@@ -479,9 +477,9 @@ theorem c3CauchyImaginaryQuadratic_eq_integral
         (naimarkCameraVector c3CauchyCamera)] with x hvector hoperator
   rw [hvector, hoperator, hvector]
   by_cases hx : x ∈ cameraInterval c3CauchyCamera
-  · simp [Set.indicator_of_mem hx, c3CauchyKolmogorovMass,
-      real_inner_smul_right]
-  · simp [Set.indicator_of_not_mem hx]
+  · simp [hx, c3CauchyKolmogorovMass,
+      real_inner_smul_self_right, pow_two]
+  · simp [hx]
 
 end
 
