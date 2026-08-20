@@ -388,6 +388,101 @@ theorem genuineStrongNonvanishingInStrip_of_c3CauchySpectralMeasure_and_differen
     (C3CauchyBracketLogDerivativeIdentification.ofSpectralMeasure
       model hODE)
 
+
+/-! ## Canonical scalar spectral measure of the C3 camera -/
+
+/-- Squared Kolmogorov mass carried by the canonical C3 Naimark vector. -/
+def c3CauchyKolmogorovMass : ℝ≥0 :=
+  ⟨inner ℝ
+      (kolmogorovVector c3CauchyCamera)
+      (kolmogorovVector c3CauchyCamera),
+    real_inner_self_nonneg⟩
+
+/-- Finite scalar measure before passage to logarithmic spectral
+coordinates. -/
+def c3CauchyBaseMeasure : Measure ℝ :=
+  c3CauchyKolmogorovMass •
+    positiveLebesgueMeasure.restrict
+      (cameraInterval c3CauchyCamera)
+
+noncomputable instance c3CauchyBaseMeasure_isFinite :
+    IsFiniteMeasure c3CauchyBaseMeasure := by
+  unfold c3CauchyBaseMeasure
+  haveI :
+      IsFiniteMeasure
+        (positiveLebesgueMeasure.restrict
+          (cameraInterval c3CauchyCamera)) :=
+    (isFiniteMeasure_restrict).2
+      (positiveLebesgueMeasure_cameraInterval_ne_top
+        c3CauchyCamera)
+  infer_instance
+
+/-- Canonical C3 scalar spectral measure in the coordinate
+`y = 1 + log x`. -/
+def c3CauchySpectralMeasure : Measure ℝ :=
+  c3CauchyBaseMeasure.map logarithmicCoordinate
+
+noncomputable instance c3CauchySpectralMeasure_isFinite :
+    IsFiniteMeasure c3CauchySpectralMeasure := by
+  unfold c3CauchySpectralMeasure
+  infer_instance
+
+/-- The real C3 Cauchy quadratic form is the explicit interval integral of
+the real scalar resolvent coefficient. -/
+theorem c3CauchyRealQuadratic_eq_integral
+    (lambda : ℂ) (hlambda : lambda.im ≠ 0) :
+    inner ℝ c3CauchyCameraVector
+        (allBasesCauchyRealPart lambda hlambda
+          c3CauchyCameraVector) =
+      ∫ x,
+        (cameraInterval c3CauchyCamera).indicator
+          (fun y =>
+            logarithmicResolventRealCoefficient lambda y *
+              (c3CauchyKolmogorovMass : ℝ)) x
+        ∂positiveLebesgueMeasure := by
+  rw [inner_allBasesCauchyRealPart]
+  simp only [c3CauchyCameraVector,
+    naimarkIsometry_cameraVector]
+  rw [L2.inner_def]
+  apply integral_congr_ae
+  filter_upwards
+    [naimarkCameraVector_coeFn c3CauchyCamera,
+      logarithmicResolventRealOperator_coeFn lambda hlambda
+        (naimarkCameraVector c3CauchyCamera)] with x hvector hoperator
+  rw [hvector, hoperator, hvector]
+  by_cases hx : x ∈ cameraInterval c3CauchyCamera
+  · simp [Set.indicator_of_mem hx, c3CauchyKolmogorovMass,
+      real_inner_smul_right]
+  · simp [Set.indicator_of_not_mem hx]
+
+/-- The imaginary C3 Cauchy quadratic form is the explicit interval integral
+of the imaginary scalar resolvent coefficient. -/
+theorem c3CauchyImaginaryQuadratic_eq_integral
+    (lambda : ℂ) (hlambda : lambda.im ≠ 0) :
+    inner ℝ c3CauchyCameraVector
+        (allBasesCauchyImaginaryPart lambda hlambda
+          c3CauchyCameraVector) =
+      ∫ x,
+        (cameraInterval c3CauchyCamera).indicator
+          (fun y =>
+            logarithmicResolventImaginaryCoefficient lambda y *
+              (c3CauchyKolmogorovMass : ℝ)) x
+        ∂positiveLebesgueMeasure := by
+  rw [inner_allBasesCauchyImaginaryPart]
+  simp only [c3CauchyCameraVector,
+    naimarkIsometry_cameraVector]
+  rw [L2.inner_def]
+  apply integral_congr_ae
+  filter_upwards
+    [naimarkCameraVector_coeFn c3CauchyCamera,
+      logarithmicResolventImaginaryOperator_coeFn lambda hlambda
+        (naimarkCameraVector c3CauchyCamera)] with x hvector hoperator
+  rw [hvector, hoperator, hvector]
+  by_cases hx : x ∈ cameraInterval c3CauchyCamera
+  · simp [Set.indicator_of_mem hx, c3CauchyKolmogorovMass,
+      real_inner_smul_right]
+  · simp [Set.indicator_of_not_mem hx]
+
 end
 
 end NativeCarryC3Crosswalk
