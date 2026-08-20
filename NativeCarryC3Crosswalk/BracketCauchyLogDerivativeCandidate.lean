@@ -392,7 +392,7 @@ theorem genuineStrongNonvanishingInStrip_of_c3CauchySpectralMeasure_and_differen
 /-! ## Canonical scalar spectral measure of the C3 camera -/
 
 /-- Squared Kolmogorov mass carried by the canonical C3 Naimark vector. -/
-def c3CauchyKolmogorovMass : ℝ≥0 :=
+def c3CauchyKolmogorovMass : NNReal :=
   ‖kolmogorovVector c3CauchyCamera‖₊ ^ 2
 
 /-- Finite scalar measure before passage to logarithmic spectral
