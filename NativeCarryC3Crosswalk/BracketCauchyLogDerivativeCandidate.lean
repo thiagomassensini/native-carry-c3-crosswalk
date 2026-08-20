@@ -51,10 +51,13 @@ theorem c3CauchyCameraVector_ne_zero :
   have hsingle :
       (Finsupp.single c3CauchyCamera 1 : CameraFinsupp) = 0 := by
     apply cameraEmbedding.injective
-    simpa [c3CauchyCameraVector, cameraVector] using hzero
+    rw [map_zero]
+    change cameraEmbedding
+      (Finsupp.single c3CauchyCamera 1) = 0 at hzero
+    exact hzero
   have hcoordinate :=
     congrArg (fun u : CameraFinsupp => u c3CauchyCamera) hsingle
-  simpa using hcoordinate
+  simp at hcoordinate
 
 /-- Scalar Cauchy readout at a nonreal height parameter. -/
 def c3CauchyScalarAt (lambda : ℂ) (hlambda : lambda.im ≠ 0) : ℂ :=
