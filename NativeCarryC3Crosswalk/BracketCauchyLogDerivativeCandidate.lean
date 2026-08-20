@@ -393,8 +393,7 @@ theorem genuineStrongNonvanishingInStrip_of_c3CauchySpectralMeasure_and_differen
 
 /-- Squared Kolmogorov mass carried by the canonical C3 Naimark vector. -/
 def c3CauchyKolmogorovMass : ℝ≥0 :=
-  ⟨‖kolmogorovVector c3CauchyCamera‖ ^ 2,
-    sq_nonneg ‖kolmogorovVector c3CauchyCamera‖⟩
+  ‖kolmogorovVector c3CauchyCamera‖₊ ^ 2
 
 /-- Finite scalar measure before passage to logarithmic spectral
 coordinates. -/
