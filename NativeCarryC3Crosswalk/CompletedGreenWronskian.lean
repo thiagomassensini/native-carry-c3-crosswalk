@@ -206,13 +206,16 @@ theorem genuineZero_re_eq_half_of_completedGreenState
   linarith
 
 /-- Strip-wide confinement follows once the completed Green identity and the
-nonzero state are constructed uniformly in complex carry time. -/
+nonzero state are constructed at the off-critical points where a contradiction
+is needed.  No gamma state is requested on the real carry-time axis. -/
 theorem finalGenuineZeroConfinement_of_completedGreenState
     {H : Type*} [NormedAddCommGroup H] [InnerProductSpace ℂ H]
     (Psi : ℂ → ℂ) (f : ℂ → H)
     (hstate : ∀ {s : ℂ}, s ∈ genuineCriticalStrip →
+      s.re ≠ (1 : ℝ) / 2 →
       f (carryComplexTimeOfParameter s) ≠ 0)
     (hgreen : ∀ {s : ℂ}, s ∈ genuineCriticalStrip →
+      s.re ≠ (1 : ℝ) / 2 →
       scalarGreenWronskian genuineComplexTimeBoundaryValue Psi
           (carryComplexTimeOfParameter s) (carryComplexTimeOfParameter s) =
         (carryComplexTimeOfParameter s -
@@ -224,8 +227,10 @@ theorem finalGenuineZeroConfinement_of_completedGreenState
       genuineContinuation s = 0 →
         s.re = (1 : ℝ) / 2 := by
   intro s hs hzero
+  by_cases hoff : s.re = (1 : ℝ) / 2
+  · exact hoff
   exact genuineZero_re_eq_half_of_completedGreenState
-    Psi f hzero (hstate hs) (hgreen hs)
+    Psi f hzero (hstate hs hoff) (hgreen hs hoff)
 
 end
 
