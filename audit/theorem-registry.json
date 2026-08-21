@@ -1248,6 +1248,33 @@
     },
     {
       "qualified": "NativeCarryC3Crosswalk.finiteCanonicalCameraReadout_synthesis"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.naimarkAdjoint_comp_naimarkIsometry"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.realifiedNaimarkAdjoint_comp_realifiedNaimarkPort"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.canonicalCameraStateReadout_apply"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.canonicalCameraStateReadout_fst"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.canonicalCameraStateReadout_snd"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.inner_canonicalCameraStateReadout_fst"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.inner_canonicalCameraStateReadout_snd"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.canonicalCameraStateReadout_of_coherent"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.canonicalCameraStateReadout_coherent_apply"
     }
   ]
 }
