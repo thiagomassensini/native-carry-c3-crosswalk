@@ -439,3 +439,4 @@ Every public theorem introduced by this package is inspected with
 #print axioms NativeCarryC3Crosswalk.carryGammaSource_cross_green_identity
 #print axioms NativeCarryC3Crosswalk.carryGammaSource_cauchy_skew_energy
 #print axioms NativeCarryC3Crosswalk.carryGammaSource_diagonal_green_identity
+#print axioms NativeCarryC3Crosswalk.finalGenuineZeroConfinement_of_finiteC3CompletedGreenWronskianSeam
