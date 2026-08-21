@@ -1236,6 +1236,18 @@
     },
     {
       "qualified": "NativeCarryC3Crosswalk.finalGenuineZeroConfinement_of_finiteC3GradientGreenWronskian"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.finiteCanonicalCameraReadout_transpose"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.finiteCanonicalCameraReadout_mul_transpose"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.finiteCanonicalCameraSynthesis_transpose_mul"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.finiteCanonicalCameraReadout_synthesis"
     }
   ]
 }
