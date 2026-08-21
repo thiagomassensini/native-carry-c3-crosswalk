@@ -4,18 +4,19 @@ import NativeCarryC3Crosswalk.CanonicalStateTraceClosure
 import NativeCarryC3Crosswalk.BracketGlobalRelationalLaw
 
 /-!
-# Unconditional global Genuine-zero confinement probe
+# Kernel diagnostic for global Genuine-zero confinement
 
-This module asks the Lean kernel for the final theorem with no new structure,
-activation predicate, positivity hypothesis, zero list, or confinement field.
-The companion channel is the intrinsic complex-time logarithmic jet
-`-F'`, exactly as in the completed Green--Wronskian proposal.
+The parent commit asked the Lean kernel for the final theorem with no new
+structure, activation predicate, positivity hypothesis, zero list, or
+confinement field.  GitHub CI run `32449877433` compiled the complete public
+theorem graph and stopped at one equation: the completed scalar Wronskian must
+be the linear carry-time factor times the raw C3 gradient Gram.
 
-The proof intentionally goes through the already established finite C3 state:
-its nondegeneracy is a theorem.  After rewriting its Hilbert norm as the raw
-C3 gamma Gram, the remaining obligation is the literal completed
-Green--Wronskian identity.  The CI diagnostic for this declaration therefore
-isolates the exact equation that the current public theorem graph must close.
+This module records that literal equation as an interface and proves that it
+is sufficient.  It does not claim the interface unconditionally.  In
+particular, the finite C3 state's nondegeneracy is already a theorem; the
+remaining analytic construction is the completed Green--Wronskian identity,
+not self-adjointness or cutoff control.
 -/
 
 open scoped ComplexConjugate
@@ -38,16 +39,32 @@ def FinalGenuineZeroConfinement : Prop :=
     genuineContinuation s = 0 →
       s.re = (1 : ℝ) / 2
 
-/-- Direct CI probe for the final theorem.  All currently proved algebraic,
-cutoff, trace, structural-defect, and finite-state facts are in scope. -/
-theorem finalGenuineZeroConfinement : FinalGenuineZeroConfinement := by
+/-- The exact residual equation reported by the unconditional CI probe after
+all algebraic, cutoff, trace, structural-defect, and finite-state rewrites.
+This is an interface declaration, not a proved theorem. -/
+def FiniteC3CompletedGreenWronskianSeam (M : ℕ) : Prop :=
+  ∀ {s : ℂ}, s ∈ genuineCriticalStrip →
+    s.re ≠ (1 : ℝ) / 2 →
+      scalarGreenWronskian
+          genuineComplexTimeBoundaryValue genuineComplexTimeLogJet
+          (carryComplexTimeOfParameter s) (carryComplexTimeOfParameter s) =
+        (carryComplexTimeOfParameter s -
+            (starRingEnd ℂ) (carryComplexTimeOfParameter s)) *
+          c3RawGammaGram M s s
+
+/-- The CI-isolated seam, together with the already proved nondegeneracy of
+the finite C3 gradient state, is sufficient for unconditional confinement. -/
+theorem finalGenuineZeroConfinement_of_finiteC3CompletedGreenWronskianSeam
+    (M : ℕ) (hM : 0 < M)
+    (hseam : FiniteC3CompletedGreenWronskianSeam M) :
+    FinalGenuineZeroConfinement := by
   unfold FinalGenuineZeroConfinement
   apply finalGenuineZeroConfinement_of_finiteC3GradientGreenWronskian
-    1 (by norm_num) genuineComplexTimeLogJet
+    M hM genuineComplexTimeLogJet
   intro s hs hoff
   rw [inner_finiteC3CarryTimeGradientState]
   simp only [carryComplexTimeParameter_ofParameter]
-  aesop
+  exact hseam hs hoff
 
 end
 
