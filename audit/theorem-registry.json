@@ -1167,6 +1167,33 @@
     },
     {
       "qualified": "NativeCarryC3Crosswalk.c3ScalarSynthesis_not_universally_greenDiagonal"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.scalarGreenWronskian_mul"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.scalarGreenWronskian_sum"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.completedGreenState_inner"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.scalarGreenWronskian_directSum"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.completedGreenState_ne_zero_of_left"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.completedGreenState_ne_zero_of_right"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.eq_star_of_scalarGreenWronskian_diagonal"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.genuineZero_re_eq_half_of_completedGreenState"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.finalGenuineZeroConfinement_of_completedGreenState"
     }
   ]
 }
