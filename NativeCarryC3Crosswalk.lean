@@ -30,3 +30,4 @@ import NativeCarryC3Crosswalk.BracketCauchyLogDerivativeCandidate
 import NativeCarryC3Crosswalk.C3TwoVariableGreenGamma
 import NativeCarryC3Crosswalk.ExactCutoffCameraGram
 import NativeCarryC3Crosswalk.CompletedGreenWronskian
+import NativeCarryC3Crosswalk.FiniteC3CompletedGreenGate
