@@ -111,8 +111,8 @@ theorem carryGammaSource_cauchy_skew_energy
       -lambda.im *
         (‖(carryGammaSource lambda hlambda u).fst‖ ^ 2 +
           ‖(carryGammaSource lambda hlambda u).snd‖ ^ 2) := by
-    rw [real_inner_comm u.snd
-      (naimarkAdjoint (carryGammaSource lambda hlambda u).fst)]
+    rw [real_inner_comm
+      (naimarkAdjoint (carryGammaSource lambda hlambda u).fst) u.snd]
     calc
       inner ℝ u.fst
             (naimarkAdjoint (carryGammaSource lambda hlambda u).snd) -
