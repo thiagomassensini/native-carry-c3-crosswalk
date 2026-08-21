@@ -79,7 +79,11 @@ theorem inner_finiteC3CarryTimeGradientState
     finiteC3GenuineBracketGreenBoundaryPair_snd_apply,
     RCLike.inner_apply']
   rw [Finset.sum_fin_eq_sum_range]
-  rfl
+  unfold c3RawGammaGram
+  apply Finset.sum_congr rfl
+  intro n hn
+  have hlt : n < M := Finset.mem_range.mp hn
+  simp only [hlt, dite_true]
 
 /-- With the canonical finite C3 gradient state, nondegeneracy is already a
 theorem.  Therefore a completed diagonal Green--Wronskian identity is the
