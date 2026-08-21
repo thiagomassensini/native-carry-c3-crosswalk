@@ -124,7 +124,7 @@ theorem completedGreenState_ne_zero_of_left
     completedGreenState A G a g z ≠ 0 := by
   intro hzero
   have hpair : (G z • a z, A z • g z) = 0 := by
-    exact WithLp.toLp_eq_zero.mp hzero
+    exact (WithLp.toLp_eq_zero 2).mp hzero
   have hleft : G z • a z = 0 :=
     congrArg Prod.fst hpair
   rcases smul_eq_zero.mp hleft with hscalar | hstate
@@ -141,7 +141,7 @@ theorem completedGreenState_ne_zero_of_right
     completedGreenState A G a g z ≠ 0 := by
   intro hzero
   have hpair : (G z • a z, A z • g z) = 0 := by
-    exact WithLp.toLp_eq_zero.mp hzero
+    exact (WithLp.toLp_eq_zero 2).mp hzero
   have hright : A z • g z = 0 :=
     congrArg Prod.snd hpair
   rcases smul_eq_zero.mp hright with hscalar | hstate
@@ -210,17 +210,22 @@ nonzero state are constructed uniformly in complex carry time. -/
 theorem finalGenuineZeroConfinement_of_completedGreenState
     {H : Type*} [NormedAddCommGroup H] [InnerProductSpace ℂ H]
     (Psi : ℂ → ℂ) (f : ℂ → H)
-    (hstate : ∀ z, f z ≠ 0)
-    (hgreen : ∀ z,
-      scalarGreenWronskian genuineComplexTimeBoundaryValue Psi z z =
-        (z - (starRingEnd ℂ) z) * inner ℂ (f z) (f z)) :
+    (hstate : ∀ {s : ℂ}, s ∈ genuineCriticalStrip →
+      f (carryComplexTimeOfParameter s) ≠ 0)
+    (hgreen : ∀ {s : ℂ}, s ∈ genuineCriticalStrip →
+      scalarGreenWronskian genuineComplexTimeBoundaryValue Psi
+          (carryComplexTimeOfParameter s) (carryComplexTimeOfParameter s) =
+        (carryComplexTimeOfParameter s -
+            (starRingEnd ℂ) (carryComplexTimeOfParameter s)) *
+          inner ℂ
+            (f (carryComplexTimeOfParameter s))
+            (f (carryComplexTimeOfParameter s))) :
     ∀ {s : ℂ}, s ∈ genuineCriticalStrip →
       genuineContinuation s = 0 →
         s.re = (1 : ℝ) / 2 := by
-  intro s _hs hzero
+  intro s hs hzero
   exact genuineZero_re_eq_half_of_completedGreenState
-    Psi f hzero (hstate (carryComplexTimeOfParameter s))
-      (hgreen (carryComplexTimeOfParameter s))
+    Psi f hzero (hstate hs) (hgreen hs)
 
 end
 
