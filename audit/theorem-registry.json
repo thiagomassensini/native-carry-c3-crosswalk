@@ -1275,6 +1275,15 @@
     },
     {
       "qualified": "NativeCarryC3Crosswalk.canonicalCameraStateReadout_coherent_apply"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.carryGammaSource_cross_green_identity"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.carryGammaSource_cauchy_skew_energy"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.carryGammaSource_diagonal_green_identity"
     }
   ]
 }
