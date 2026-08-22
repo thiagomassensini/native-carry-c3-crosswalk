@@ -1505,6 +1505,29 @@ from a universal linear carrier alone.
 See the
 [arithmetic linear-kernel audit](docs/ARITHMETIC_LINEAR_KERNEL_AUDIT.md).
 
+## Completed TFVD ledger and faithful C3--Naimark lift
+
+The canonical same-edge completed residual is now audited exactly. Lean proves
+that it is always a real scalar multiple of one fixed tower generator, so
+every linear realization of the residual-only family has rank at most one.
+The lossless source therefore retains the ordinary TFVD state, logarithmic
+jet, and precompression residual as separate ledger entries.
+
+Independently, one complete C3 block, with three arithmetic cells on each
+Green leg, is packed faithfully into six all-bases camera labels. The port has
+six complex coordinate slots (twelve real slots after realification); this is
+the dimension of the ambient carrier, not a claim that the canonical parameter
+curve fills it. The bounded packing and its Naimark promotion are injective,
+canonical adjoint compression recovers the packed state exactly, and the
+coordinatewise Naimark isometry preserves the realified Green skew form.
+
+This constructs the faithful carrier and proves the residual-only rank
+obstruction. It does not identify the completed residual scalar with the C3
+Green form or manufacture an inverse from the collapsed residual.
+
+See the
+[completed TFVD--Naimark feasibility audit](docs/COMPLETED_TFVD_NAIMARK_FEASIBILITY.md).
+
 ## Pinned foundations
 
 | Package | Revision |
