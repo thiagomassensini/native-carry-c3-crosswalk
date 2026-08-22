@@ -34,7 +34,7 @@ provenance channels gives the reflected C3 Green form:
 ```math
 \mathcal B_{\mathrm{ledger}}(s)-\mathcal P_{\mathrm{C3}}(s)
 =
-\operatorname{Green}
+\mathrm{Green}
 \left(B_3(s),B_3(s^\#)\right).
 ```
 
@@ -74,12 +74,12 @@ seededCompletedTfvdCarryGammaState_diagonal_green_identity
 The last theorem is the exact operatorial identity
 
 ```math
-2\,\operatorname{Im}(\lambda)
+2\,\mathrm{Im}(\lambda)
 \left(\lVert\gamma_1\rVert^2+\lVert\gamma_2\rVert^2\right)
 =
-\operatorname{Green}_{21}-\operatorname{Green}_{12},
+\mathrm{Green}_{21}-\mathrm{Green}_{12},
 \qquad
-\lambda=\operatorname{carryTime}(s),
+\lambda=\mathrm{carryTime}(s),
 ```
 
 with strictly positive gamma energy off the half-abscissa.
