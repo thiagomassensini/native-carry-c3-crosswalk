@@ -127,14 +127,14 @@ theorem completedTfvdGreenLedgerC3Port_seeded
     funext n
     simp [completedTfvdGreenLedgerC3Port,
       seededCompletedTfvdGreenLedger,
-      c2DirichletGradientPrefixCore_apply, n.isLt,
+      c2DirichletGradientPrefixCore_apply,
       phaseNormalizedCpBlockGradient,
       cpBlockGradient_eq_eigenvalue_mul, mul_assoc]
   · apply WithLp.ofLp_injective 2
     funext n
     simp [completedTfvdGreenLedgerC3Port,
       seededCompletedTfvdGreenLedger,
-      c2DirichletGradientPrefixCore_apply, n.isLt]
+      c2DirichletGradientPrefixCore_apply]
 
 /-- Camera-completion state obtained from the complete C3 port reconstructed
 from the seeded completed TFVD ledger. -/
@@ -163,7 +163,10 @@ theorem seededCompletedTfvdGreenCameraState_ne_zero
       completedTfvdGreenLedgerC3Port s
           (seededCompletedTfvdGreenLedger 1 s) = 0 := by
     apply c3SixCameraPacking_injective
-    simpa [seededCompletedTfvdGreenCameraState] using hzero
+    change c3SixCameraPacking
+        (completedTfvdGreenLedgerC3Port s
+          (seededCompletedTfvdGreenLedger 1 s)) = 0 at hzero
+    simpa only [map_zero] using hzero
   rw [completedTfvdGreenLedgerC3Port_seeded] at hport
   exact finiteC3GenuineFullGreenEndpoint_ne_zero
     3 (by norm_num) hs hport
@@ -175,7 +178,7 @@ theorem carryComplexTimeOfParameter_im_ne_zero_of_re_ne_half
   rw [carryComplexTimeOfParameter_im]
   intro hzero
   apply hoff
-  unfold criticalDisplacement at hzero ⊢
+  unfold criticalDisplacement at hzero
   linarith
 
 /-- Defect vector obtained by feeding the complete ledger-derived camera state
