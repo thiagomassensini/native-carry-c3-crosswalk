@@ -1277,6 +1277,54 @@
       "qualified": "NativeCarryC3Crosswalk.canonicalCameraStateReadout_coherent_apply"
     },
     {
+      "qualified": "NativeCarryC3Crosswalk.seededCompletedTfvdGreenLedger_ordinary"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.seededCompletedTfvdGreenLedger_logJet"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.seededCompletedTfvdGreenLedger_residual"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.seededCompletedTfvdGreenLedger_residual_eq_smul"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.map_seededCompletedTfvdGreenLedger_residual_eq_smul"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.c3RealCameraFinsupp_first"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.c3RealCameraFinsupp_second"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.c3ImagCameraFinsupp_first"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.c3ImagCameraFinsupp_second"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.c3CameraFinsuppPairLinearMap_injective"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.c3SixCameraPacking_apply"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.c3SixCameraPacking_injective"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.c3SixCameraNaimarkRealization_injective"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.canonicalCameraStateReadout_c3SixCameraNaimarkRealization"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.realifiedGreenSkew_realifiedNaimarkPort"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.realifiedGreenSkew_c3SixCameraNaimarkRealization"
+    },
+    {
       "qualified": "NativeCarryC3Crosswalk.carryGammaSource_cross_green_identity"
     },
     {
