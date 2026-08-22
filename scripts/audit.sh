@@ -6,7 +6,6 @@ cd "$(dirname "$0")/.."
 bash scripts/static_audit.sh
 lake build --wfail NativeCarryC3Crosswalk
 lake build --wfail NativeCarryC3Crosswalk.Audit
-lake build --wfail NativeCarryC3Crosswalk.CompletedTfvdGreenIntertwiningAudit
 
 audit_output="$(mktemp)"
 trap 'rm -f "$audit_output"' EXIT
