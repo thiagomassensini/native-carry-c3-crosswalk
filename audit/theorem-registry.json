@@ -1167,6 +1167,174 @@
     },
     {
       "qualified": "NativeCarryC3Crosswalk.c3ScalarSynthesis_not_universally_greenDiagonal"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.scalarGreenWronskian_mul"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.scalarGreenWronskian_sum"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.completedGreenState_inner"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.scalarGreenWronskian_directSum"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.completedGreenState_ne_zero_of_left"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.completedGreenState_ne_zero_of_right"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.eq_star_of_scalarGreenWronskian_diagonal"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.genuineZero_re_eq_half_of_completedGreenState"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.finalGenuineZeroConfinement_of_completedGreenState"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.literalFiniteCameraGram_eq_linear_add_residue"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.literalFiniteCameraGram_eq_periodicGram_add_residue"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.normalizedLiteralFiniteCameraGram_eq_periodicGram_add_residue_div"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.norm_finiteBoundarySum_one_le"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.tendsto_inv_mul_finiteBoundarySum_one_zero"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.tendsto_inv_mul_exactCutoffCameraGramResidue_zero"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.tendsto_normalizedLiteralFiniteCameraGram_apply"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.tendsto_normalizedLiteralFiniteCameraGram"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.tendsto_normalizedLiteralSixCameraGram"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.finiteC3CarryTimeGradientState_apply"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.finiteC3GenuineGradientState_ne_zero"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.finiteC3CarryTimeGradientState_ne_zero"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.inner_finiteC3CarryTimeGradientState"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.finalGenuineZeroConfinement_of_finiteC3GradientGreenWronskian"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.finiteCanonicalCameraReadout_transpose"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.finiteCanonicalCameraReadout_mul_transpose"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.finiteCanonicalCameraSynthesis_transpose_mul"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.finiteCanonicalCameraReadout_synthesis"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.naimarkAdjoint_comp_naimarkIsometry"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.realifiedNaimarkAdjoint_comp_realifiedNaimarkPort"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.canonicalCameraStateReadout_apply"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.canonicalCameraStateReadout_fst"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.canonicalCameraStateReadout_snd"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.inner_canonicalCameraStateReadout_fst"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.inner_canonicalCameraStateReadout_snd"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.canonicalCameraStateReadout_of_coherent"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.canonicalCameraStateReadout_coherent_apply"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.seededCompletedTfvdGreenLedger_ordinary"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.seededCompletedTfvdGreenLedger_logJet"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.seededCompletedTfvdGreenLedger_residual"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.seededCompletedTfvdGreenLedger_residual_eq_smul"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.map_seededCompletedTfvdGreenLedger_residual_eq_smul"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.c3RealCameraFinsupp_first"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.c3RealCameraFinsupp_second"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.c3ImagCameraFinsupp_first"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.c3ImagCameraFinsupp_second"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.c3CameraFinsuppPairLinearMap_injective"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.c3SixCameraPacking_apply"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.c3SixCameraPacking_injective"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.c3SixCameraNaimarkRealization_injective"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.canonicalCameraStateReadout_c3SixCameraNaimarkRealization"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.realifiedGreenSkew_realifiedNaimarkPort"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.realifiedGreenSkew_c3SixCameraNaimarkRealization"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.carryGammaSource_cross_green_identity"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.carryGammaSource_cauchy_skew_energy"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.carryGammaSource_diagonal_green_identity"
+    },
+    {
+      "qualified": "NativeCarryC3Crosswalk.finalGenuineZeroConfinement_of_finiteC3CompletedGreenWronskianSeam"
     }
   ]
 }

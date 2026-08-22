@@ -11,6 +11,10 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 ALLOWED = {"propext", "Classical.choice", "Quot.sound"}
+REGISTRY_PATHS = [
+    ROOT / "audit/theorem-registry.json",
+    ROOT / "audit/completed-tfvd-green-intertwining-theorem-registry.json",
+]
 
 
 def fail(message: str) -> None:
@@ -21,8 +25,10 @@ if len(sys.argv) != 2:
     fail("usage: check_axiom_output.py AXIOM_OUTPUT")
 
 output = Path(sys.argv[1]).read_text()
-registry = json.loads((ROOT / "audit/theorem-registry.json").read_text())
-expected = [entry["qualified"] for entry in registry["theorems"]]
+expected: list[str] = []
+for registry_path in REGISTRY_PATHS:
+    registry = json.loads(registry_path.read_text())
+    expected.extend(entry["qualified"] for entry in registry["theorems"])
 
 pattern = re.compile(
     r"'([^']+)' (does not depend on any axioms|depends on axioms: \[(.*?)\])",
@@ -31,7 +37,7 @@ pattern = re.compile(
 matches = list(pattern.finditer(output))
 names = [match.group(1) for match in matches]
 if names != expected:
-    fail("output declarations differ from the ordered theorem registry")
+    fail("output declarations differ from the ordered theorem registries")
 
 for match in matches:
     raw = match.group(3)
