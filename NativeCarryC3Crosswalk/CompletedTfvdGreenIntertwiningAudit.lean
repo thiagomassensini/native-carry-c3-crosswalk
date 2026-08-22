@@ -1,0 +1,19 @@
+import NativeCarryC3Crosswalk.CompletedTfvdGreenIntertwining
+
+/-!
+# Axiom audit for the completed TFVD--Green intertwining
+
+This companion audit keeps the new theorem surface explicit while the stacked
+pull request remains isolated from the parent branch's central audit file.
+-/
+
+#print axioms NativeCarryC3Crosswalk.completedTfvdGreenLedgerSameSBoundaryCells_seeded
+#print axioms NativeCarryC3Crosswalk.completedTfvdGreenLedgerSameSBoundary_seeded
+#print axioms NativeCarryC3Crosswalk.completedTfvdGreenLedgerSameSBoundary_sub_provenance_eq_greenForm
+#print axioms NativeCarryC3Crosswalk.completedTfvdGreenLedgerC3Port_seeded
+#print axioms NativeCarryC3Crosswalk.seededCompletedTfvdGreenCameraState_eq_canonical
+#print axioms NativeCarryC3Crosswalk.seededCompletedTfvdGreenCameraState_ne_zero
+#print axioms NativeCarryC3Crosswalk.carryComplexTimeOfParameter_im_ne_zero_of_re_ne_half
+#print axioms NativeCarryC3Crosswalk.seededCompletedTfvdCarryGammaState_ne_zero
+#print axioms NativeCarryC3Crosswalk.seededCompletedTfvdCarryGammaEnergy_pos
+#print axioms NativeCarryC3Crosswalk.seededCompletedTfvdCarryGammaState_diagonal_green_identity
